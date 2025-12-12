@@ -2,59 +2,6 @@
 
 A clean, minimal evaluation harness for testing LLM-based agents on the ClarifyBench benchmark. Evaluate different models or reasoning approaches on tool-calling tasks that require disambiguation and clarification.
 
-## Key Features
-
-- **Baseline ReAct Agent**: Simple, extensible agent implementation for tool calling
-- **Multi-Model Support**: Works with OpenAI, vLLM, Ollama, or any OpenAI-compatible API
-- **Domain Plugins**: Pre-configured tool domains (GFS, travel, trading, vehicles, documents, etc.)
-- **Comprehensive Evaluation**: Automatic metrics calculation for correctness, coverage, and execution
-- **ClarifyBench Dataset**: 719 test instances across multiple difficulty levels
-
-## Project Structure
-
-```
-agentic_disamb-clean/
-│
-├── core/
-│   ├── baseline_agent.py        # Baseline ReAct agent (customize this!)
-│   ├── types.py                 # Shared data types (ToolCall, etc.)
-│   ├── tool_registry.py         # Tool registration and management
-│   ├── tool_executor.py         # Execute and validate tool calls
-│   └── plugin_manager.py        # Domain plugin system
-│
-├── plugins/
-│   ├── gfs_plugin.py            # Google File System tools
-│   ├── travel_plugin.py         # Travel booking tools
-│   ├── trading_plugin.py        # Stock trading tools
-│   ├── vehicle_plugin.py        # Vehicle service tools
-│   ├── document_plugin.py       # Document processing tools
-│   └── twitter_plugin.py        # Social media tools
-│
-├── llm/
-│   ├── provider.py              # Abstract LLM interface
-│   ├── openai_compatible_provider.py  # Unified provider for OpenAI/vLLM/Ollama
-│   └── simulation.py            # User simulator
-│
-├── simulation/
-│   ├── mock_api.py              # Mock tool execution
-│   ├── evaluation.py            # Metrics calculation
-│   └── data_loader.py           # Dataset loading
-│
-├── utils/
-│   ├── logger.py                # Logging
-│   └── json_utils.py            # JSON utilities
-│
-├── ClarifyBench/                # Benchmark dataset
-│   ├── ClarifyBench_A/          # Easy instances
-│   ├── ClarifyBench_E/          # Medium instances
-│   ├── ClarifyBench_I/          # Hard instances
-│   └── ClarifyBench_I_50/       # Very hard instances
-│
-├── main.py                      # Run agent on dataset
-├── evaluate.py                  # Calculate metrics
-└── config.py                    # Configuration
-```
-
 ## Quick Start
 
 ### Installation
