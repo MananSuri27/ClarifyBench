@@ -1,0 +1,51 @@
+{
+  "user_query": "I've finished the maintenance on my car and made sure the doors are unlocked. Everything, especially the tires, looks good. Could you please help secure the remaining doors and get the engine ready in RUN mode? I want everything primed before I set off.",
+  "potential_follow_ups": [
+    "Also, let's not forget to boast a little online. Could you post an update regarding my impeccable tire condition on Twitter like 'Tire pressure is perfect!'? Don't forget to use the hashtags #CarCare and #TireHealth and be sure to give my friend Mike a mention as well. I think his user handle is 'mike53'."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "lockDoors",
+      "parameters": {
+        "unlock": "False",
+        "door": "['driver"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User wants to secure the car doors, start the engine in START mode, and post a tweet about the tire condition with specific hashtags and a mention of a friend.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

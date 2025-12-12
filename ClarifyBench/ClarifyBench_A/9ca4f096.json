@@ -1,0 +1,59 @@
+{
+  "user_query": "I'm in the process of scheduling a journey from San Francisco to Chicago on the 15th of the year 2024's eleventh month. It's important the travel is in first class. I'll be settling the fare with my credit card with id 144756014165 and access token 'secureAccessToken12345', and would like my personal details integrated into the reservation. I've secured my confidential access token for authentication, which will be used during this booking.",
+  "potential_follow_ups": [
+    "After reconsideration, I want to cancel one of the flights some time later"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "SFO",
+        "travel_to": "ORD",
+        "travel_date": "2024-11-15",
+        "travel_class": "first"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "secureAccessToken12345",
+        "card_id": "144756014165",
+        "travel_date": "2024-11-15",
+        "travel_from": "SFO",
+        "travel_to": "ORD",
+        "travel_cost": "4000.0",
+        "travel_class": "first"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "secureAccessToken12345",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "1. User requests \"I'm in the process of scheduling a journey from San Francisco to Chicago on the 15th of the year 2024's eleventh month. It's important the travel is in first class. I'll be settling the fare with my credit card with id 144756014165 and access token 'secureAccessToken12345', and would like my personal details integrated into the reservation. I've secured my confidential access token for authentication, which will be used during this booking.\"\n\n2. User requests \"After reconsideration, I want to cancel one of the flights some time later.\"\n\n3. If asked, user clarifies that \"Oh the flight planned for London on the 15th is no longer necessary. I require the cancellation of this booking immediately.\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "144756014165": {
+          "card_number": "9356074812347623",
+          "cardholder_name": "Michael Thompson",
+          "expiry_date": "12/25",
+          "cvv": 123,
+          "balance": 10000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "secureAccessToken12345",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "booking",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 10000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

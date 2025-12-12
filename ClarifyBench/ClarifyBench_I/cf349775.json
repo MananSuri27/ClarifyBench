@@ -1,0 +1,68 @@
+{
+  "user_query": "I'm getting ready to drive from Rivermist to Stonebrook and need to start my car. Could you help me with the ignition mode to start the engine?",
+  "potential_follow_ups": [
+    "As I set off on my drive, I need you to verify that all the doors on my car are securely locked, please.",
+    "After confirming the security of the vehicle, could you initiate the engine so I can check the fuel level?",
+    "Also, at your earliest convenience, can you show me all the messages I have send so far?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "83214",
+        "cityB": "74532"
+      }
+    },
+    {
+      "tool_name": "lockDoors",
+      "parameters": {
+        "unlock": "False",
+        "door": "['driver"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User wants to use the VehicleControlAPI to: 1) Calculate the distance from Rivermist to Stonebrook and send this information to their cousin Bob via text in a specified format. 2) Ensure all car doors are locked before starting their journey. 3) Start the car engine to check the fuel level. 4) Review all messages they have sent so far.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "Stonebrook",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

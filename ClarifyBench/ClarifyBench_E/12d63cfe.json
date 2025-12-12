@@ -1,0 +1,41 @@
+{
+  "user_query": "I've lately stored some work that parallels another document on my system. Might you review both files in this directory and articulate the distinctions",
+  "potential_follow_ups": [
+    "I've lately stored some work that parallels another document on my system. Might you review both files in this directory and articulate the distinctions"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "report.txt",
+        "file_name2": "summary.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests \"I've lately stored some work that parallels another document on my system. Might you review both files in this directory and articulate the distinctions.\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "documents": {
+              "type": "directory",
+              "contents": {
+                "report.txt": {
+                  "type": "file",
+                  "content": "Zebra Apple Orange"
+                },
+                "summary.txt": {
+                  "type": "file",
+                  "content": "Banana Grape Lemon"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

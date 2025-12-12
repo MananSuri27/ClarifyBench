@@ -1,0 +1,55 @@
+{
+  "user_query": "I recently moved to Rivermist and need to book a flight to Los Angeles for an important business meeting. Could you please arrange the flight for me using my credit card with ID 'card_6789'? I need it booked for next Friday, November 10, 2024, in business class, and the cost should be around $11,200. Once the flight is confirmed, please make sure to get the invoice for this transaction, as I need it for reimbursement.",
+  "potential_follow_ups": [
+    "After securing my flight reservation, I've realized I have some clarifications needed about my travel itinerary. Would you be able to send an inquiry to customer support on my behalf? Please use my latest booking details and incorporate the concerns I have regarding my luggage restrictions within your message."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "card_id": "card_6789",
+        "travel_date": "2024-11-10",
+        "travel_from": "RMS",
+        "travel_to": "LAX",
+        "travel_class": "business",
+        "travel_cost": "1200.0"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "booking_id": "3426812"
+      }
+    },
+    {
+      "tool_name": "contact_customer_support",
+      "parameters": {
+        "booking_id": "3426812",
+        "message": "Inquiry regarding luggage restrictions for my flight"
+      }
+    }
+  ],
+  "user_intention": "User wants to book a business class flight from Rivermist to Los Angeles for a business meeting on November 10, 2024, using their credit card and access token, with an estimated cost of $1200. After booking, they want to receive an invoice for reimbursement purposes. Additionally, they want to send an inquiry to customer support regarding their travel itinerary, specifically addressing concerns about luggage restrictions, using their latest booking details.",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_6789": {
+          "card_number": "5479 8692 4312 6789",
+          "cardholder_name": "Michael Thompson",
+          "expiry_date": "12/25",
+          "cvv": 123,
+          "balance": 15000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "2278-9812-3456-4567",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "booking",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 5000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

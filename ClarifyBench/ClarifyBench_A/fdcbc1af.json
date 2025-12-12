@@ -1,0 +1,52 @@
+{
+  "user_query": "Within the temp directory, could you list all the current files directly in the terminal including all the hidden files, ensuring we maintain the present directory structure intact and refrain from generating any additional directories or files?",
+  "potential_follow_ups": [
+    "For a different file, could you determine the total number of lines it holds?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "file3.txt"
+      }
+    },
+    {
+      "tool_name": "tail",
+      "parameters": {
+        "file_name": "file3.txt"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "file3.txt",
+        "mode": "l"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Within the temp directory, could you list all the current files directly in the terminal including all the hidden files, ensuring we maintain the present directory structure intact and refrain from generating any additional directories or files?'. \n\nIf asked, user clarifies that this is 'Select the third file displayed in that directory and meticulously reorder its contents alphabetically. Proceed to display only the last 10 lines once you've done this.'. \n\nThereafter, user requests 'For a different file, could you determine the total number of lines it holds?'. \n\nIf asked, user clarifies that this is 'Sorry it should be that same third file'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "temp": {
+          "type": "directory",
+          "contents": {
+            "file1.txt": {
+              "type": "file",
+              "content": "Line 1\nLine 2\nLine 3\nLine 4\nLine 5\nLine 6\nLine 7\nLine 8\nLine 9\nLine 10\nLine 11\nLine 12\nLine 13\nLine 14\nLine 15\nLine 16\nLine 17\nLine 18\nLine 19\nLine 20"
+            },
+            "file2.txt": {
+              "type": "file",
+              "content": "Alpha\nBeta\nGamma\nDelta\nEpsilon\nZeta\nEta\nTheta\nIota\nKappa\nLambda\nMu\nNu\nXi\nOmicron\nPi\nRho\nSigma\nTau\nUpsilon"
+            },
+            "file3.txt": {
+              "type": "file",
+              "content": "Zebra\nApple\nOrange\nBanana\nGrape\nCherry\nMango\nPeach\nLemon\nLime\nKiwi\nPlum\nPear\nFig\nDate\nCoconut\nPineapple\nPapaya\nGuava\nLychee"
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

@@ -1,0 +1,52 @@
+{
+  "user_query": "Could you copy the file 'missing_file_1.txt' to 'ultimate_draft.docx'? I think it might contain the draft I'm looking for.",
+  "potential_follow_ups": [
+    "Make a copy of summary_draft.docx, name it ultimate_draft.docx and put it in ResearchDocs directory"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "find",
+      "parameters": {
+        "path": "ResearchDocs",
+        "name": "draft"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "summary_draft.docx",
+        "destination": "ultimate_draft.docx"
+      }
+    }
+  ],
+  "user_intention": "User wants to search the 'ResearchDocs' directory for files or subdirectories containing the keyword 'draft', then copy the file 'summary_draft.docx', rename it to 'ultimate_draft.docx', and place it in the 'ResearchDocs' directory.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "shared_workspace": {
+          "type": "directory",
+          "contents": {
+            "ResearchDocs": {
+              "type": "directory",
+              "contents": {
+                "draft_notes.txt": {
+                  "type": "file",
+                  "content": "This is a draft document for research purposes. It contains preliminary findings and notes."
+                },
+                "summary_draft.docx": {
+                  "type": "file",
+                  "content": "Draft summary of the research project."
+                },
+                "final_report.pdf": {
+                  "type": "file",
+                  "content": "This is the final report of the research project."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

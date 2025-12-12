@@ -1,0 +1,134 @@
+{
+  "user_query": "Could you provide me with the latest stock information for Zeta Corp, including its current price and the performance metrics?",
+  "potential_follow_ups": [
+    "Since I'm evaluating a more comprehensive investment approach, please list all the sector-related companies I should consider.",
+    "Incidentally, I've realized I made an error in a previous transaction. Could you cancel my pending order with id 12446 promptly to prevent it from completing?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_stock_info",
+      "parameters": {
+        "symbol": "ZETA"
+      }
+    },
+    {
+      "tool_name": "get_available_stocks",
+      "parameters": {
+        "sector": "Technology"
+      }
+    },
+    {
+      "tool_name": "cancel_order",
+      "parameters": {
+        "order_id": "12446"
+      }
+    }
+  ],
+  "user_intention": "1. User requests 'Could you provide me with the latest stock information for Zeta Corp, including its current price and the performance metrics?'.\n\n2. User requests 'Since I'm evaluating a more comprehensive investment approach, please list all the sector-related companies I should consider.'.\n\n3. If asked, user clarifies that 'The sector is technology sector.'.\n\n4. Thereafter, user requests 'Incidentally, I've realized I made an error in a previous transaction. Could you cancel my pending order with id 12446 promptly to prevent it from completing?'.",
+  "initial_config": {
+    "TradingBot": {
+      "account_info": {
+        "account_id": 12345,
+        "balance": 10000.0,
+        "binding_card": 1974202140965533
+      },
+      "authenticated": true,
+      "market_status": "Open",
+      "order_counter": 12446,
+      "stocks": {
+        "AAPL": {
+          "price": 227.16,
+          "percent_change": 0.17,
+          "volume": 2.552,
+          "MA(5)": 227.11,
+          "MA(20)": 227.09
+        },
+        "GOOG": {
+          "price": 2840.34,
+          "percent_change": 0.24,
+          "volume": 1.123,
+          "MA(5)": 2835.67,
+          "MA(20)": 2842.15
+        },
+        "TSLA": {
+          "price": 667.92,
+          "percent_change": -0.12,
+          "volume": 1.654,
+          "MA(5)": 671.15,
+          "MA(20)": 668.2
+        },
+        "MSFT": {
+          "price": 310.23,
+          "percent_change": 0.09,
+          "volume": 3.234,
+          "MA(5)": 309.88,
+          "MA(20)": 310.11
+        },
+        "NVDA": {
+          "price": 220.34,
+          "percent_change": 0.34,
+          "volume": 1.234,
+          "MA(5)": 220.45,
+          "MA(20)": 220.67
+        },
+        "ALPH": {
+          "price": 1320.45,
+          "percent_change": -0.08,
+          "volume": 1.567,
+          "MA(5)": 1321.12,
+          "MA(20)": 1325.78
+        },
+        "OMEG": {
+          "price": 457.23,
+          "percent_change": 0.12,
+          "volume": 2.345,
+          "MA(5)": 456.78,
+          "MA(20)": 458.12
+        },
+        "QUAS": {
+          "price": 725.89,
+          "percent_change": -0.03,
+          "volume": 1.789,
+          "MA(5)": 726.45,
+          "MA(20)": 728.0
+        },
+        "NEPT": {
+          "price": 88.34,
+          "percent_change": 0.19,
+          "volume": 0.654,
+          "MA(5)": 88.21,
+          "MA(20)": 88.67
+        },
+        "SYNX": {
+          "price": 345.67,
+          "percent_change": 0.11,
+          "volume": 2.112,
+          "MA(5)": 345.34,
+          "MA(20)": 346.12
+        },
+        "ZETA": {
+          "price": 150.45,
+          "percent_change": 0.05,
+          "volume": 1.789,
+          "MA(5)": 150.0,
+          "MA(20)": 149.5
+        }
+      },
+      "watch_list": [
+        "NVDA",
+        "ZETA"
+      ],
+      "transaction_history": [
+        {
+          "order_id": 12346,
+          "symbol": "GOOG",
+          "price": 2840.34,
+          "num_shares": 5,
+          "status": "Pending",
+          "timestamp": "2024-10-27 14:10:53"
+        }
+      ]
+    }
+  },
+  "primary_api": "TradingBot"
+}

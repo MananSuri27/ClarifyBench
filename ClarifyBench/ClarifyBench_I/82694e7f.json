@@ -1,0 +1,52 @@
+{
+  "user_query": "Could you kindly navigate to the missing_dir_1 directory and list all the files available there right in the terminal for me? I would like to quickly skim through them and all the hidden files.",
+  "potential_follow_ups": [
+    "What's inside the last file displayed?",
+    "Create a docx file with the same name as the previosu file but changing the format, they should also have the same content."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "tmp"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "Nothing important here. Yet another line.",
+        "file_name": "file3.docx"
+      }
+    }
+  ],
+  "user_intention": "User wants to navigate to the temporary directory, list all files including hidden ones in the terminal, review the contents of the last file displayed, and create a new .docx file with the same name and content as the last file but in a different format.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "tmp": {
+              "type": "directory",
+              "contents": {
+                "file1.txt": {
+                  "type": "file",
+                  "content": "This is some important data. Another line of text."
+                },
+                "file2.txt": {
+                  "type": "file",
+                  "content": "Just some random text. More important data here."
+                },
+                "file3.txt": {
+                  "type": "file",
+                  "content": "Nothing important here. Yet another line."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

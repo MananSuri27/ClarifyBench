@@ -1,0 +1,69 @@
+{
+  "user_query": "I just returned to my vehicle, and it dawned on me that I may not have unlocked the doors yet. Would you assist in unlocking them all?",
+  "potential_follow_ups": [
+    "With every door now open, please proceed to fire up the engine; I need to ensure everything's in working order before hitting the road.",
+    "Fantastic! With the engine humming nicely, it’s time for my adventure. Could you adjust the cruise control and make sure we're keeping a prudent distance (100 meters) from the car in front?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "lockDoors",
+      "parameters": {
+        "unlock": "True",
+        "door": "['driver",
+        "DEFAULT": "rear_right']"
+      }
+    },
+    {
+      "tool_name": "lockDoors",
+      "parameters": {
+        "unlock": "False",
+        "door": "['driver",
+        "DEFAULT": "rear_right']"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "setCruiseControl",
+      "parameters": {
+        "speed": "65",
+        "activate": "True",
+        "distanceToNextVehicle": "100"
+      }
+    }
+  ],
+  "user_intention": "1. User requests 'I just returned to my vehicle, and it dawned on me that I may not have unlocked the doors yet. Would you assist in unlocking them all?'\n\n2. User requests 'With every door now open, please proceed to fire up the engine; I need to ensure everything's in working order before hitting the road.'\n\n3. User requests 'Fantastic! With the engine humming nicely, it’s time for my adventure. Could you adjust the cruise control and make sure we're keeping a prudent distance (100 meters) from the car in front?'\n\n4. If asked, user clarifies that 'Set cruise control to 65 mph.'\n\n5. Thereafter, user requests 'Set cruise control to 65 mph.'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "locked",
+        "rear_left": "locked",
+        "rear_right": "locked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

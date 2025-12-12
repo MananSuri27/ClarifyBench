@@ -1,0 +1,60 @@
+{
+  "user_query": "Before attempting to start the engine, kindly verify that every car door is meticulously secured—acknowledge once confirmed. Should everything be aligned, proceed with activating the START mode.",
+  "potential_follow_ups": [
+    "Please assess my car's current status. If below 40, promptly guide me to the closest service facility."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "lockDoors",
+      "parameters": {
+        "unlock": "False",
+        "door": "['driver",
+        "DEFAULT": "rear_right']"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "1. User requests: \"Before attempting to start the engine, kindly verify that every car door is meticulously secured—acknowledge once confirmed. Should everything be aligned, proceed with activating the START mode.\"\n\n2. User requests: \"Please assess my car's current status. If below 40, promptly guide me to the closest service facility.\"\n\n3. If asked, user clarifies: \"Sorry I should have been more clear. Please assess my tire pressures within the context of the car's current status. If any tire registers under 40 PSI, which might imply it's below the safe threshold, promptly guide me to the closest tire service facility.\"\n\n4. Thereafter, user requests: \"Please assess my tire pressures within the context of the car's current status. If any tire registers under 40 PSI, which might imply it's below the safe threshold, promptly guide me to the closest tire service facility.\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 35.0,
+      "frontRightTirePressure": 34.0,
+      "rearLeftTirePressure": 33.0,
+      "rearRightTirePressure": 32.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

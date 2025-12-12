@@ -1,0 +1,55 @@
+{
+  "user_query": "Can you create a new directory called 'missing_dir_1' in the current working location?",
+  "potential_follow_ups": [
+    "Populate the 'WebDevProjects' folder with 3 files:, 'styles.css',  'index.html', and 'script.js' with content 'Hello World!','Hi World!', 'Halo World!' in each.",
+    "What's the second file name by system order? Don't list out hidden files.",
+    "Can you display the content of the first file by system order?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "mkdir",
+      "parameters": {
+        "dir_name": "WebDevProjects"
+      }
+    },
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "WebDevProjects"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "Hello World!",
+        "file_name": "styles.css"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "Hi World!",
+        "file_name": "index.html"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "Halo World!",
+        "file_name": "script.js"
+      }
+    }
+  ],
+  "user_intention": "User wants to create a new folder named 'WebDevProjects' in the current working directory, add three specific files ('styles.css', 'index.html', and 'script.js') with designated content to this folder, determine the name of the second file in the system order (excluding hidden files), and display the content of the first file in the system order.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "current_working_directory": {
+          "type": "directory",
+          "contents": {}
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

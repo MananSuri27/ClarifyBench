@@ -1,0 +1,14 @@
+name: vehicle_control
+module_path: plugins.vehicle_plugin
+class_name: VehicleControlPlugin
+description: | 
+  Plugin for vehicle control operations, managing car systems including engine, doors, climate control, lights, and safety systems.
+
+  VEHICLE CONTROL RULES:
+  - Check current state with displayCarStatus before operations
+  - Engine start prerequisites: brake fully pressed (pedalPosition=1.0) AND all doors locked
+  - Fuel amounts: 0-50 gallons (cannot exceed tank capacity)
+  - Speeds: 0-120 mph, must be multiples of 5
+  - Enum values are case-sensitive: "START"/"STOP", "on"/"off"/"auto"
+  - Cruise control only works when engine is running
+  - Fan speed: 0-100, Pedal position: 0-1, Temperature: reasonable ranges

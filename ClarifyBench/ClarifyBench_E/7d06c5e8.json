@@ -1,0 +1,48 @@
+{
+  "user_query": "Could you make a copy of the PDF file named \"proposal_y1ey.pdf\" for me? I'd like the duplicate to be saved as \"proposal_y1ey_copy.pdf\" in the \"/documents/duplicates/\" folder, and please ensure it doesn't overwrite any existing files.",
+  "potential_follow_ups": [
+    "Could you please add a signature to page 15 of \"proposal_y1ey.pdf\"? I would like it to be placed at the bottom-right of the page. Also, could you ensure that it doesn't overwrite any existing content and save the signed document as \"proposal_y1ey_signed.pdf\"? Thanks!",
+    "Could you remove pages 5 to 10 from \"proposal_y1ey.pdf\" and save the updated document as \"proposal_y1ey_updated.pdf\"? Please make sure it doesn't overwrite the original file. Thanks!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "duplicate",
+      "parameters": {
+        "output_filename": "proposal_y1ey_copy.pdf",
+        "overwrite": false,
+        "output_pathname": "/documents/duplicates/proposal_y1ey_copy.pdf"
+      }
+    },
+    {
+      "tool_name": "add_signature",
+      "parameters": {
+        "page_num": 15,
+        "position": "bottom-right",
+        "overwrite": false,
+        "output_pathname": "proposal_y1ey_signed.pdf"
+      }
+    },
+    {
+      "tool_name": "delete_page_range",
+      "parameters": {
+        "start": 5,
+        "end": 10,
+        "overwrite": false,
+        "output_pathname": "proposal_y1ey_updated.pdf"
+      }
+    }
+  ],
+  "user_intention": "User requests 'copy the PDF file named \"proposal_y1ey.pdf\" and save the duplicate as \"proposal_y1ey_copy.pdf\" in the \"/documents/duplicates/\" folder without overwriting any existing files'. If asked, user clarifies details. User requests 'add a signature to page 15 of \"proposal_y1ey.pdf\" at the bottom-right of the page and save the signed document as \"proposal_y1ey_signed.pdf\" without overwriting any existing content'. If asked, user clarifies details. User requests 'remove pages 5 to 10 from \"proposal_y1ey.pdf\" and save the updated document as \"proposal_y1ey_updated.pdf\" without overwriting the original file'. If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 27,
+      "pdf_name": "proposal_y1ey.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "duplicate",
+    "add_signature",
+    "delete_page_range"
+  ]
+}

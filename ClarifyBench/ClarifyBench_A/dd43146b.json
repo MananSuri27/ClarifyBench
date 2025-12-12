@@ -1,0 +1,44 @@
+{
+  "user_query": "Could you provide me with an inventory of files that are currently visible and hidden in the directory I'm working in at the moment?",
+  "potential_follow_ups": [
+    "Please cd into project folder and find Kelly's test report somewhere in the directory and read the content to me."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "ls",
+      "parameters": {
+        "a": "True"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Could you provide me with an inventory of files that are currently visible and hidden in the directory I'm working in at the moment?'. \n\nUser requests 'Please cd into project folder and find Kelly's test report somewhere in the directory and read the content to me.'. \n\nIf asked, user clarifies that this is 'Please dispatch something to Kelly, I need to add her contact (Kelly). I'd appreciate a list of all the communications I've sent until now.'. \n\nThereafter, user requests 'Please dispatch something to Kelly, I need to add her contact (Kelly). I'd appreciate a list of all the communications I've sent until now.'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "project": {
+              "type": "directory",
+              "contents": {
+                "file1.txt": {
+                  "type": "file",
+                  "content": "This is a test file."
+                },
+                "file2.txt": {
+                  "type": "file",
+                  "content": "Another document."
+                },
+                "test_report.docx": {
+                  "type": "file",
+                  "content": "Kelly Total Score: 96"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

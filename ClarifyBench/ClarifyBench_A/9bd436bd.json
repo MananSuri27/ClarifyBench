@@ -1,0 +1,31 @@
+{
+  "user_query": "I need you to draft a comprehensive guide for our new initiative, and let's name it 'Project_Guide_1.md'. Put 'Comprehensive guide for the new initiative.' in it.",
+  "potential_follow_ups": [
+    "I would love to get the human-readable disk usage of the current working directory."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "Project_Guide_1.md"
+      }
+    }
+  ],
+  "user_intention": "1. User requests 'I need you to draft a comprehensive guide for our new initiative, and let's name it 'Project_Guide_1.md'. Put 'Comprehensive guide for the new initiative.' in it.'\n\n2. User requests 'I would love to get the human-readable disk usage of the current working directory.' If asked, user clarifies that this is this..\n\n3. User requests 'There's a minor snag in our ticketing system. It is still unresolved, but with our recent brainstorming feedback, just go ahead and check it off as resolved. Leave it empty for resolve description.' If asked, user clarifies that this is this..",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alpha": {
+          "type": "directory",
+          "contents": {
+            "Project_Guide.md": {
+              "type": "file",
+              "content": "Comprehensive guide for the new initiative."
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

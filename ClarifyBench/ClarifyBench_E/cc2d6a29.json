@@ -1,0 +1,76 @@
+{
+  "user_query": "As part of my latest photography project, I need to gather files that have 'test' in their name from any folder in my current directory. Could you help me locate those?",
+  "potential_follow_ups": [
+    "After identifying them, the next step is to ensure the images and text files are safely copied into a 'backup_tests' folder right within the same directory. Could that be arranged?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "find",
+      "parameters": {
+        "path": ".",
+        "name": "test"
+      }
+    },
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "projects"
+      }
+    },
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "photography"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "test_image1.jpg",
+        "destination": "backup_tests"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "test_document.txt",
+        "destination": "backup_tests"
+      }
+    }
+  ],
+  "user_intention": "User requests \"As part of my latest photography project, I need to gather files that have 'test' in their name from any folder in my current directory. Could you help me locate those?\"\n\nIf asked, user clarifies that this involves searching through all subdirectories within the current directory to find any files with 'test' in their name.\n\nThereafter, user requests \"After identifying them, the next step is to ensure the images and text files are safely copied into a 'backup_tests' folder right within the same directory. Could that be arranged?\"\n\nIf asked, user clarifies that the 'backup_tests' folder should be created in the current directory if it does not already exist, and only image and text files should be copied into it.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "projects": {
+              "type": "directory",
+              "contents": {
+                "photography": {
+                  "type": "directory",
+                  "contents": {
+                    "test_image1.jpg": {
+                      "type": "file",
+                      "content": "Image data 1"
+                    },
+                    "test_document.txt": {
+                      "type": "file",
+                      "content": "Document data"
+                    },
+                    "backup_tests": {
+                      "type": "directory",
+                      "contents": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

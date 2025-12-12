@@ -1,0 +1,59 @@
+{
+  "user_query": "Lock all doors and engage the parking brake, then start the vehicle's engine in preparation for a trip. Afterward, check if our tire pressure condition is safe to proceed.",
+  "potential_follow_ups": [
+    "The tire pressure seems worrying, kindly find the nearest tire shop to address the issue and set our navigation to that location."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "456 Oakwood Avenue",
+        "DEFAULT": "83214"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Lock all doors and engage the parking brake, then start the vehicle's engine in preparation for a trip.' If asked, user clarifies that this is to ensure the vehicle is secure and ready for departure. Thereafter, user requests 'Afterward, check if our tire pressure condition is safe to proceed.' If asked, user clarifies that they want to ensure the tires are properly inflated for safety.\n\nUser requests 'The tire pressure seems worrying, kindly find the nearest tire shop to address the issue and set our navigation to that location.' If asked, user clarifies that they want to resolve the tire pressure issue before continuing their journey.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "engaged",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 22.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

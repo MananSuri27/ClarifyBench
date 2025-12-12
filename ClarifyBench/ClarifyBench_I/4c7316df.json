@@ -1,0 +1,59 @@
+{
+  "user_query": "If the fuel level is lower than 10, then go ahead and add double that amount. Let's assume I will also head out right after, so feel free to start the engine using the stop mode.",
+  "potential_follow_ups": [
+    "Since we are all set to go, could you quickly check the pressure of all the tires to ensure everything is safe for our journey?",
+    "The pressure seemed lower than expected. Let's open a ticket for 'Tire Pressure Issue', and detail it 'Urgent tire pressure issue.'. Given the urgency, classify this as the top priority to issue, where a higher score has more priority.",
+    "Apparently, I never got feedback on the tire pressure ticket I created. Can you fetch that ticket for me so I can review the current status?",
+    "Great! They just gave me a call back. Now that I've checked the details, let's resolve the tire pressure ticket with an update stating 'Issue resolved!'."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "displayCarStatus",
+      "parameters": {}
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {}
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User wants to manage vehicle readiness and safety by performing the following operations using the VehicleControlAPI:\n\n1. Check the fuel level, and if it is below 10, add double the amount needed to reach 10. Then, start the engine in the necessary mode for immediate departure.\n2. Verify the tire pressure to ensure it is safe for travel.\n3. If the tire pressure is lower than expected, create a high-priority ticket labeled \"Tire Pressure Issue\" with the description \"Urgent tire pressure issue.\"\n4. Retrieve the status of the previously created tire pressure ticket to review any updates or feedback.\n5. Once the issue is resolved, update the tire pressure ticket with a resolution note stating \"Issue resolved!\" and close the ticket.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 7.5,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 28.0,
+      "frontRightTirePressure": 28.0,
+      "rearLeftTirePressure": 26.0,
+      "rearRightTirePressure": 26.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

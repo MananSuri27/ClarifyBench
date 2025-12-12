@@ -1,0 +1,45 @@
+{
+  "user_query": "Excellent! Now that we're all authenticated, could we proceed with registering my credit card? We'll use card number 2345-6789-1234-5678, set to expire in 08/2025, listed under Maxwell Edison with the CVV 567. After that, I need a favor—book me a business class ticket from SFO to LAX for December 15, 2024. All travel details should be under my name, Maxwell Edison.",
+  "potential_follow_ups": [
+    "Excellent! Now that we're all authenticated, could we proceed with registering my credit card? We'll use card number 2345-6789-1234-5678, set to expire in 08/2025, listed under Maxwell Edison with the CVV 567. After that, I need a favor—book me a business class ticket from SFO to LAX for December 15, 2024. All travel details should be under my name, Maxwell Edison."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "register_credit_card",
+      "parameters": {
+        "access_token": "251675",
+        "card_number": "2345-6789-1234-5678",
+        "expiration_date": "08/2025",
+        "cardholder_name": "Maxwell Edison",
+        "card_verification_number": "567"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "251675",
+        "card_id": "391310425148",
+        "travel_date": "2024-12-15",
+        "travel_from": "SFO",
+        "travel_to": "LAX",
+        "travel_class": "business",
+        "travel_cost": "400.0"
+      }
+    }
+  ],
+  "user_intention": "User requests \"Excellent! Now that we're all authenticated, could we proceed with registering my credit card?\" If asked, user clarifies that the card number is \"2345-6789-1234-5678,\" set to expire in \"08/2025,\" listed under \"Maxwell Edison\" with the CVV \"567.\" Thereafter, user requests \"After that, I need a favor—book me a business class ticket from SFO to LAX for December 15, 2024.\" If asked, user clarifies that all travel details should be under the name \"Maxwell Edison.\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {},
+      "booking_record": {},
+      "access_token": "485485239806",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read write",
+      "user_first_name": "Maxwell",
+      "user_last_name": "Edison",
+      "budget_limit": 5000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

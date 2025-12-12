@@ -1,0 +1,50 @@
+{
+  "user_query": "Can you find a file named 'missing_file_1.txt' deep in the file system and show me the last line of the first file you find?",
+  "potential_follow_ups": [
+    "This is actually not what I want. Could you display the entire content of the second file found.",
+    "Store the differences of the two file in a new file call diff.txt."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "real_config.py"
+      }
+    }
+  ],
+  "user_intention": "User wants to locate files named 'config.py' within the file system, display the entire content of the second file found, and then store the differences between the first and second 'config.py' files in a new file called 'diff.txt'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "projects": {
+              "type": "directory",
+              "contents": {
+                "deep_folder": {
+                  "type": "directory",
+                  "contents": {
+                    "config.py": {
+                      "type": "file",
+                      "content": "Initialization of the system Error in module Setup complete Initialization successful Error detected"
+                    },
+                    "real_config.py": {
+                      "type": "file",
+                      "content": "Real Config."
+                    }
+                  }
+                }
+              }
+            },
+            "temp": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

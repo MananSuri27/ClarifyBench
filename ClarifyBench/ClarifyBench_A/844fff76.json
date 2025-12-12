@@ -1,0 +1,49 @@
+{
+  "user_query": "Find a file named 'config.py' somewhere deep in the file system and once you have located it, display the last line of the first occuring file.",
+  "potential_follow_ups": [
+    "Store the differences of the two file in a new file call diff.txt."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "real_config.py"
+      }
+    }
+  ],
+  "user_intention": "1. User requests 'Find a file named 'config.py' somewhere deep in the file system and once you have located it, display the last line of the first occurring file.'\n\n2. If asked, user clarifies that 'This is actually not what I want. Could you display the entire content of another file.'\n\n3. If asked, user clarifies that 'It should be the second file found.'\n\n4. Thereafter, user requests 'Store the differences of the two files in a new file called diff.txt.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "projects": {
+              "type": "directory",
+              "contents": {
+                "deep_folder": {
+                  "type": "directory",
+                  "contents": {
+                    "config.py": {
+                      "type": "file",
+                      "content": "Initialization of the system Error in module Setup complete Initialization successful Error detected"
+                    },
+                    "real_config.py": {
+                      "type": "file",
+                      "content": "Real Config."
+                    }
+                  }
+                }
+              }
+            },
+            "temp": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

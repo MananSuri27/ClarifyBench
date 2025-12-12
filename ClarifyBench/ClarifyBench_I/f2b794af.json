@@ -1,0 +1,67 @@
+{
+  "user_query": "Hey, I need to organize my files. Could you move 'missing_file_1.txt' to the 'archive' directory for me? Thanks!",
+  "potential_follow_ups": [
+    "Go to workspace directory and move one of the 'log.txt' files into a new directory 'archive'.",
+    "Investigate within 'log.txt' for the occurrence of the keyword 'Error'.",
+    "Finally, show the last 20 lines the file."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "ls",
+      "parameters": {
+        "a": "True"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "log.txt",
+        "destination": "archive"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "log.txt",
+        "pattern": "Error"
+      }
+    },
+    {
+      "tool_name": "tail",
+      "parameters": {
+        "file_name": "log.txt",
+        "lines": "20"
+      }
+    }
+  ],
+  "user_intention": "User wants to perform a series of file system operations using GorillaFileSystem: \n\n1. Verify that the current directory is named after the user, \"alex,\" and list all contents, including hidden files.\n2. Navigate to the \"workspace\" directory and move a file named \"log.txt\" into a newly created directory called \"archive.\"\n3. Search within the \"log.txt\" file for occurrences of the keyword \"Error.\"\n4. Display the last 20 lines of the \"log.txt\" file.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "workspace": {
+              "type": "directory",
+              "contents": {
+                "log.txt": {
+                  "type": "file",
+                  "content": "This is a log file. No errors found. Another line. Yet another line. Error: Something went wrong. Final line."
+                },
+                "archive": {
+                  "type": "directory",
+                  "contents": {}
+                },
+                ".hidden_file": {
+                  "type": "file",
+                  "content": "This is a hidden file."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

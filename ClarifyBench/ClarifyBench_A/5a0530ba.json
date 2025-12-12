@@ -1,0 +1,52 @@
+{
+  "user_query": "Please use the \"highlight_text\" tool to highlight the following objects: \"confidential\", \"agreement\", and \"party\". Ensure that the existing text is not overwritten.",
+  "potential_follow_ups": [
+    "I need to make sure that sensitive information is not visible in the document \"contract_zlhi.pdf.\" Could you please redact all the content from pages 5 to 10?",
+    "Could you add my signature to the contract on page 25 in the bottom-right corner? Please ensure it doesn't overwrite the original file and save the updated document as \"contract_zlhi_signed.pdf.\""
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "highlight_text",
+      "parameters": {
+        "start": 5,
+        "end": 10,
+        "object_name": [
+          "confidential",
+          "agreement",
+          "party"
+        ],
+        "overwrite": false,
+        "output_pathname": "highlighted_contract_zlhi.pdf"
+      }
+    },
+    {
+      "tool_name": "redact_page_range",
+      "parameters": {
+        "start": 5,
+        "end": 10
+      }
+    },
+    {
+      "tool_name": "add_signature",
+      "parameters": {
+        "page_num": 25,
+        "position": "bottom-right",
+        "overwrite": false,
+        "output_pathname": "contract_zlhi_signed.pdf"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Could you please highlight the text from page 5 to page 10 in the contract document named \"contract_zlhi.pdf\"? I'm particularly interested in emphasizing words like \"confidential,\" \"agreement,\" and \"party.\" Also, make sure not to overwrite the original file and save the changes to a new file called \"highlighted_contract_zlhi.pdf.\" Thanks!'. If asked, user clarifies details. User requests 'I need to make sure that sensitive information is not visible in the document \"contract_zlhi.pdf.\" Could you please redact all the content from pages 5 to 10?'. If asked, user clarifies details. User requests 'Could you add my signature to the contract on page 25 in the bottom-right corner? Please ensure it doesn't overwrite the original file and save the updated document as \"contract_zlhi_signed.pdf.\"'. If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 25,
+      "pdf_name": "contract_zlhi.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "highlight_text",
+    "redact_page_range",
+    "add_signature"
+  ]
+}

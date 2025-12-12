@@ -1,0 +1,70 @@
+{
+  "user_query": "I'm setting off on a road trip and my departure point is sunny San Francisco. Could you determine the distance to help me plan my fuel stops on the way?",
+  "potential_follow_ups": [
+    "Before embarking on this journey, please top up my vehicle to end with 50 gallons of fuel.",
+    "Please start the engine to prepare for our travel. Ensure that the car is locked and everything is secure for a seamless start."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "DEFAULT": "San Francisco"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "DEFAULT": "Rivermist"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "94016",
+        "cityB": "83214"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "40"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "1. User requests \"I'm setting off on a road trip and my departure point is sunny San Francisco. Could you determine the distance to help me plan my fuel stops on the way?\" If asked, user clarifies that the destination is Rivermist.\n\n2. Thereafter, user requests \"Before embarking on this journey, please top up my vehicle to end with 50 gallons of fuel.\"\n\n3. User requests \"Please start the engine to prepare for our travel. Ensure that the car is locked and everything is secure for a seamless start.\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "Rivermist",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

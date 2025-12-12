@@ -1,0 +1,80 @@
+{
+  "user_query": "Hi there! I have a PDF named \"document_cxto.pdf\" that has 28 pages, and I need to add a watermark that says \"Confidential\" with 50% transparency. I want this watermark on pages 1 through 28 but without overwriting the original document. Could you save the watermarked version as \"document_cxto_watermarked.pdf\"? Thanks!",
+  "potential_follow_ups": [
+    "I need to find some tables related to financial analysis in the document \"document_cxto.pdf,\" specifically between pages 5 to 10. Could you search for those tables and save the results in a JSON file named \"search_results_financial_tables.json\" in the output directory, without overwriting anything? Thanks!",
+    "Could you please rename the file using the \"rename\" tool?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "add_watermark",
+      "parameters": {
+        "watermark_text": "Confidential",
+        "transparency": 0.5,
+        "PDF": "document_cxto.pdf",
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28
+        ],
+        "overwrite": false,
+        "output_pathname": "document_cxto_watermarked.pdf"
+      }
+    },
+    {
+      "tool_name": "search",
+      "parameters": {
+        "object_name": "tables related to financial analysis",
+        "document": "document_cxto.pdf",
+        "pages": "5-10",
+        "overwrite": false,
+        "output_pathname": "/output/search_results_financial_tables.json"
+      }
+    },
+    {
+      "tool_name": "rename",
+      "parameters": {
+        "output_filename": "renamed_document.pdf",
+        "overwrite": false,
+        "output_pathname": "/documents/renamed_document.pdf"
+      }
+    }
+  ],
+  "user_intention": "User requests 'add a watermark to a PDF file'. If asked, user clarifies details. User requests 'search for tables in a PDF file and save results'. If asked, user clarifies details. User requests 'rename a file and save it without overwriting'. If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 28,
+      "pdf_name": "document_cxto.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "add_watermark",
+    "search",
+    "rename"
+  ]
+}

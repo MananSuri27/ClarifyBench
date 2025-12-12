@@ -1,0 +1,55 @@
+{
+  "user_query": "I've been thinking of visiting Autumnville for a while now, but I'm not sure how far it is from here in Crescent Hollow. Can you help me figure this out so I can plan my trip accordingly?",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "DEFAULT": "Crescent Hollow"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "DEFAULT": "Autumnville"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "69238",
+        "cityB": "51479"
+      }
+    }
+  ],
+  "user_intention": "User requests \"I've been thinking of visiting Autumnville for a while now, but I'm not sure how far it is from here in Crescent Hollow. Can you help me figure this out so I can plan my trip accordingly?\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "running",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "unlocked",
+        "rear_left": "locked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 70,
+      "acMode": "cool",
+      "humidityLevel": 45.0,
+      "headLightStatus": "on",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "Rivermist",
+      "frontLeftTirePressure": 33.0,
+      "frontRightTirePressure": 33.0,
+      "rearLeftTirePressure": 31.0,
+      "rearRightTirePressure": 31.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

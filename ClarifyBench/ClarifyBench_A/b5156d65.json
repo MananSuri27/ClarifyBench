@@ -1,0 +1,39 @@
+{
+  "user_query": "In documents directory, there's a file that piques my curiosity regarding its contents. Could you display the last line of that file for me?",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "report.txt",
+        "file_name2": "summary.txt"
+      }
+    }
+  ],
+  "user_intention": "1. User requests \"In documents directory, there's a file that piques my curiosity regarding its contents. Could you display the last line of that file for me?\" \n\n2. If asked, user clarifies that \"It's alphabetically first file in that directory.\"\n\n3. Thereafter, user requests \"I've lately stored some work that parallels another document on my system. Might you review both files in this directory and articulate the distinctions.\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "documents": {
+              "type": "directory",
+              "contents": {
+                "report.txt": {
+                  "type": "file",
+                  "content": "Zebra Apple Orange"
+                },
+                "summary.txt": {
+                  "type": "file",
+                  "content": "Banana Grape Lemon"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

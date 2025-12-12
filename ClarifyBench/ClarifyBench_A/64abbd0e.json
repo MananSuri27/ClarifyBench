@@ -1,0 +1,47 @@
+{
+  "user_query": "Go to documents folder in CWD. Next, from a specific document in the folder. What does the last line look like?",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "file1.txt",
+        "file_name2": "file2.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Go to documents folder in CWD. Next, from a specific document in the folder. What does the last line look like?'. If asked, user clarifies that 'it should be the first document in current folder.'. Thereafter, user requests 'Write the difference of the first two file into a new file call file5.txt.'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "documents": {
+              "type": "directory",
+              "contents": {
+                "file1.txt": {
+                  "type": "file",
+                  "content": "The quick brown fox jumps over the lazy dog."
+                },
+                "file2.txt": {
+                  "type": "file",
+                  "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                },
+                "file3.txt": {
+                  "type": "file",
+                  "content": "To be or not to be, that is the question."
+                },
+                "file4.txt": {
+                  "type": "file",
+                  "content": "All that glitters is not gold."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

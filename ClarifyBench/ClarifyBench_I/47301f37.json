@@ -1,0 +1,32 @@
+{
+  "user_query": "Could you kindly sort the contents of the file named 'missing_file_1.txt' in my file system?",
+  "potential_follow_ups": [
+    "There is a report in my current directory. I have noticed the report appears somewhat cluttered; it could benefit from having its lines sorted.",
+    "I would appreciate it if you could share the sorted result as the message body on social media, ensuring to tag 'currenttechtrend' and mention Julia, our insightful team."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "report.txt"
+      }
+    }
+  ],
+  "user_intention": "User wants to list all files, including hidden ones, in the 'tmp' directory of their GorillaFileSystem, sort the lines of a report file in their current directory, and share the sorted content as a message on social media, tagging 'currenttechtrend' and mentioning Julia.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "tmp": {
+          "type": "directory",
+          "contents": {
+            "report.txt": {
+              "type": "file",
+              "content": "Initial report content Unsorted data More unsorted data"
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

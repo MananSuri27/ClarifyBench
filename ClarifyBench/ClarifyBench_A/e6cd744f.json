@@ -1,0 +1,80 @@
+{
+  "user_query": "Add a signature to page 31 at the bottom-right position.",
+  "potential_follow_ups": [
+    "Could you help me delete page 15 from the contract? Please ensure it doesn't overwrite the original file and save the modified version as \"contract_r3sz_modified.pdf\".",
+    "Could you add a watermark that says \"Confidential\" to every page of the contract except page 31? I'd like the watermark to have 50% transparency, and it's fine to overwrite the existing file."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "add_signature",
+      "parameters": {
+        "page_num": 31,
+        "position": "bottom-right",
+        "overwrite": false,
+        "output_pathname": "contract_r3sz_signed.pdf"
+      }
+    },
+    {
+      "tool_name": "delete_page",
+      "parameters": {
+        "page_num": 15,
+        "overwrite": false,
+        "output_pathname": "contract_r3sz_modified.pdf"
+      }
+    },
+    {
+      "tool_name": "add_watermark",
+      "parameters": {
+        "watermark_text": "Confidential",
+        "transparency": 0.5,
+        "pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "overwrite": true
+      }
+    }
+  ],
+  "user_intention": "User requests 'add a signature to the contract on page 31, placed at the bottom-right, ensuring it doesn’t overwrite anything, and save the updated file as \"contract_r3sz_signed.pdf\"'. If asked, user clarifies details. User requests 'delete page 15 from the contract, ensuring it doesn't overwrite the original file, and save the modified version as \"contract_r3sz_modified.pdf\"'. If asked, user clarifies details. User requests 'add a watermark that says \"Confidential\" to every page of the contract except page 31, with 50% transparency, and it's fine to overwrite the existing file'. If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 31,
+      "pdf_name": "contract_r3sz.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "add_signature",
+    "delete_page",
+    "add_watermark"
+  ]
+}

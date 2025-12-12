@@ -1,0 +1,76 @@
+{
+  "user_query": "I am planning a road trip and I need to know how far I will be traveling. This would help me ensure that my car is sufficiently fueled for the journey.",
+  "potential_follow_ups": [
+    "Given that the trip spans almost a thousand kilometers, could you help me make sure the fuel tank is full? Btw, I have a 30-gallon drum handy. How much is that in liters?",
+    "Now that the tank is completely filled, I'm keen on ensuring that the engine starts without a hitch. Could you help me get the engine running, ensuring it's all set for the long journey ahead?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "DEFAULT": "San Francisco"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "DEFAULT": "Rivermist"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "94016",
+        "cityB": "83214"
+      }
+    },
+    {
+      "tool_name": "gallon_to_liter",
+      "parameters": {
+        "gallon": "30"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "50"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"I am planning a road trip and I need to know how far I will be traveling. This would help me ensure that my car is sufficiently fueled for the journey.\"\n\n2. If asked, user clarifies: \"My road trip is from Rivermist to San Francisco.\"\n\n3. Thereafter, user requests: \"Given that the trip spans almost a thousand kilometers, could you help me make sure the fuel tank is full? Btw, I have a 30-gallon drum handy. How much is that in liters?\"\n\n4. Thereafter, user requests: \"Now that the tank is completely filled, I'm keen on ensuring that the engine starts without a hitch. Could you help me get the engine running, ensuring it's all set for the long journey ahead?\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 0.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "San Francisco",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

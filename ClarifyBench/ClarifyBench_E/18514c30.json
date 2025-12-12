@@ -1,0 +1,66 @@
+{
+  "user_query": "Kindly draft a document titled 'project_summary.txt' right here in documents directory. Yield an error if it already exists.",
+  "potential_follow_ups": [
+    " I need it archived. Replicate it into the archive folder, but rename it to 'summary_2024.txt'.",
+    "In the contents of 'summary_2024.txt', please fish out and highlight any lines featuring the term 'Progress'."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "project_summary.txt"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "project_summary.txt",
+        "destination": "archive"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "project_summary.txt",
+        "destination": "summary_2024.txt"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "summary_2024.txt",
+        "pattern": "Progress"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Kindly draft a document titled 'project_summary.txt' right here in documents directory. Yield an error if it already exists.'\n\nIf asked, user clarifies that this means creating a new file named 'project_summary.txt' in the current 'documents' directory and ensuring that the operation fails if a file with the same name already exists.\n\nThereafter, user requests 'I need it archived. Replicate it into the archive folder, but rename it to 'summary_2024.txt'.'\n\nIf asked, user clarifies that this involves copying the newly created 'project_summary.txt' file into the 'archive' directory and renaming it to 'summary_2024.txt' during the copy operation.\n\nThereafter, user requests 'In the contents of 'summary_2024.txt', please fish out and highlight any lines featuring the term 'Progress'.'\n\nIf asked, user clarifies that this means searching through the contents of 'summary_2024.txt' for any lines that contain the word 'Progress' and highlighting those lines in some manner.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "documents": {
+              "type": "directory",
+              "contents": {
+                "project.txt": {
+                  "type": "file",
+                  "content": "Project progress is on track. The team has completed the initial phase. Progress is being monitored closely. Final adjustments are underway.The project is nearing completion."
+                },
+                "archive": {
+                  "type": "directory",
+                  "contents": {}
+                },
+                "reports": {
+                  "type": "directory",
+                  "contents": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

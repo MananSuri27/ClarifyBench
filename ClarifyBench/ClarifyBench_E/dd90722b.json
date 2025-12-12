@@ -1,0 +1,40 @@
+{
+  "user_query": "Hi, I am Kelly. I'm sweating. What's the temp outside right now? Would you be able to update Michael on today's outdoor temperature with message 'It is hot outside.'? He should know whether to bundle up or dress down for the weather.",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_outside_temperature_from_google",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User requests \"Hi, I am Kelly. I'm sweating. What's the temp outside right now?\" If asked, user clarifies that this is to check the current outdoor temperature using the VehicleControlAPI. Thereafter, user requests \"Would you be able to update Michael on today's outdoor temperature with message 'It is hot outside.'?\" If asked, user clarifies that this is to send a message to Michael about the current weather conditions. Thereafter, user requests \"He should know whether to bundle up or dress down for the weather.\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "running",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "unlocked",
+        "rear_left": "locked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 70,
+      "acMode": "cool",
+      "humidityLevel": 45.0,
+      "headLightStatus": "on",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 5.0,
+      "distanceToNextVehicle": 30.0,
+      "cruiseStatus": "active",
+      "destination": "Central Park",
+      "frontLeftTirePressure": 33.0,
+      "frontRightTirePressure": 33.0,
+      "rearLeftTirePressure": 31.0,
+      "rearRightTirePressure": 31.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

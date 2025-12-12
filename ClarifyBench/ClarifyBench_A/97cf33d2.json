@@ -1,0 +1,58 @@
+{
+  "user_query": "It's getting late here, and I'm wrapping up my notes for the day. Please initiate a file creation in our communal folder, labeling it as 'Annual_Report_2023.docx'.",
+  "potential_follow_ups": [
+    "Hi, I want to put some statistics in the annual report. Here are the things I want to put 'Company Earning: 2000 Company Expenditure: 500 Company Name: Gorilla'.",
+    "How many word does one of my file contain?",
+    "To conclude, store the number of words in a new file report_word_count in the existing shared directory."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "Annual_Report_2023.docx"
+      }
+    },
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "Annual_Report_2023.docx"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "Annual_Report_2023.docx",
+        "mode": "w"
+      }
+    }
+  ],
+  "user_intention": "User requests 'It's getting late here, and I'm wrapping up my notes for the day. Please initiate a file creation in our communal folder, labeling it as 'Annual_Report_2023.docx'.'\n\nUser requests 'Hi, I want to put some statistics in the annual report. Here are the things I want to put 'Company Earning: 2000 Company Expenditure: 500 Company Name: Gorilla'.'\n\nIf asked, user clarifies that they want to view the contents of 'Annual_Report_2023.docx' by requesting 'May I have a look at what's inside 'Annual_Report_2023.docx'?'\n\nUser requests 'How many word does one of my file contain?'\n\nIf asked, user clarifies that the file in question is the one they previously mentioned by stating 'The file is the one I previously mentioned.'\n\nUser requests 'To conclude, store the number of words in a new file report_word_count in the existing shared directory.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "gorilla": {
+          "type": "directory",
+          "contents": {
+            "communal": {
+              "type": "directory",
+              "contents": {}
+            },
+            "reserve": {
+              "type": "directory",
+              "contents": {}
+            },
+            "shared": {
+              "type": "directory",
+              "contents": {}
+            },
+            "archives": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

@@ -1,0 +1,66 @@
+{
+  "user_query": "Hello! I'm laying out a detailed plan for an extended road trip and need to verify if my car can endure a stretch of that much miles without requiring a pit stop for gas. Check the stats for me, would you? Should the range fall short, go ahead and top off the fuel tank with 30 gallons to ensure we're in the clear.",
+  "potential_follow_ups": [
+    "Additionally, before hitting the road, do me a favor and verify the tire pressures. Should any tire fall below the 40 PSI mark, kindly pinpoint the nearest tire shop for me and set navigation.",
+    "Finally, I've double-checked that all vehicle portals are locked and secure, and the parking brake's in place. Can you proceed to ignite the engine?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "300.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "30.0"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Hello! I'm laying out a detailed plan for an extended road trip and need to verify if my car can endure a stretch of that much miles without requiring a pit stop for gas. Check the stats for me, would you? Should the range fall short, go ahead and top off the fuel tank with 30 gallons to ensure we're in the clear.' If asked, user clarifies that 'I think the total trip is about 300 miles.' Thereafter, user requests 'Additionally, before hitting the road, do me a favor and verify the tire pressures. Should any tire fall below the 40 PSI mark, kindly pinpoint the nearest tire shop for me and set navigation.' Finally, user requests 'I've double-checked that all vehicle portals are locked and secure, and the parking brake's in place. Can you proceed to ignite the engine?'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "remainingUnlockedDoors": 0,
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "locked",
+        "rear_left": "locked",
+        "rear_right": "locked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "engaged",
+      "parkingBrakeForce": 15.3,
+      "slopeAngle": 10.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 35.0,
+      "frontRightTirePressure": 35.0,
+      "rearLeftTirePressure": 35.0,
+      "rearRightTirePressure": 35.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

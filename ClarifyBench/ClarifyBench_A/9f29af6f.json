@@ -1,0 +1,107 @@
+{
+  "user_query": "Oh man, I've just logged into my trading account and I'm super keen to take a look at the stocks I'm keeping an eye on. Could I get you to pull up the latest stock symbols from my watchlist?",
+  "potential_follow_ups": [
+    "So, I was scrolling through the stocks I'm following and spotted this symbol XYZ. I'd really like to snag some shares right now at the current market price. Mind placing that order for me?",
+    "By the way, can I get the lowdown on that order I just put in? I want to double-check how it's cooking—need to see the status and any terms clinging to it.",
+    "I've been thinking and I might need to pull the plug on that last order I made. Can you nix it for me, please? I'm having second thoughts!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_watchlist",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_stock_info",
+      "parameters": {
+        "symbol": "XYZ"
+      }
+    },
+    {
+      "tool_name": "place_order",
+      "parameters": {
+        "order_type": "Buy",
+        "symbol": "XYZ",
+        "price": "150.0",
+        "amount": "100"
+      }
+    },
+    {
+      "tool_name": "get_order_details",
+      "parameters": {
+        "order_id": "12446"
+      }
+    },
+    {
+      "tool_name": "cancel_order",
+      "parameters": {
+        "order_id": "12446"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"Oh man, I've just logged into my trading account and I'm super keen to take a look at the stocks I'm keeping an eye on. Could I get you to pull up the latest stock symbols from my watchlist?\"\n\n2. User requests: \"So, I was scrolling through the stocks I'm following and spotted this symbol XYZ. I'd really like to snag some shares right now at the current market price. Mind placing that order for me?\"\n\n   - If asked, user clarifies: \"I want 100 shares.\"\n\n3. User requests: \"By the way, can I get the lowdown on that order I just put in? I want to double-check how it's cooking—need to see the status and any terms clinging to it.\"\n\n4. User requests: \"I've been thinking and I might need to pull the plug on that last order I made. Can you nix it for me, please? I'm having second thoughts!\"",
+  "initial_config": {
+    "TradingBot": {
+      "orders": {
+        "order_type": "Buy"
+      },
+      "account_info": {
+        "account_id": 98765,
+        "balance": 15000.0,
+        "binding_card": 1987654321098765
+      },
+      "authenticated": true,
+      "market_status": "Open",
+      "order_counter": 12446,
+      "stocks": {
+        "AAPL": {
+          "price": 227.16,
+          "percent_change": 0.17,
+          "volume": 2.552,
+          "MA(5)": 227.11,
+          "MA(20)": 227.09
+        },
+        "GOOG": {
+          "price": 2840.34,
+          "percent_change": 0.24,
+          "volume": 1.123,
+          "MA(5)": 2835.67,
+          "MA(20)": 2842.15
+        },
+        "TSLA": {
+          "price": 667.92,
+          "percent_change": -0.12,
+          "volume": 1.654,
+          "MA(5)": 671.15,
+          "MA(20)": 668.2
+        },
+        "MSFT": {
+          "price": 310.23,
+          "percent_change": 0.09,
+          "volume": 3.234,
+          "MA(5)": 309.88,
+          "MA(20)": 310.11
+        },
+        "NVDA": {
+          "price": 220.34,
+          "percent_change": 0.34,
+          "volume": 1.234,
+          "MA(5)": 220.45,
+          "MA(20)": 220.67
+        },
+        "XYZ": {
+          "price": 150.0,
+          "percent_change": 0.1,
+          "volume": 1.5,
+          "MA(5)": 149.5,
+          "MA(20)": 150.2
+        }
+      },
+      "watch_list": [
+        "NVDA",
+        "XYZ"
+      ],
+      "transaction_history": []
+    }
+  },
+  "primary_api": "TradingBot"
+}

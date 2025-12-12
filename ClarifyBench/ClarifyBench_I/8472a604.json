@@ -1,0 +1,52 @@
+{
+  "user_query": "Could you navigate to the 'missing_dir_1' directory and create a new file named 'summary.txt'? If it already exists, please return an error.",
+  "potential_follow_ups": [
+    "In 'Documents', let's capture some profound topic 'quantum computing' and jot them down in the 'summary.txt'. The file should only contain 'quantum computing' in its contents.",
+    "It would be great to get a sense of how comprehensive this file has become. Mind tallying up the words in 'summary.txt' for me?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "Documents"
+      }
+    },
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "summary.txt"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "quantum computing",
+        "file_name": "summary.txt"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "summary.txt",
+        "mode": "w"
+      }
+    }
+  ],
+  "user_intention": "User wants to create a new file named 'summary.txt' in the 'Documents' directory, write the words 'quantum computing' into this file, and then count the number of words in 'summary.txt'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "Documents": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

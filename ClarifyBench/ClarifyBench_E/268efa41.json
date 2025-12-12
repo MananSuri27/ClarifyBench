@@ -1,0 +1,29 @@
+{
+  "user_query": "I need you to draft a comprehensive guide for our new initiative, and let's name it 'Project_Guide_1.md'. Put 'Comprehensive guide for the new initiative.' in it.",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "Project_Guide_1.md"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I need you to draft a comprehensive guide for our new initiative, and let's name it 'Project_Guide_1.md'. Put 'Comprehensive guide for the new initiative.' in it.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alpha": {
+          "type": "directory",
+          "contents": {
+            "Project_Guide.md": {
+              "type": "file",
+              "content": "Comprehensive guide for the new initiative."
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

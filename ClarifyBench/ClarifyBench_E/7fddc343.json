@@ -1,0 +1,40 @@
+{
+  "user_query": "I would like to peek the content of 'Spring2023Draft' for review, and could you also provide a comprehensive character count of that same file for thorough assessment?",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "Spring2023Draft"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "Spring2023Draft",
+        "mode": "c"
+      }
+    }
+  ],
+  "user_intention": "User requests to \"peek the content of 'Spring2023Draft' for review.\" If asked, user clarifies that this means they want to view or read the contents of the file without making any changes to it. Thereafter, user requests \"a comprehensive character count of that same file for thorough assessment.\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "project": {
+          "type": "directory",
+          "contents": {
+            "Spring2023Draft": {
+              "type": "file",
+              "content": "These are the notes for Spring 2023."
+            },
+            "PastSeasons": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

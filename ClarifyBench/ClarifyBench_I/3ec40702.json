@@ -1,0 +1,57 @@
+{
+  "user_query": "I'm planning a long drive and need to make sure my car is ready. Could you help me by stopping the engine so I can safely refuel and ensure the tank is full before I hit the road?",
+  "potential_follow_ups": [
+    "While I'm at it, let's make sure the car's ready for the adventure. Start up the engine for me, and confirm everything is good to go, like the doors being locked and the handbrake engaged.",
+    "Finally, I'm plotting a trip through San Francisco, specifically aiming for 123 Pine St, San Francisco, CA 94016. Set the GPS for a seamless ride to that location. Anticipating a smooth drive ahead!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "45.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "123 Pine St"
+      }
+    }
+  ],
+  "user_intention": "User wants to ensure their vehicle is fully prepared for a long drive by using the VehicleControlAPI to: 1) Refuel the car to a full tank, 2) Start the engine and verify that the vehicle is ready, including checking that the doors are locked and the handbrake is engaged, and 3) Set the GPS to navigate to 123 Pine St, San Francisco, CA 94016 for a smooth journey.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 5.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

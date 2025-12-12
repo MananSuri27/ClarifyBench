@@ -1,0 +1,57 @@
+{
+  "user_query": "Hey, I've just filled my car up with 13.2 gallons of fuel. How much is that in liters?",
+  "potential_follow_ups": [
+    "Once you've converted it to liters, please guide me in filling the tank to the max limit. After that's sorted, I need to ensure that all the doors are securely locked and the parking brake is firmly set.",
+    "With the car prepped, I need to gear up for a drive from San Francisco to Rivermist. I'll be checking the fuel level once the engine is on in 'START' mode. Then, help me post a tweet, 'Embarking on an exciting road trip from SF to Rivermist!' and please throw in hashtags #RoadTrip #Adventure #Exploring."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "gallon_to_liter",
+      "parameters": {
+        "gallon": "13.2"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "36.8"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Hey, I've just filled my car up with 13.2 gallons of fuel. How much is that in liters?'\n\nOnce the conversion is provided, user requests 'Once you've converted it to liters, please guide me in filling the tank to the max limit.'\n\nAfter the tank is filled, user requests 'After that's sorted, I need to ensure that all the doors are securely locked and the parking brake is firmly set.'\n\nWith the car prepped, user requests 'With the car prepped, I need to gear up for a drive from San Francisco to Rivermist.'\n\nUser requests 'I'll be checking the fuel level once the engine is on in \"START\" mode.'\n\nUser requests 'Then, help me post a tweet, \"Embarking on an exciting road trip from SF to Rivermist!\" and please throw in hashtags #RoadTrip #Adventure #Exploring.'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 13.2,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "Rivermist",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

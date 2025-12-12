@@ -1,0 +1,77 @@
+{
+  "user_query": "I need to fill 150 liters of gasoline into my vehicle for today's trip, which is about 40 gallons. After that, I want to start the engine using the RUN mode to ensure everything is operational before departure.",
+  "potential_follow_ups": [
+    "Find out the distance from San Francisco to Rivermist for my travel plans to determine fuel consumption and travel time.",
+    "Also, on Twitter, let everyone know about my upcoming trip from San Francisco to Rivermist, with content 'Excited for my trip from San Francisco to Rivermist!', mentioning @TravelBuddy and using the hashtag #JourneyAhead.",
+    "After posting, make sure to add a mention of @RoadsideAssistance to the tweet we just created to ensure everyone is covered for emergencies."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "liter_to_gallon",
+      "parameters": {
+        "liter": "150.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "40.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "San Francisco"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "Rivermist"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "94016",
+        "cityB": "83214"
+      }
+    }
+  ],
+  "user_intention": "User wants to use the VehicleControlAPI to convert 150 liters of gasoline to gallons, round it to the nearest integer, and fill that amount into their vehicle. Then, they want to start the vehicle's engine using the standard start mode. Additionally, they want to calculate the distance from San Francisco to Rivermist to plan fuel consumption and travel time. Finally, they want to post a tweet about their trip, mentioning @TravelBuddy and using the hashtag #JourneyAhead, and then update the tweet to include a mention of @RoadsideAssistance.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 5.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "Rivermist",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

@@ -1,0 +1,83 @@
+{
+  "user_query": "I'm planning to jet off and stumbled upon a nifty flight from San Francisco to Los Angeles. Since my budget isn't too tight, why don't you go ahead and snag that booking for me? ",
+  "potential_follow_ups": [
+    "With my flight all set, can you whip up those invoice details for me? I need a nice little record of when I'm traveling, where I'm headed, and how much it's setting me back.",
+    "If things go south with my itinerary, could you be a champ and get me in touch with customer support? Just mention my confirmed booking when you connect us.",
+    "Thinking I might need to call off this trip. Could you chat with support to cancel my reservation and make sure my account gets the refund? Thanks a bunch!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "SFO",
+        "travel_to": "LAX",
+        "travel_date": "2024-11-15",
+        "travel_class": "first"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "access_token_abc123",
+        "card_id": "card123",
+        "travel_date": "2024-11-15",
+        "travel_from": "SFO",
+        "travel_to": "LAX",
+        "travel_class": "first",
+        "travel_cost": "2000.0"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "access_token": "access_token_abc123",
+        "booking_id": "3426812"
+      }
+    },
+    {
+      "tool_name": "contact_customer_support",
+      "parameters": {
+        "booking_id": "3426812",
+        "message": "Please assist with my confirmed booking."
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "access_token_abc123",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"I'm planning to jet off and stumbled upon a nifty flight from San Francisco to Los Angeles. Since my budget isn't too tight, why don't you go ahead and snag that booking for me?\"\n\n   - If asked, user clarifies: \"You should know my travel class is 'first' and travel date is '2024-11-15'. Oh, and I've got my card with id 'card123' and account token 'access_token_abc123' all good to go.\"\n\n2. Thereafter, user requests: \"With my flight all set, can you whip up those invoice details for me? I need a nice little record of when I'm traveling, where I'm headed, and how much it's setting me back.\"\n\n3. User requests: \"If things go south with my itinerary, could you be a champ and get me in touch with customer support? Just mention my confirmed booking when you connect us.\"\n\n4. User requests: \"Thinking I might need to call off this trip. Could you chat with support to cancel my reservation and make sure my account gets the refund? Thanks a bunch!\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card123": {
+          "card_number": "1234-5678-9876-5432",
+          "expiry_date": "12/25",
+          "cvv": 123,
+          "balance": 5000.0
+        }
+      },
+      "booking_record": {
+        "booking123": {
+          "flight_number": "SF-LA123",
+          "departure": "San Francisco",
+          "destination": "Los Angeles",
+          "travel_class": "Business",
+          "date": "2024-11-15",
+          "cost": 350.0
+        }
+      },
+      "access_token": "access_token_abc123",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Michael",
+      "user_last_name": "Smith",
+      "budget_limit": 1000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

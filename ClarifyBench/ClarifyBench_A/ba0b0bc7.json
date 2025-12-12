@@ -1,0 +1,80 @@
+{
+  "user_query": "I'm on a quest to escape my quaint hometown of Oakendale for the dynamic allure of Los Angeles! Eagerly anticipating this journey, I need to arrange a flight on the 15th of next month, which is November of 2024. I’ll be using my reliable credit card represented by 'crd6789', to reserve a seat in business class. Could someone handle these travel arrangements for me, please?",
+  "potential_follow_ups": [
+    "With the excitement of my flight secured, I'd feel more at ease by getting travel insurance for $50 under the 'comprehensive protection' plan. How about using the same credit card and token for this? And, hopefully, we can link it to the flight booking?",
+    "My notorious forgetfulness strikes again! I cannot recall all the specifics about the flight and insurance I just organized. Would be great if someone could retrieve the invoice from my latest transaction to ensure everything is lined up properly.",
+    "An unexpected charge popped up on the invoice that I retrieved. If at all possible, could someone contact customer support with the details to hopefully solve this issue with the message 'Unexpected charge found on the invoice.'?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "card_id": "crd6789",
+        "travel_date": "2024-11-15",
+        "travel_from": "OKD",
+        "travel_to": "LAX",
+        "travel_class": "business",
+        "travel_cost": "880.0"
+      }
+    },
+    {
+      "tool_name": "purchase_insurance",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "insurance_type": "comprehensive protection",
+        "booking_id": "3426812",
+        "insurance_cost": "50.0",
+        "card_id": "crd6789"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "booking_id": "3426812"
+      }
+    },
+    {
+      "tool_name": "contact_customer_support",
+      "parameters": {
+        "booking_id": "3426812",
+        "message": "Unexpected charge found on the invoice."
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"I'm on a quest to escape my quaint hometown of Oakendale for the dynamic allure of Los Angeles! Eagerly anticipating this journey, I need to arrange a flight on the 15th of next month, which is November of 2024. I’ll be using my reliable credit card represented by 'crd6789', to reserve a seat in business class. Could someone handle these travel arrangements for me, please?\"\n\n   If asked, user clarifies: \"the token for my reliable credit card is 'abc123xyz'\".\n\n2. Thereafter, user requests: \"With the excitement of my flight secured, I'd feel more at ease by getting travel insurance for $50 under the 'comprehensive protection' plan. How about using the same credit card and token for this? And, hopefully, we can link it to the flight booking?\"\n\n3. User requests: \"My notorious forgetfulness strikes again! I cannot recall all the specifics about the flight and insurance I just organized. Would be great if someone could retrieve the invoice from my latest transaction to ensure everything is lined up properly.\"\n\n4. User requests: \"An unexpected charge popped up on the invoice that I retrieved. If at all possible, could someone contact customer support with the details to hopefully solve this issue with the message 'Unexpected charge found on the invoice.'?\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "crd6789": {
+          "card_number": 3957928750236789,
+          "card_holder_name": "Michael Thompson",
+          "expiry_date": "12/25",
+          "cvv": 123,
+          "balance": 5000
+        }
+      },
+      "booking_record": {
+        "flight_001": {
+          "destination": "Los Angeles",
+          "departure_date": "15th of next month",
+          "class": "business",
+          "cost": 200.0,
+          "insurance": {
+            "plan": "comprehensive protection",
+            "cost": 50.0
+          }
+        }
+      },
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 1000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

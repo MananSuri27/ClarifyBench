@@ -1,0 +1,78 @@
+{
+  "user_query": "I'm excited to leave my charming hometown of Oakendale and head to the vibrant city of Los Angeles! I'm planning to fly out on November 15th, 2024, and I'd love to book a business class seat for this journey. I'll be using my trusty credit card, which ends in 'crd6789', along with the token 'abc123xyz'. Could someone help me secure this flight, ideally keeping the cost around $10,880? Thanks!",
+  "potential_follow_ups": [
+    "With the excitement of my flight secured, I'd feel more at ease by getting travel insurance for $50 under the 'comprehensive protection' plan. How about using the same credit card and token for this? And, hopefully, we can link it to the flight booking?",
+    "My notorious forgetfulness strikes again! I cannot recall all the specifics about the flight and insurance I just organized. Would be great if someone could retrieve the invoice from my latest transaction to ensure everything is lined up properly.",
+    "An unexpected charge popped up on the invoice that I retrieved. If at all possible, could someone contact customer support with the details to hopefully solve this issue with the message 'Unexpected charge found on the invoice.'?",
+    "Customer support didn't quite resolve my concerns, and now I'm a bit frustrated. It would be appreciated if a priority-2 ticket titled 'Billing Concern' could be initiated, incorporating the detailed exchange with customer support, so we can escalate this appropriately. Details be 'Detailed exchange with customer support regarding unexpected charge.'"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "card_id": "crd6789",
+        "travel_date": "2024-11-15",
+        "travel_from": "OKD",
+        "travel_to": "LAX",
+        "travel_class": "business",
+        "travel_cost": "880.0"
+      }
+    },
+    {
+      "tool_name": "purchase_insurance",
+      "parameters": {
+        "insurance_type": "comprehensive protection",
+        "booking_id": "3426812",
+        "insurance_cost": "50.0",
+        "card_id": "crd6789"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "booking_id": "3426812"
+      }
+    },
+    {
+      "tool_name": "contact_customer_support",
+      "parameters": {
+        "booking_id": "3426812",
+        "message": "Unexpected charge found on the invoice."
+      }
+    }
+  ],
+  "user_intention": "User wants to arrange a business class flight from Oakendale to Los Angeles on November 15, 2024, using their credit card and token for payment. They also want to purchase travel insurance for $50 under the 'comprehensive protection' plan, using the same payment method and linking it to the flight booking. Afterward, they wish to retrieve the invoice for these transactions to verify details. Upon discovering an unexpected charge, they want to contact customer support to resolve the issue. If unresolved, they intend to escalate the matter by initiating a priority-2 ticket titled 'Billing Concern' with detailed information from the customer support exchange.",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "crd6789": {
+          "card_number": 3957928750236789,
+          "card_holder_name": "Michael Thompson",
+          "expiry_date": "12/25",
+          "cvv": 123,
+          "balance": 5000
+        }
+      },
+      "booking_record": {
+        "flight_001": {
+          "destination": "Los Angeles",
+          "departure_date": "15th of next month",
+          "class": "business",
+          "cost": 200.0,
+          "insurance": {
+            "plan": "comprehensive protection",
+            "cost": 50.0
+          }
+        }
+      },
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 1000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

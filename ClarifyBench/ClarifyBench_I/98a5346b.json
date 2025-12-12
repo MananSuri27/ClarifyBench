@@ -1,0 +1,54 @@
+{
+  "user_query": "Could you tell me the number of lines in the file 'missing_file_1.txt' within the temp directory, ensuring we don't alter the current directory structure or create any new files or directories?",
+  "potential_follow_ups": [
+    "Select the third file displayed in that directory and meticulously reorder its contents alphabetically. Proceed to display only the last 10 lines once you've done this.",
+    "For that same third file, could you determine the total number of lines it holds?",
+    "In your experience, could you perform a precise computation of 2 to determine the base 10 logarithm for the number of line?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "file3.txt"
+      }
+    },
+    {
+      "tool_name": "tail",
+      "parameters": {
+        "file_name": "file3.txt"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "file3.txt",
+        "mode": "l"
+      }
+    }
+  ],
+  "user_intention": "User wants to list all files, including hidden ones, in the temp directory without altering the directory structure, select the third file, reorder its contents alphabetically, display the last 10 lines, determine the total number of lines in the file, and compute the base 10 logarithm of the line count.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "temp": {
+          "type": "directory",
+          "contents": {
+            "file1.txt": {
+              "type": "file",
+              "content": "Line 1\nLine 2\nLine 3\nLine 4\nLine 5\nLine 6\nLine 7\nLine 8\nLine 9\nLine 10\nLine 11\nLine 12\nLine 13\nLine 14\nLine 15\nLine 16\nLine 17\nLine 18\nLine 19\nLine 20"
+            },
+            "file2.txt": {
+              "type": "file",
+              "content": "Alpha\nBeta\nGamma\nDelta\nEpsilon\nZeta\nEta\nTheta\nIota\nKappa\nLambda\nMu\nNu\nXi\nOmicron\nPi\nRho\nSigma\nTau\nUpsilon"
+            },
+            "file3.txt": {
+              "type": "file",
+              "content": "Zebra\nApple\nOrange\nBanana\nGrape\nCherry\nMango\nPeach\nLemon\nLime\nKiwi\nPlum\nPear\nFig\nDate\nCoconut\nPineapple\nPapaya\nGuava\nLychee"
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

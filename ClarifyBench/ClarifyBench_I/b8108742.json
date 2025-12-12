@@ -1,0 +1,66 @@
+{
+  "user_query": "I'm setting off on a road trip from sunny San Francisco to Rivermist and I want to make sure I have enough fuel. Could you tell me how much fuel I should fill up with if I want to start with 240.0 units in my tank?",
+  "potential_follow_ups": [
+    "Before embarking on this journey, please top up my vehicle to end with 50 gallons of fuel.",
+    "Please start the engine to prepare for our travel. Ensure that the car is locked and everything is secure for a seamless start."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "94016",
+        "cityB": "83214"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "40"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User wants to plan and prepare for a road trip by using the VehicleControlAPI to: 1) Calculate the distance from San Francisco to Rivermist to plan fuel stops, 2) Ensure the vehicle has 50 gallons of fuel before departure, and 3) Start the engine and secure the vehicle for a smooth and safe journey.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "Rivermist",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

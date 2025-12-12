@@ -1,0 +1,66 @@
+{
+  "user_query": "Hey there! I'm planning a long road trip and need to make sure my car can handle over 300 miles without a gas stop. Could you start the engine in RUN mode to check the stats for me? If the range isn't enough, let's add 30 gallons to be safe. Thanks!",
+  "potential_follow_ups": [
+    "Additionally, before hitting the road, do me a favor and verify the tire pressures. Should any tire fall below the 40 PSI mark, kindly pinpoint the nearest tire shop for me and set navigation.",
+    "Finally, I've double-checked that all vehicle portals are locked and secure, and the parking brake's in place. Can you proceed to ignite the engine?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "300.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "30.0"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User wants to ensure their vehicle is ready for an extended road trip by verifying the fuel range and topping off the tank if necessary, checking tire pressures and setting navigation to a nearby tire shop if needed, and finally starting the engine after confirming the vehicle is secure.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "remainingUnlockedDoors": 0,
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "locked",
+        "rear_left": "locked",
+        "rear_right": "locked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "engaged",
+      "parkingBrakeForce": 15.3,
+      "slopeAngle": 10.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 35.0,
+      "frontRightTirePressure": 35.0,
+      "rearLeftTirePressure": 35.0,
+      "rearRightTirePressure": 35.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

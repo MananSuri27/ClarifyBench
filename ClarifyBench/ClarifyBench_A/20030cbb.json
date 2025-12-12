@@ -1,0 +1,52 @@
+{
+  "user_query": "Explore 'ResearchDocs' to find second files or subdirectories that contain the keyword 'draft'.",
+  "potential_follow_ups": [
+    "Make a copy of a file, name it ultimate_draft.docx and put it in ResearchDocs directory"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "find",
+      "parameters": {
+        "path": "ResearchDocs",
+        "name": "draft"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "summary_draft.docx",
+        "destination": "ultimate_draft.docx"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Explore 'ResearchDocs' to find second files or subdirectories that contain the keyword 'draft'.'\n\nUser requests 'Make a copy of a file, name it ultimate_draft.docx and put it in ResearchDocs directory.'\n\nIf asked, user clarifies that the file name should be summary_draft.docx.\n\nThereafter, user requests 'Make a copy of summary_draft.docx, name it ultimate_draft.docx and put it in ResearchDocs directory.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "shared_workspace": {
+          "type": "directory",
+          "contents": {
+            "ResearchDocs": {
+              "type": "directory",
+              "contents": {
+                "draft_notes.txt": {
+                  "type": "file",
+                  "content": "This is a draft document for research purposes. It contains preliminary findings and notes."
+                },
+                "summary_draft.docx": {
+                  "type": "file",
+                  "content": "Draft summary of the research project."
+                },
+                "final_report.pdf": {
+                  "type": "file",
+                  "content": "This is the final report of the research project."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

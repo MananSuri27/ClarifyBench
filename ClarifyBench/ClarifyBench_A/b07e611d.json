@@ -1,0 +1,71 @@
+{
+  "user_query": "Just acquired a stunning electric vehicle, and it's like a canvas waiting to be explored. Let's lock all those doors, and then let's bring the engine to life to navigate through this journey of mine. How does this whole process work in detail? Please ensure all is set for our voyage ahead.",
+  "potential_follow_ups": [
+    "I'm curating a road trip to the golden light of Rivermist. Could you craft an estimate of the travel distance and time? I'm keen to envision the extent of this journey."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "lockDoors",
+      "parameters": {
+        "unlock": "False",
+        "door": "['driver",
+        "DEFAULT": "rear_right']"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "San Francisco"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "Rivermist"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "94016",
+        "cityB": "83214"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"Just acquired a stunning electric vehicle, and it's like a canvas waiting to be explored. Let's lock all those doors, and then let's bring the engine to life to navigate through this journey of mine. How does this whole process work in detail? Please ensure all is set for our voyage ahead.\"\n\n2. User requests: \"I'm curating a road trip to the golden light of Rivermist. Could you craft an estimate of the travel distance and time? I'm keen to envision the extent of this journey.\"\n\n3. If asked, user clarifies: \"The trip starts from the vibrant hues of San Francisco.\"\n\n4. Thereafter, user requests: \"Craft an estimate of the travel distance and time from San Francisco to Rivermist.\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.0,
+      "batteryVoltage": 13.2,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 70,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 33.0,
+      "frontRightTirePressure": 33.0,
+      "rearLeftTirePressure": 31.0,
+      "rearRightTirePressure": 31.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

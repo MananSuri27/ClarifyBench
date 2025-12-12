@@ -1,0 +1,31 @@
+{
+  "user_query": "There is a report in my current directory. I have noticed the report appears somewhat cluttered; it could benefit from having its lines sorted.",
+  "potential_follow_ups": [
+    "There is a report in my current directory. I have noticed the report appears somewhat cluttered; it could benefit from having its lines sorted."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "report.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests \"There is a report in my current directory. I have noticed the report appears somewhat cluttered; it could benefit from having its lines sorted.\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "tmp": {
+          "type": "directory",
+          "contents": {
+            "report.txt": {
+              "type": "file",
+              "content": "Initial report content Unsorted data More unsorted data"
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

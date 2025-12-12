@@ -1,0 +1,93 @@
+{
+  "user_query": "Copy all the text files of the 'Quarter1_Reports' directory and place it in a new directory naming it 'Archived_Quarter1.",
+  "potential_follow_ups": [
+    "Within the 'MonthlySummary.docx' file, display the content and sort it alphabetically by line to organize the information neatly.",
+    "Compare the educational material differences between 'History101.txt' and 'History202.txt', then post the differences to my Twitter account for my followers to see, mentioning Jerry."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "report1.txt",
+        "destination": "Archived_Quarter1"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "report2.txt",
+        "destination": "Archived_Quarter1"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "History101.txt",
+        "destination": "Archived_Quarter1"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "History202.txt",
+        "destination": "Archived_Quarter1"
+      }
+    },
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "MonthlySummary.docx"
+      }
+    },
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "MonthlySummary.docx"
+      }
+    },
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "History101.txt",
+        "file_name2": "History202.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Copy all the text files of the 'Quarter1_Reports' directory and place it in a new directory naming it 'Archived_Quarter1'.'\n\nUser requests 'Within the 'MonthlySummary.docx' file, display the content and sort it alphabetically by line to organize the information neatly.'\n\nUser requests 'Compare the educational material differences between 'History101.txt' and 'History202.txt', then post the differences to my Twitter account for my followers to see, mentioning Jerry.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "Quarter1_Reports": {
+          "type": "directory",
+          "contents": {
+            "report1.txt": {
+              "type": "file",
+              "content": "Quarter 1 financial report."
+            },
+            "report2.txt": {
+              "type": "file",
+              "content": "Quarter 1 sales report."
+            },
+            "Backup": {
+              "type": "directory",
+              "contents": {}
+            },
+            "MonthlySummary.docx": {
+              "type": "file",
+              "content": "Summary of monthly activities and achievements."
+            },
+            "History101.txt": {
+              "type": "file",
+              "content": "Introduction to History. Ancient civilizations."
+            },
+            "History202.txt": {
+              "type": "file",
+              "content": "Advanced History. Modern world events."
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

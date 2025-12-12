@@ -1,0 +1,38 @@
+{
+  "user_query": "Where is my notes? Forward it exactly to Bob please. I am USR001.",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "initial_directory"
+      }
+    }
+  ],
+  "user_intention": "User requests \"Where is my notes?\" If asked, user clarifies that they are looking for a specific file or document labeled as \"notes\" within the GorillaFileSystem.\n\nUser requests \"Forward it exactly to Bob please.\" If asked, user clarifies that they want the file or document to be sent or shared with a person named Bob, ensuring that the content remains unchanged.\n\nUser states \"I am USR001.\" If asked, user clarifies that this is their user identification within the GorillaFileSystem, which may be used to locate their files or verify their identity.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "initial_directory": {
+              "type": "directory",
+              "contents": {
+                "notes": {
+                  "type": "file",
+                  "content": "Meeting notes and project details."
+                },
+                "other_file.txt": {
+                  "type": "file",
+                  "content": "Some other content."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

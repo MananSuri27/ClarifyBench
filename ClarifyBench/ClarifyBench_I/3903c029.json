@@ -1,0 +1,50 @@
+{
+  "user_query": "I'm planning ahead for our big trip and realized our car's fuel tank is running low. Could you please top it up to a total of 230 gallons before I turn on the ignition using the 'START' mode?",
+  "potential_follow_ups": [
+    "As part of our travel prep, I'm keeping tabs on the tires as well. I'd appreciate it if you could share a quick update about the tire pressures on Twitter, using the format 'Front Left Tire: XXX PSI, Front Right Tire: XXX PSI, Rear Left Tire: XXX PSI, Rear Right Tire: XXX PSI', where 'XXX' is the actual values for the tire pressure.",
+    "Speaking of which, I noticed that tweets about tire pressures usually gets lots of view. Would you mind retweeting it for me?",
+    "While you're at it, it'd be awesome if you could comment on that tweet, something like 'Is this pressue too low? Should I take any action?' would be perfect."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "30.0"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User wants to use the VehicleControlAPI to ensure their vehicle is ready for a trip by performing the following actions: 1) Refill the car's fuel tank with an additional 30 gallons before starting the vehicle. 2) Retrieve and share the current tire pressures on Twitter in a specified format. 3) Retweet the tire pressure update. 4) Comment on the tire pressure tweet with a question about whether the pressure is too low and if any action is needed.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

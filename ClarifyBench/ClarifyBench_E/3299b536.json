@@ -1,0 +1,57 @@
+{
+  "user_query": "It's getting late here, and I'm wrapping up my notes for the day. Please initiate a file creation in our communal folder, labeling it as 'Annual_Report_2023.docx'.",
+  "potential_follow_ups": [
+    "May I have a look at what's inside 'Annual_Report_2023.docx'?",
+    "Let's delve into 'Annual_Report_2023.docx'. How many words does it contain?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "Annual_Report_2023.docx"
+      }
+    },
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "Annual_Report_2023.docx"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "Annual_Report_2023.docx",
+        "mode": "w"
+      }
+    }
+  ],
+  "user_intention": "User requests \"It's getting late here, and I'm wrapping up my notes for the day. Please initiate a file creation in our communal folder, labeling it as 'Annual_Report_2023.docx'.\"\n\nUser requests \"May I have a look at what's inside 'Annual_Report_2023.docx'?\"\n\nUser requests \"Let's delve into 'Annual_Report_2023.docx'. How many words does it contain?\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "gorilla": {
+          "type": "directory",
+          "contents": {
+            "communal": {
+              "type": "directory",
+              "contents": {}
+            },
+            "reserve": {
+              "type": "directory",
+              "contents": {}
+            },
+            "shared": {
+              "type": "directory",
+              "contents": {}
+            },
+            "archives": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

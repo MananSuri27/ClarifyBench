@@ -1,0 +1,50 @@
+{
+  "user_query": "Imagine you've meticulously planned a surprise getaway to the Maldives, brimming with excitement to ensure each detail unfolds seamlessly. Your first step is securing your travel account access; kindly authenticate with your credentials. My access token of abc123xyz, a client ID of my_client_id, a client secret of my_client_secret, and a refresh token of my_refresh_token. The grant type should be set to read_write, and the user's first name is Michael, with the last name being Thompson",
+  "potential_follow_ups": [
+    "Oh dear! Something urgent...Need your attention, need to fix"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "251675",
+        "card_id": "credit_9988",
+        "travel_date": "2024-12-25",
+        "travel_from": "JFK",
+        "travel_to": "MPC",
+        "travel_class": "first",
+        "travel_cost": "3000.5"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "251675",
+        "booking_id": "5431449"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"Imagine you've meticulously planned a surprise getaway to the Maldives, brimming with excitement to ensure each detail unfolds seamlessly. Your first step is securing your travel account access; kindly authenticate with your credentials. My access token of abc123xyz, a client ID of my_client_id, a client secret of my_client_secret, and a refresh token of my_refresh_token. The grant type should be set to read_write, and the user's first name is Michael, with the last name being Thompson.\"\n\n2. If asked, user clarifies: \"Fantastic! Now that authentication is successfully completed, let's move forward with booking your idyllic escape. You opt for your trusted credit card, bearing the id credit_9988, to cover all logistical costs. Book your journey from JFK to MPC for December 25th, 2024, travelling first class, at a cost of 3000.50 dollars.\"\n\n3. User requests: \"Oh dear! Something urgent...Need your attention, need to fix.\"\n\n4. If asked, user clarifies: \"Could you please cancel your recent booking as a more urgent matter needs your attention?\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "credit_9988": {
+          "card_number": "5522-5433-6677-9988",
+          "expiration_date": "12/25",
+          "cvv": 123,
+          "cardholder_name": "Michael Thompson",
+          "balance": 10000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "full_access",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 5000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

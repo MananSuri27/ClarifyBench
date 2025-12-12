@@ -1,0 +1,88 @@
+{
+  "user_query": "Please create a duplicate of the file with the following settings: Save the copy as \"document_oob2_copy.pdf\" in the directory \"/user/documents/duplicates/\" without overwriting any existing files.",
+  "potential_follow_ups": [
+    "Could you help me remove pages 5 to 10 from my PDF named \"document_oob2.pdf\"? I want to save the modified file as \"document_oob2_modified.pdf\" and make sure it doesn't overwrite any existing files. Thanks!",
+    "Hey, I need to add a watermark to my PDF document. Could you apply the text \"Confidential\" with 50% transparency to the first 17 pages of my file? Please make sure it overwrites the existing file. Thanks!",
+    "Hey, could you extract pages 3 to 7 from my PDF \"document_oob2.pdf\" and save it as \"extracted_pages_3_to_7.pdf\"? Please ensure it doesn't overwrite any existing files. Thanks!",
+    "Hi! Can you help me rename my PDF file \"document_oob2.pdf\"? I'd like the new name to be \"document_renamed.pdf\" and save it as \"/documents/renamed_document_oob2.pdf\". Please make sure it doesn't overwrite any existing files. Thanks!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "duplicate",
+      "parameters": {
+        "output_filename": "document_oob2_copy.pdf",
+        "page_range": "1-17",
+        "overwrite": false,
+        "output_pathname": "/user/documents/duplicates/"
+      }
+    },
+    {
+      "tool_name": "delete_page_range",
+      "parameters": {
+        "start": 5,
+        "end": 10,
+        "overwrite": false,
+        "output_pathname": "document_oob2_modified.pdf"
+      }
+    },
+    {
+      "tool_name": "add_watermark",
+      "parameters": {
+        "watermark_text": "Confidential",
+        "transparency": 0.5,
+        "page_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "overwrite": true
+      }
+    },
+    {
+      "tool_name": "extract_pages",
+      "parameters": {
+        "start": 3,
+        "end": 7,
+        "overwrite": false,
+        "output_pathname": "extracted_pages_3_to_7.pdf"
+      }
+    },
+    {
+      "tool_name": "rename",
+      "parameters": {
+        "output_filename": "document_renamed.pdf",
+        "overwrite": false,
+        "output_pathname": "/documents/renamed_document_oob2.pdf"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Hey, can you help me create a copy of the first 17 pages of my PDF file named \"document_oob2.pdf\"? I want the new file to be saved as \"document_oob2_copy.pdf\" in the \"/user/documents/duplicates/\" folder. Please make sure it doesn't overwrite any existing files. Thanks!'. If asked, user clarifies details. User requests 'Could you help me remove pages 5 to 10 from my PDF named \"document_oob2.pdf\"? I want to save the modified file as \"document_oob2_modified.pdf\" and make sure it doesn't overwrite any existing files. Thanks!'. If asked, user clarifies details. User requests 'Hey, I need to add a watermark to my PDF document. Could you apply the text \"Confidential\" with 50% transparency to the first 17 pages of my file? Please make sure it overwrites the existing file. Thanks!'. If asked, user clarifies details. User requests 'Hey, could you extract pages 3 to 7 from my PDF \"document_oob2.pdf\" and save it as \"extracted_pages_3_to_7.pdf\"? Please ensure it doesn't overwrite any existing files. Thanks!'. If asked, user clarifies details. User requests 'Hi! Can you help me rename my PDF file \"document_oob2.pdf\"? I'd like the new name to be \"document_renamed.pdf\" and save it as \"/documents/renamed_document_oob2.pdf\". Please make sure it doesn't overwrite any existing files. Thanks!'. If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 17,
+      "pdf_name": "document_oob2.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "duplicate",
+    "delete_page_range",
+    "add_watermark",
+    "extract_pages",
+    "rename"
+  ]
+}

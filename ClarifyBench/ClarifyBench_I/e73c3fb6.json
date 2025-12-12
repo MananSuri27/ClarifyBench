@@ -1,0 +1,51 @@
+{
+  "user_query": "Before I hit the road for my long trip, I made sure to fill up my car's fuel tank to double its previous level. Could you please start the engine in RUN mode so I can check that everything is operating smoothly?",
+  "potential_follow_ups": [
+    "Oh no! One of the tires feels odd. Could you check the tire pressure to confirm if they're at a healthy level?",
+    "It seems like the tire pressure isn't optimal and I may need assistance. Create priority 5 ticket titled 'Tire Pressure Issue' to notify the service team about this. Important ticket does not need description as it's self-explanatory",
+    "Could you please retrieve the details of the last service ticket you submitted to ensure all issues were addressed and nothing is left unresolved?",
+    "Great, now that everything's sorted, kindly proceed to close the ticket for me as the tire issue is resolved."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User wants to ensure their vehicle is ready for a long trip by performing the following steps using the VehicleControlAPI:\n\n1. Start the vehicle's engine to verify smooth operations.\n2. Check the tire pressure to confirm it is at a healthy level.\n3. If the tire pressure is not optimal, create a priority 5 service ticket titled \"Tire Pressure Issue\" to notify the service team.\n4. Retrieve details of the last service ticket to ensure all previous issues were addressed.\n5. Close the service ticket once the tire issue is resolved.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

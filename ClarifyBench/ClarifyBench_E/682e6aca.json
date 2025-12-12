@@ -1,0 +1,65 @@
+{
+  "user_query": "I need to cap my travel expenses at 20,000 RMB. Sort out everything to make sure this limit is correctly set up. Around it to have tenth and hundredth digit. Like 12.34 as the input. My access token is abc123xyz if you need.",
+  "potential_follow_ups": [
+    "With my budget arranged, I want to book a business class ticket going from LAX to JFK on October 12th 2024. Charge it to my main credit card and ensure it stays within my budget plans.",
+    "I've had a change of heart regarding my travel itinerary. Go ahead and cancel my previous booking and process any refunds due."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "compute_exchange_rate",
+      "parameters": {
+        "base_currency": "RMB",
+        "target_currency": "USD",
+        "value": "20000.0"
+      }
+    },
+    {
+      "tool_name": "set_budget_limit",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "budget_limit": "2857.14"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "card_id": "main_card",
+        "travel_date": "2024-10-12",
+        "travel_from": "LAX",
+        "travel_to": "JFK",
+        "travel_class": "business",
+        "travel_cost": "2400.0"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I need to cap my travel expenses at 20,000 RMB. Sort out everything to make sure this limit is correctly set up. Around it to have tenth and hundredth digit. Like 12.34 as the input. My access token is abc123xyz if you need.' \n\nIf asked, user clarifies that this is to ensure all travel-related expenses do not exceed the specified budget and that the budget should be set with precision to two decimal places.\n\nThereafter, user requests 'With my budget arranged, I want to book a business class ticket going from LAX to JFK on October 12th 2024. Charge it to my main credit card and ensure it stays within my budget plans.'\n\nUser requests 'I've had a change of heart regarding my travel itinerary. Go ahead and cancel my previous booking and process any refunds due.'",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "main_card": {
+          "card_number": "1234-5678-9876-5432",
+          "expiry_date": "12/25",
+          "cardholder_name": "Michael Zhang",
+          "balance": 50000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Michael",
+      "user_last_name": "Zhang",
+      "budget_limit": 10000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

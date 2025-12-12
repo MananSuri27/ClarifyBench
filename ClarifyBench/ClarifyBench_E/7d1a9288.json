@@ -1,0 +1,55 @@
+{
+  "user_query": "Would you be able to increase my current fuel reserve to twice its size?",
+  "potential_follow_ups": [
+    "Since we've topped up the fuel, let's ignite the engine and assess the battery's condition for our journey.",
+    "Verify the tire pressure to guarantee they're accurately inflated for our lengthy expedition."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "10.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User requests 'Would you be able to increase my current fuel reserve to twice its size?'. If asked, user clarifies that this means refueling the vehicle to double the current fuel level. Thereafter, user requests 'Since we've topped up the fuel, let's ignite the engine and assess the battery's condition for our journey.'. User requests 'Verify the tire pressure to guarantee they're accurately inflated for our lengthy expedition.'.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

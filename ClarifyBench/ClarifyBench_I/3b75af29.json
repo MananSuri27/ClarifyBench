@@ -1,0 +1,70 @@
+{
+  "user_query": "Please make sure to fill the fuel tank with exactly 38 liters of gasoline, rounding to the nearest whole number if necessary, to prepare for our long journey. Once the fuel is topped up, start the engine by switching the ignition mode to OFF. Also, double-check that all doors are locked and the parking brake is set for safety.",
+  "potential_follow_ups": [
+    "As we gear up for our adventure, it’s wise to confirm that each tire is inflated to a stable 32 PSI. Should any of the tires fall short, chart a course to the nearest tire service center to have this rectified."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "liter_to_gallon",
+      "parameters": {
+        "liter": "38"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "10"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "456 Oakwood Avenue"
+      }
+    }
+  ],
+  "user_intention": "User wants to ensure the vehicle is fully prepared for a long journey by performing the following steps using the VehicleControlAPI: 1) Add 38 liters of gasoline, rounding to the nearest integer if necessary, to adequately replenish the fuel tank. 2) Start the engine using the ignition mode. 3) Verify that all doors are securely closed and the parking brake is engaged for safety. 4) Check that each tire is inflated to 32 PSI and, if any tire is underinflated, plan a visit to the nearest tire service center for correction.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

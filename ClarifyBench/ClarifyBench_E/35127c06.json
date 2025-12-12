@@ -1,0 +1,81 @@
+{
+  "user_query": "Go into document folder and Could you draft up a create a document titled 'TeamNotes.txt' for keeping track of all the fresh ideas?",
+  "potential_follow_ups": [
+    "We've gathered a couple of wise insights from Simona, so could you jot down 'Collaboration leads to success. Innovation ignites growth.' into the previous file?",
+    "There seems to be some differences noted by Simona between the 'ideas.txt' file and our 'TeamNotes.txt'. Could you delve into these files to identify and explain the line-by-line distinctions for her?",
+    "Simona thinks it's a smart move to secure 'TeamNotes.txt'. How about we copy it over to the archive directory under the name IdeasArchive.txt while keeping the original intact? Make sure the Archived directory exists in document folder. I remembered I put it there.",
+    "Before Simona signs off for the day, she'd like to take a peek at what's been stored in 'IdeasArchive.txt'. Could you arrange for her to view its contents?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "TeamNotes.txt"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "Collaboration leads to success. Innovation ignites growth.",
+        "file_name": "TeamNotes.txt"
+      }
+    },
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "ideas.txt",
+        "file_name2": "TeamNotes.txt"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "TeamNotes.txt",
+        "destination": "Archived"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "TeamNotes.txt",
+        "destination": "IdeasArchive.txt"
+      }
+    },
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "IdeasArchive.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Go into document folder and Could you draft up a create a document titled 'TeamNotes.txt' for keeping track of all the fresh ideas?'. \n\nThereafter, user requests 'We've gathered a couple of wise insights from Simona, so could you jot down 'Collaboration leads to success. Innovation ignites growth.' into the previous file?'. \n\nUser requests 'There seems to be some differences noted by Simona between the 'ideas.txt' file and our 'TeamNotes.txt'. Could you delve into these files to identify and explain the line-by-line distinctions for her?'. \n\nUser requests 'Simona thinks it's a smart move to secure 'TeamNotes.txt'. How about we copy it over to the archive directory under the name IdeasArchive.txt while keeping the original intact? Make sure the Archived directory exists in document folder. I remembered I put it there.'. \n\nUser requests 'Before Simona signs off for the day, she'd like to take a peek at what's been stored in 'IdeasArchive.txt'. Could you arrange for her to view its contents?'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "simona": {
+          "type": "directory",
+          "contents": {
+            "documents": {
+              "type": "directory",
+              "contents": {
+                "ideas.txt": {
+                  "type": "file",
+                  "content": "Collaboration leads to success. Innovation ignites growth."
+                },
+                "Archived": {
+                  "type": "directory",
+                  "contents": {}
+                },
+                "past_projects": {
+                  "type": "directory",
+                  "contents": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

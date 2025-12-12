@@ -1,0 +1,65 @@
+{
+  "user_query": "Alright, I've been thinking about a road trip and I want to use my own car for the journey. That's quite a stretch—450 miles in one go today. Is this something I could realistically pull off? I just want to know a answer; you don't need to refill if it's not reachable. If it is reachable, set navigation to '1914 7th St, Apt B, Berkeley, CA 94710'.",
+  "potential_follow_ups": [
+    "Given that the trip isn't looking too likely with what I have at the moment, I'll need to refuel. I think 40 gallons in total in my tank should do the trick to get me enough mileage. Can you handle the gas top-up for me?",
+    "Everything's all set now, and I'm ready to get going. Could you get the engine started for me? Make sure you do it in START mode, with all doors securely locked and the brake properly engaged.",
+    "I'm planning on visiting this gorgeous little spot in my mom's hometown. Would you be so kind as to set up the navigation system to take me there?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "450.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "30"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "2107 Channing Way",
+        "DEFAULT": "CA"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"Alright, I've been thinking about a road trip and I want to use my own car for the journey. That's quite a stretch—450 miles in one go today. Is this something I could realistically pull off? I just want to know a answer; you don't need to refill if it's not reachable. If it is reachable, set navigation to '1914 7th St, Apt B, Berkeley, CA 94710'.\"\n\n2. User requests: \"Given that the trip isn't looking too likely with what I have at the moment, I'll need to refuel. I think 40 gallons in total in my tank should do the trick to get me enough mileage. Can you handle the gas top-up for me?\"\n\n3. User requests: \"Everything's all set now, and I'm ready to get going. Could you get the engine started for me? Make sure you do it in START mode, with all doors securely locked and the brake properly engaged.\"\n\n4. User requests: \"I'm planning on visiting this gorgeous little spot in my mom's hometown. Would you be so kind as to set up the navigation system to take me there?\"\n\n5. If asked, user clarifies: \"I want to go to 2107 Channing Way, Berkeley, CA.\"\n\n6. Thereafter, user requests: \"Set navigation to 2107 Channing Way, Berkeley, CA.\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

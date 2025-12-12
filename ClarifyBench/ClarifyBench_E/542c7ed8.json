@@ -1,0 +1,64 @@
+{
+  "user_query": "Arrange a complete listing of all files and directories presently located here, making sure you don't overlook the hidden ones too.",
+  "potential_follow_ups": [
+    "Transfer the 'annual_report.txt' in Documents directory to the 'Reports' directory that's in Documents directory, but also make sure it remains available in its current spot.",
+    "Reveal the last lines of 'Q4_summary.doc' so we can ascertain how the report wraps up."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "ls",
+      "parameters": {
+        "a": "True"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "annual_report.txt",
+        "destination": "Reports"
+      }
+    },
+    {
+      "tool_name": "tail",
+      "parameters": {
+        "file_name": "Q4_summary.doc",
+        "lines": "1"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Arrange a complete listing of all files and directories presently located here, making sure you don't overlook the hidden ones too.' If asked, user clarifies that this includes all files and directories, visible and hidden, in the current directory.\n\nThereafter, user requests 'Transfer the \"annual_report.txt\" in Documents directory to the \"Reports\" directory that's in Documents directory, but also make sure it remains available in its current spot.' If asked, user clarifies that this means creating a copy of \"annual_report.txt\" in the \"Reports\" directory while keeping the original file in the \"Documents\" directory.\n\nThereafter, user requests 'Reveal the last lines of \"Q4_summary.doc\" so we can ascertain how the report wraps up.' If asked, user clarifies that this involves displaying the final few lines of the document to understand its conclusion.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "Documents": {
+              "type": "directory",
+              "contents": {
+                "annual_report.txt": {
+                  "type": "file",
+                  "content": "Annual report content with Q4 results."
+                },
+                "Q4_summary.doc": {
+                  "type": "file",
+                  "content": "Summary of Q4 results. Conclusion: Profits increased."
+                },
+                "Reports": {
+                  "type": "directory",
+                  "contents": {
+                    "Archives": {
+                      "type": "directory",
+                      "contents": {}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

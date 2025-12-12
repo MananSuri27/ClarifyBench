@@ -1,0 +1,54 @@
+{
+  "user_query": "My vehicle's fuel tank is low; please refuel it with 30 gallons. Following that, initiate the engine using ignition mode 'START', ensuring all doors are secured and the parking brake is set to avoid errors.",
+  "potential_follow_ups": [
+    "Post-engine start, verify tire pressure. If it's insufficient (less than 30.0 psi), proceed to the nearest tire shop at 456 Oakwood Avenue, Rivermist, 83214."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "30"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User requests 'My vehicle's fuel tank is low; please refuel it with 30 gallons.' If asked, user clarifies that this is to ensure the vehicle has enough fuel for the journey. Thereafter, user requests 'Initiate the engine using ignition mode \"START\", ensuring all doors are secured and the parking brake is set to avoid errors.' If asked, user clarifies that securing the doors and setting the parking brake are safety measures to prevent any issues during engine start.\n\nUser requests 'Post-engine start, verify tire pressure.' If asked, user clarifies that the tire pressure should be checked to ensure it is not less than 30.0 psi. Thereafter, user requests 'If it's insufficient (less than 30.0 psi), proceed to the nearest tire shop at 456 Oakwood Avenue, Rivermist, 83214.' If asked, user clarifies that this address is the location of the nearest tire shop for necessary adjustments.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 5.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 28.0,
+      "frontRightTirePressure": 28.0,
+      "rearLeftTirePressure": 28.0,
+      "rearRightTirePressure": 28.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

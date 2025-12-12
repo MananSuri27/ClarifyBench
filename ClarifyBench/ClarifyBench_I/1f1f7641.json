@@ -1,0 +1,60 @@
+{
+  "user_query": "Could you move the file 'missing_file_1.txt' to the 'archives' directory for me?",
+  "potential_follow_ups": [
+    "Transfer 'temp_notes.txt' into the 'archives' directory and rename it to 'notes_2024.txt'.",
+    "I recently documented a support ticket due to an issue with my workstation, and I recall the ticket number was 987654, though the precise number eludes me. Retrieve the details of that ticket for me, please.",
+    "With the information from the ticket at hand, resolve it for me since I've already addressed the core problem independently. Summarize the resolution as: 'Fixed through manual troubleshooting techniques.'"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "report_draft.txt",
+        "file_name2": "report_final.txt"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "temp_notes.txt",
+        "destination": "archives"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "temp_notes.txt",
+        "destination": "notes_2024.txt"
+      }
+    }
+  ],
+  "user_intention": "User wants to: \n\n1. Search for and identify both the draft and final report files in the current directory, then compare their contents to understand the differences.\n2. Move the file 'temp_notes.txt' from its current location to the 'archives' directory and rename it to 'notes_2024.txt' during the transfer.\n3. Locate and retrieve the details of a support ticket using the partial ticket number 987654.\n4. With the retrieved ticket information, mark the ticket as resolved by documenting the resolution as \"Fixed through manual troubleshooting techniques.\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "project": {
+          "type": "directory",
+          "contents": {
+            "report_draft.txt": {
+              "type": "file",
+              "content": "Initial draft content for the report."
+            },
+            "report_final.txt": {
+              "type": "file",
+              "content": "Finalized content for the report."
+            },
+            "temp_notes.txt": {
+              "type": "file",
+              "content": "Temporary notes for the project."
+            },
+            "archives": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

@@ -1,0 +1,48 @@
+{
+  "user_query": "Would you be able to convert some liters of gasoline into gallons volumn for me? Afterwards, starting the engine to check for smooth operation would be appreciated.",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "liter_to_gallon",
+      "parameters": {
+        "liter": "20.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "1. User requests \"Would you be able to convert some liters of gasoline into gallons volumn for me? Afterwards, starting the engine to check for smooth operation would be appreciated.\"\n\n2. If asked, user clarifies that this is \"I mean 20 liters of gas.\"\n\n3. Thereafter, user requests to start the engine to check for smooth operation.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 20.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

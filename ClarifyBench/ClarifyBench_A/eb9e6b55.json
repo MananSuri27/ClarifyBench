@@ -1,0 +1,40 @@
+{
+  "user_query": "I'm gearing up for a quick business getaway and need my ride all set. Would you be able to verify if my tire pressure is in check? If it falls under a specific PSI, perhaps we could swing by the nearest tire shop?",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "1. User requests \"I'm gearing up for a quick business getaway and need my ride all set. Would you be able to verify if my tire pressure is in check? If it falls under a specific PSI, perhaps we could swing by the nearest tire shop?\"\n\n2. If asked, user clarifies that \"I think falling under 37.5 PSI would not be ideal.\"\n\n3. Thereafter, user requests to verify tire pressure and take action if it is below 37.5 PSI.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "running",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "locked",
+        "rear_left": "locked",
+        "rear_right": "locked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 70,
+      "acMode": "cool",
+      "humidityLevel": 45.0,
+      "headLightStatus": "on",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "active",
+      "destination": "None",
+      "frontLeftTirePressure": 35.0,
+      "frontRightTirePressure": 35.0,
+      "rearLeftTirePressure": 33.0,
+      "rearRightTirePressure": 33.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

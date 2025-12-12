@@ -1,0 +1,57 @@
+{
+  "user_query": "I'm planning a business class flight from San Francisco to Los Angeles for November 16, 2024. I'll be using my American Express card with the ID 'AMEX123456789' to pay for the ticket, which costs $10,400. Can you book this for me using the access token 'abc123xyz'?",
+  "potential_follow_ups": [
+    "Regrettably, unexpected situations have come up, and I've had to alter my plans. Would you kindly cancel the flight booking that I made previously?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "SFO",
+        "travel_to": "LAX",
+        "travel_date": "2024-11-16",
+        "travel_class": "business"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "card_id": "AMEX123456789",
+        "travel_date": "2024-11-16",
+        "travel_from": "SFO",
+        "travel_to": "LAX",
+        "travel_class": "business",
+        "travel_cost": "400.0"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "User wants to book a business class flight from San Francisco to Los Angeles for November 16, 2024, using their American Express card and access token, and later cancel the same booking due to a change in plans.",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "AMEX123456789": {
+          "card_type": "American Express",
+          "card_number": "378282246310005",
+          "expiry_date": "12/25",
+          "cardholder_name": "Michael Thompson",
+          "balance": 15000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read write",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 2000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

@@ -1,0 +1,49 @@
+{
+  "user_query": "Can you add my signature to page 5 of the document_i4mm.pdf? I'd like it positioned at the bottom-right corner. Also, please make sure it doesn't overwrite any existing content. Save the updated file as document_i4mm_signed.pdf. Thanks!",
+  "potential_follow_ups": [
+    "Could you please search for any tables related to sales data within pages 1 to 19 of the document_i4mm.pdf? I need this to be the second step in a series of three tasks. Make sure not to overwrite any existing content and save the search results as output_search_results.json. Thanks!",
+    "Please create a copy of the document with the name \"document_i4mm_copy.pdf\" and allow it to overwrite any existing file with the same name."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "add_signature",
+      "parameters": {
+        "page_num": 5,
+        "position": "bottom-right",
+        "overwrite": false,
+        "output_pathname": "document_i4mm_signed.pdf"
+      }
+    },
+    {
+      "tool_name": "search",
+      "parameters": {
+        "object_name": "tables related to sales data",
+        "document": "document_i4mm.pdf",
+        "pages": "1-19",
+        "turn": "2/3",
+        "overwrite": false,
+        "output_pathname": "output_search_results.json"
+      }
+    },
+    {
+      "tool_name": "duplicate",
+      "parameters": {
+        "output_filename": "document_i4mm_copy.pdf",
+        "overwrite": true
+      }
+    }
+  ],
+  "user_intention": "User requests 'Can you add my signature to page 5 of the document_i4mm.pdf? I'd like it positioned at the bottom-right corner. Also, please make sure it doesn't overwrite any existing content. Save the updated file as document_i4mm_signed.pdf. Thanks!'. If asked, user clarifies details. User requests 'Could you please search for any tables related to sales data within pages 1 to 19 of the document_i4mm.pdf? I need this to be the second step in a series of three tasks. Make sure not to overwrite any existing content and save the search results as output_search_results.json. Thanks!'. If asked, user clarifies details. User requests 'Finally, could you create a duplicate of the document_i4mm.pdf and save it as document_i4mm_copy.pdf? Please make sure to overwrite any existing file with the same name. Thanks!'. If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 19,
+      "pdf_name": "document_i4mm.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "add_signature",
+    "search",
+    "duplicate"
+  ]
+}

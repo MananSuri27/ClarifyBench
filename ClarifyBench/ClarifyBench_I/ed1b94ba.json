@@ -1,0 +1,60 @@
+{
+  "user_query": "Imagine I just embarked on a lovely road trip and had to make a stop at the gas station. Would you be so kind as to assist me in filling up my car with 15 liters of gasoline? Fill with the second decimal digit precision in gallon. Once that's done, it would be fantastic if you could check the tire pressures as well—I'd love to share my impressive car maintenance skills with my Twitter followers with the message 'Just filled up the tank and checked the tire pressures. Ready for the next adventure!'. If you could also start up the engine with the ignition mode set to OFF and let me know the battery voltage and fuel level, that would be incredibly helpful.",
+  "potential_follow_ups": [
+    "I've shared the details about my tire pressures and engine's stellar condition on Twitter, but I'd like to give that tweet a bit more visibility. Could you possibly amplify its reach by retweeting it? And if you could add a comment saying, 'Ready for the next adventure!' that would be splendid."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "liter_to_gallon",
+      "parameters": {
+        "liter": "15"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "3.96"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User wants to use the VehicleControlAPI to fill their car with 15 liters of gasoline, converted to gallons with second decimal precision, check the tire pressures, start the engine, and retrieve the battery voltage and fuel level. Additionally, the user wants to share their car maintenance activities on Twitter, including retweeting and commenting on their tweet to increase its visibility.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

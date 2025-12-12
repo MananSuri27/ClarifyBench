@@ -1,0 +1,67 @@
+{
+  "user_query": "I'm about to embark on a road trip adventure and I want my car to be in peak condition. Could you make sure to increase the current fuel level by 235.0 units to ensure that my tank is full, so I don't have to keep stopping to refuel along the way?",
+  "potential_follow_ups": [
+    "Before I hit the open road, I need to get the engine running smoothly. Can you confirm there's enough fuel, and ensure the engine's primed for a seamless start?",
+    "I want to make certain my tires are roadworthy before setting off. If any of my car's tires are showing pressure below 40, point me in the direction of the closest tire service station, because I definitely don't want to run into tire trouble.",
+    "Moreover, could you set up the GPS to guide me directly to the nearest shop if my tires aren't up to the mark, so I'm not wandering off course?",
+    "Once my car is ready for the journey, it would be fantastic to let my friends know about my travel plans. Could you draft a tweet that says: \"Starting my road trip with a car that is fully prepared and raring to go!\" with hashtags #Roadtrip #Adventure?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "35.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "456 Oakwood Avenue"
+      }
+    }
+  ],
+  "user_intention": "User wants to ensure their vehicle is fully prepared for a road trip by using the VehicleControlAPI to: 1) Increase the fuel level to a full tank to avoid frequent refueling stops. 2) Confirm sufficient fuel and ensure the engine is ready for a smooth start. 3) Check tire pressure and, if any tire is below 40, identify the nearest tire service station. 4) Set up the GPS to navigate to the nearest shop if tire service is needed. 5) Draft a tweet announcing their road trip with a prepared vehicle, including specific hashtags.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 35.0,
+      "frontRightTirePressure": 35.0,
+      "rearLeftTirePressure": 35.0,
+      "rearRightTirePressure": 35.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

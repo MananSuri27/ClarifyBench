@@ -1,0 +1,64 @@
+{
+  "user_query": "Can I realistically make a 450-mile road trip in one go with my car today? If it's not possible without refueling, just let me know. If it is possible, I'll stop the engine for now and set the navigation to '1914 7th St, Apt B, Berkeley, CA 94710'.",
+  "potential_follow_ups": [
+    "Given that the trip isn't looking too likely with what I have at the moment, I'll need to refuel. I think 40 gallons in total in my tank should do the trick to get me enough mileage. Can you handle the gas top-up for me?",
+    "Everything's all set now, and I'm ready to get going. Could you get the engine started for me? Make sure you do it in START mode, with all doors securely locked and the brake properly engaged.",
+    "I'm planning on visiting this gorgeous little spot in Berkeley, California. Would you be so kind as to set up the navigation system to take me to 2107 Channing Way, Berkeley, CA?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "450.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "30"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "2107 Channing Way"
+      }
+    }
+  ],
+  "user_intention": "User wants to plan and execute a road trip using their own car by performing the following VehicleControlAPI operations: \n\n1. Determine if a 450-mile journey is feasible with the current fuel level without needing a refill.\n2. If the journey is not feasible, refuel the car to a total of 40 gallons to ensure sufficient mileage.\n3. Set the navigation system to the destination at \"1914 7th St, Apt B, Berkeley, CA 94710\" if the journey is feasible, or to \"2107 Channing Way, Berkeley, CA\" as an alternative destination.\n4. Start the car engine in START mode with all doors locked and the brake engaged to begin the trip.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

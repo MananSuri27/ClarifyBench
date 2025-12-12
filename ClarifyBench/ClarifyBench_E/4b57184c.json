@@ -1,0 +1,55 @@
+{
+  "user_query": "First, you need to know how much gasoline you added to your car, expressed in liters. You've just filled up with 30 gallons, so how many liters of fuel does that equate to?",
+  "potential_follow_ups": [
+    "Let's take the initiative to start the engine in start mode. We want to ascertain that it operates smoothly with the increased fuel level.",
+    "Inspect each tire's condition and confirm they are in optimal shape."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "gallon_to_liter",
+      "parameters": {
+        "gallon": "30.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User requests 'First, you need to know how much gasoline you added to your car, expressed in liters. You've just filled up with 30 gallons, so how many liters of fuel does that equate to?'\n\nIf asked, user clarifies that this is to ensure the correct fuel level is recorded in the VehicleControlAPI system.\n\nThereafter, user requests 'Let's take the initiative to start the engine in start mode. We want to ascertain that it operates smoothly with the increased fuel level.'\n\nUser requests 'Inspect each tire's condition and confirm they are in optimal shape.'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 30.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

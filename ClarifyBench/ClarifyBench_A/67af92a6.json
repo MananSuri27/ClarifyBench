@@ -1,0 +1,75 @@
+{
+  "user_query": "I’m planning a trip that starts from Rivermist, and I need to see if my current fuel situation will get me there. Could you work out the distance?",
+  "potential_follow_ups": [
+    "Make sure the tank's filled up for the ride. Oh, and kick things off in 'START' mode."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "DEFAULT": "San Francisco"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "DEFAULT": "Rivermist"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "83214",
+        "cityB": "94016"
+      }
+    },
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "980.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "40.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I’m planning a trip that starts from Rivermist, and I need to see if my current fuel situation will get me there. Could you work out the distance?'. If asked, user clarifies that this is 'I'm going to San Francisco.'. Thereafter, user requests 'Make sure the tank's filled up for the ride. Oh, and kick things off in 'START' mode.'.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 70,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "San Francisco",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

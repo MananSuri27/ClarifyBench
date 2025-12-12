@@ -1,0 +1,121 @@
+{
+  "user_query": "I'm interested in getting detailed insights about a company trading under 'Quasar Ltd.'. Can you provide me with its latest stock price, key market performance metrics, and recent trading volume? Also, could you please add this company to my watchlist with the order ID 94061?",
+  "potential_follow_ups": [
+    "I submitted an investment order not too long ago, and I'd appreciate having the detailed lineup for it—such as which stock was involved, the total shares purchased, and the current status of the transaction. Additionally, if it's possible, withdraw that order if it hasn't yet gone through.",
+    "To wrap things up, I'd just like to perform a swift check on my trading account, focusing on the current balance and any credit or debit cards associated with it."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_stock_info",
+      "parameters": {
+        "symbol": "QUAS"
+      }
+    },
+    {
+      "tool_name": "get_order_details",
+      "parameters": {
+        "order_id": "12446"
+      }
+    },
+    {
+      "tool_name": "cancel_order",
+      "parameters": {
+        "order_id": "12446"
+      }
+    },
+    {
+      "tool_name": "get_account_info",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User wants to gather detailed information about Quasar Ltd., including its current stock price, market performance metrics, and recent trading volume, and add it to their watchlist. They also want to review the details of a recent investment order, including the stock involved, shares purchased, and transaction status, with the option to withdraw the order if it hasn't been processed. Finally, they want to check their trading account for the current balance and any associated credit or debit cards.",
+  "initial_config": {
+    "TradingBot": {
+      "account_info": {
+        "account_id": 12345,
+        "balance": 10000.0,
+        "binding_card": 1974202140965533
+      },
+      "authenticated": true,
+      "market_status": "Closed",
+      "order_counter": 12446,
+      "stocks": {
+        "AAPL": {
+          "price": 227.16,
+          "percent_change": 0.17,
+          "volume": 2.552,
+          "MA(5)": 227.11,
+          "MA(20)": 227.09
+        },
+        "GOOG": {
+          "price": 2840.34,
+          "percent_change": 0.24,
+          "volume": 1.123,
+          "MA(5)": 2835.67,
+          "MA(20)": 2842.15
+        },
+        "TSLA": {
+          "price": 667.92,
+          "percent_change": -0.12,
+          "volume": 1.654,
+          "MA(5)": 671.15,
+          "MA(20)": 668.2
+        },
+        "MSFT": {
+          "price": 310.23,
+          "percent_change": 0.09,
+          "volume": 3.234,
+          "MA(5)": 309.88,
+          "MA(20)": 310.11
+        },
+        "NVDA": {
+          "price": 220.34,
+          "percent_change": 0.34,
+          "volume": 1.234,
+          "MA(5)": 220.45,
+          "MA(20)": 220.67
+        },
+        "ALPH": {
+          "price": 1320.45,
+          "percent_change": -0.08,
+          "volume": 1.567,
+          "MA(5)": 1321.12,
+          "MA(20)": 1325.78
+        },
+        "OMEG": {
+          "price": 457.23,
+          "percent_change": 0.12,
+          "volume": 2.345,
+          "MA(5)": 456.78,
+          "MA(20)": 458.12
+        },
+        "QUAS": {
+          "price": 725.89,
+          "percent_change": -0.03,
+          "volume": 1.789,
+          "MA(5)": 726.45,
+          "MA(20)": 728.0
+        },
+        "NEPT": {
+          "price": 88.34,
+          "percent_change": 0.19,
+          "volume": 0.654,
+          "MA(5)": 88.21,
+          "MA(20)": 88.67
+        },
+        "SYNX": {
+          "price": 345.67,
+          "percent_change": 0.11,
+          "volume": 2.112,
+          "MA(5)": 345.34,
+          "MA(20)": 346.12
+        }
+      },
+      "watch_list": [
+        "NVDA"
+      ],
+      "transaction_history": []
+    }
+  },
+  "primary_api": "TradingBot"
+}

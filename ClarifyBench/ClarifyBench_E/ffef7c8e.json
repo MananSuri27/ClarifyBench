@@ -1,0 +1,42 @@
+{
+  "user_query": "In my existing folder called 'Lectures', I'd like to set up a new file called 'Notes2023.txt'.",
+  "potential_follow_ups": [
+    "Inside 'Notes2023.txt', I shall jot down some pivotal reminders: 'Study diligently, practice programming, master algorithms.'",
+    "Ascertain for me how many characters of text remain in this alphabetically sorted version of 'Notes2023.txt'."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "Notes2023.txt"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "Study diligently",
+        "DEFAULT": "master algorithms.",
+        "file_name": "Notes2023.txt"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "Notes2023.txt",
+        "mode": "c"
+      }
+    }
+  ],
+  "user_intention": "User requests 'In my existing folder called 'Lectures', I'd like to set up a new file called 'Notes2023.txt'.'\n\nUser requests 'Inside 'Notes2023.txt', I shall jot down some pivotal reminders: 'Study diligently, practice programming, master algorithms.''\n\nUser requests 'Ascertain for me how many characters of text remain in this alphabetically sorted version of 'Notes2023.txt'.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "Lectures": {
+          "type": "directory",
+          "contents": {}
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

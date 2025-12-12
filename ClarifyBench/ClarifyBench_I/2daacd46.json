@@ -1,0 +1,57 @@
+{
+  "user_query": "I've noticed that some of my car doors are slightly ajar while others seem to be securely locked. Could you start the engine in RUN mode to ensure all doors are properly locked for safety?",
+  "potential_follow_ups": [
+    "I'm all set to start my drive. Would you initiate the engine's ignition in START mode?",
+    "Before setting off, I'm keen to ensure my tire pressures are as they should be. Could you provide an update on the current tire pressure status? If it's below 40, point me to nearest tire shop.",
+    "I'd appreciate it if you could send a quick message 'I am on my way to your place.' to my cousin (user id USR002), updating them my status. If you need, my user id is USR001."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "lockDoors",
+      "parameters": {
+        "unlock": "False",
+        "door": "['driver"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User wants to ensure vehicle security and readiness for a drive by performing the following operations using the VehicleControlAPI: \n\n1. Verify and lock all car doors to ensure they are securely closed for safety.\n2. Start the vehicle's engine by initiating the ignition in START mode.\n3. Check the current tire pressures and, if any are below 40, provide directions to the nearest tire shop.\n4. Send a status update message to their cousin with user id USR002, indicating they are on their way.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 35.0,
+      "frontRightTirePressure": 35.0,
+      "rearLeftTirePressure": 33.0,
+      "rearRightTirePressure": 33.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

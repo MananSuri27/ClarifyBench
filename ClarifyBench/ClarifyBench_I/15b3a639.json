@@ -1,0 +1,58 @@
+{
+  "user_query": "Could you please add a comment on page 15 of the document \"analysis_jo8n.pdf\"? I'd like the comment to be positioned at coordinates [0.45, 0.6] with a font size of 12. Thank you!",
+  "potential_follow_ups": [
+    "Could you help me find tables related to financial analysis in the document \"analysis_jo8n.pdf\"? I'm looking for these across pages 1 to 28. Please save the results without overwriting existing files in the path \"output/search_results.json\". Thanks!",
+    "Could you underline the section of text from position 5 to 10 for the terms \"key performance indicators,\" \"return on investment,\" and \"market analysis\"? Please ensure the original text remains unchanged."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "add_comment",
+      "parameters": {
+        "page_num": 15,
+        "coordinates": [
+          0.45,
+          0.6
+        ],
+        "font_size": 12
+      }
+    },
+    {
+      "tool_name": "search",
+      "parameters": {
+        "object_name": "tables related to financial analysis",
+        "pdf_filename": "analysis_jo8n.pdf",
+        "page_start": 1,
+        "page_end": 28,
+        "overwrite": false,
+        "output_pathname": "output/search_results.json"
+      }
+    },
+    {
+      "tool_name": "underline_text",
+      "parameters": {
+        "start": 5,
+        "end": 10,
+        "object_name": [
+          "key performance indicators",
+          "return on investment",
+          "market analysis"
+        ],
+        "overwrite": false,
+        "output_pathname": "analysis_jo8n_underlined.pdf"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Could you please add a comment on page 15 of the document \"analysis_jo8n.pdf\"? I'd like the comment to be positioned at coordinates [0.45, 0.6] with a font size of 12. Thank you!'. If asked, user clarifies details. User requests 'Could you help me find tables related to financial analysis in the document \"analysis_jo8n.pdf\"? I'm looking for these across pages 1 to 28. Please save the results without overwriting existing files in the path \"output/search_results.json\". Thanks!'. If asked, user clarifies details. User requests 'Could you underline text in the document \"analysis_jo8n.pdf\"? I'd like the text between characters 5 and 10 underlined for the following objects: \"key performance indicators\", \"return on investment\", and \"market analysis\". Please make sure not to overwrite the existing file and save the output as \"analysis_jo8n_underlined.pdf\". Thank you!'. If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 28,
+      "pdf_name": "analysis_jo8n.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "add_comment",
+    "search",
+    "underline_text"
+  ]
+}

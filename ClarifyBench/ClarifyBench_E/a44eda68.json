@@ -1,0 +1,57 @@
+{
+  "user_query": "Examine current directory for any presence of the file named 'summary.txt'. If there is one, What's inside?",
+  "potential_follow_ups": [
+    "Copy it into 'Research2023'.",
+    "Post review, organize the lines in 'summary.txt' alphabetically.",
+    "Conclude by calculating the total lines in the sorted 'summary.txt' to verify that everything is meticulously arranged."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "summary.txt"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "summary.txt",
+        "destination": "Research2023"
+      }
+    },
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "summary.txt"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "summary.txt",
+        "mode": "l"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Examine current directory for any presence of the file named \"summary.txt\". If there is one, What's inside?'. \n\nIf asked, user clarifies that this is to ensure the file exists and to review its contents.\n\nThereafter, user requests 'Copy it into \"Research2023\".'. \n\nIf asked, user clarifies that \"it\" refers to the \"summary.txt\" file.\n\nThereafter, user requests 'Post review, organize the lines in \"summary.txt\" alphabetically.'. \n\nIf asked, user clarifies that this sorting should be done on the contents of the file within the \"Research2023\" directory.\n\nThereafter, user requests 'Conclude by calculating the total lines in the sorted \"summary.txt\" to verify that everything is meticulously arranged.'. \n\nIf asked, user clarifies that this is to ensure the file's integrity and completeness after sorting.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "Research2023": {
+              "type": "directory",
+              "contents": {}
+            },
+            "summary.txt": {
+              "type": "file",
+              "content": "This is the summary of the project. It includes various findings and conclusions. Further analysis is required."
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

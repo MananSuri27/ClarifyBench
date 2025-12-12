@@ -1,0 +1,76 @@
+{
+  "user_query": "As a high-ranking government official residing in Rivermist, I require assistance in determining the cost of first-class travel from my local airport to JFK International Airport on the 15th of December, 2024. I need the most competitive price available.",
+  "potential_follow_ups": [
+    "After ascertaining the flight costs, secure a booking for me utilizing my secured access and charge it to my card with id card_4526 and access code secure_access_token_987654321, ensuring all the details align perfectly with my professional profile.",
+    "Please retrieve the invoice from the flight booking recently made; I need to verify that all entries are correct before my departure.",
+    "There has been a problem with my booking and I previously reached out to support without any feedback yet. Kindly contact customer support on my behalf, emphasizing the smooth facilitation of my travel arrangements.",
+    "Due to unforeseen changes in my schedule, I am contemplating cancelling my flight. Initiate the cancellation and ensure this procedure is executed faultlessly and promptly."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "RMS",
+        "travel_to": "JFK",
+        "travel_date": "2024-12-15",
+        "travel_class": "first"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "secure_access_token_987654321",
+        "card_id": "card_4526",
+        "travel_date": "2024-12-15",
+        "travel_from": "RMS",
+        "travel_to": "JFK",
+        "travel_class": "first",
+        "travel_cost": "1050.0"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "access_token": "secure_access_token_987654321",
+        "booking_id": "3426812"
+      }
+    },
+    {
+      "tool_name": "contact_customer_support",
+      "parameters": {
+        "booking_id": "3426812",
+        "message": "No feedback yet on my inquiry regarding my flight arrangements. Please expedite the process."
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "secure_access_token_987654321",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "User requests \"As a high-ranking government official residing in Rivermist, I require assistance in determining the cost of first-class travel from my local airport to JFK International Airport on the 15th of December, 2024. I need the most competitive price available.\"\n\nUser requests \"After ascertaining the flight costs, secure a booking for me utilizing my secured access and charge it to my card with id card_4526 and access code secure_access_token_987654321, ensuring all the details align perfectly with my professional profile.\"\n\nUser requests \"Please retrieve the invoice from the flight booking recently made; I need to verify that all entries are correct before my departure.\"\n\nUser requests \"There has been a problem with my booking and I previously reached out to support without any feedback yet. Kindly contact customer support on my behalf, emphasizing the smooth facilitation of my travel arrangements.\"\n\nUser requests \"Due to unforeseen changes in my schedule, I am contemplating cancelling my flight. Initiate the cancellation and ensure this procedure is executed faultlessly and promptly.\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_4526": {
+          "card_number": "6349158723094526",
+          "cardholder_name": "Alexander Hamilton",
+          "expiry_date": "12/25",
+          "cvv": 123,
+          "balance": 14500
+        }
+      },
+      "booking_record": {},
+      "access_token": "secure_access_token_987654321",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "full_access",
+      "user_first_name": "Alexander",
+      "user_last_name": "Hamilton",
+      "budget_limit": 5000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

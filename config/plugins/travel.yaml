@@ -1,0 +1,13 @@
+name: travel
+module_path: plugins.travel_plugin
+class_name: TravelPlugin
+description: | 
+  Plugin for travel-related operations, including flight bookings, credit card management, and travel information.
+
+  TRAVEL SYSTEM advice:
+  - Check card balance before booking flights
+  - Valid airport codes: SFO, LAX, JFK, ORD, BOS (3-letter uppercase)k
+  - Date format: YYYY-MM-DD (strict format required)
+  - Travel classes: "economy", "business", "first" (lowercase)
+  - Currency codes: USD, RMB, EUR, JPY, GBP, CAD, AUD, INR, RUB, BRL, MXN
+  - Verify booking_id exists before operations like cancel_booking

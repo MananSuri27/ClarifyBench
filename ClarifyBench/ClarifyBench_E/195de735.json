@@ -1,0 +1,52 @@
+{
+  "user_query": "Where is my analysis? Locate any file with analysis in it.",
+  "potential_follow_ups": [
+    "Naviagte to that first analysis and identify any line with error in it."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "find",
+      "parameters": {
+        "path": ".",
+        "name": "analysis"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "analysis_report.txt",
+        "pattern": "error"
+      }
+    }
+  ],
+  "user_intention": "User requests \"Where is my analysis? Locate any file with analysis in it.\"\n\nIf asked, user clarifies that this is to find files containing the word \"analysis\" in their name or content.\n\nThereafter, user requests \"Navigate to that first analysis and identify any line with error in it.\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "data": {
+              "type": "directory",
+              "contents": {
+                "analysis_report.txt": {
+                  "type": "file",
+                  "content": "Line 1: No error Line 2: Minor error detected Line 3: All systems operational Line 4: Critical error found"
+                },
+                "project_summary.txt": {
+                  "type": "file",
+                  "content": "Summary line 1 Summary line 2 Summary line 3 Summary line 4 Summary line 5"
+                },
+                "file3.txt": {
+                  "type": "file",
+                  "content": "Zebra Apple Monkey Banana"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

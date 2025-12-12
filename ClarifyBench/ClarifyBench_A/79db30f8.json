@@ -1,0 +1,75 @@
+{
+  "user_query": "I'm planning an expedition to Beijing and I want to ensure my financial strategy is well-prepared for the adventure. Budget me sufficiently to meet the target of 10000 RMB? Thanks! Now, let's arrange for a luxurious first-class flight from JFK to Beijing Capital Airport for June 15th 2024 utilizing my primary card with id 'card_8283'. Oh, and here's my access code 897362.",
+  "potential_follow_ups": [
+    "I've successfully confirmed my passage to Beijing. Let's secure a travel insurance plan on some card."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "compute_exchange_rate",
+      "parameters": {
+        "base_currency": "RMB",
+        "target_currency": "USD",
+        "value": "10000.0"
+      }
+    },
+    {
+      "tool_name": "set_budget_limit",
+      "parameters": {
+        "access_token": "897362",
+        "budget_limit": "1428.57"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "897362",
+        "card_id": "card_8283",
+        "travel_date": "2024-06-15",
+        "travel_from": "JFK",
+        "travel_to": "PEK",
+        "travel_class": "first",
+        "travel_cost": "10000.0"
+      }
+    },
+    {
+      "tool_name": "purchase_insurance",
+      "parameters": {
+        "access_token": "897362",
+        "insurance_type": "comprehensive",
+        "insurance_cost": "250.0",
+        "booking_id": "3426812",
+        "card_id": "card_8283"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "access_token": "897362",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"I'm planning an expedition to Beijing and I want to ensure my financial strategy is well-prepared for the adventure. Budget me sufficiently to meet the target of 10000 RMB? Thanks! Now, let's arrange for a luxurious first-class flight from JFK to Beijing Capital Airport for June 15th 2024 utilizing my primary card with id 'card_8283'. Oh, and here's my access code 897362.\"\n\n2. User requests: \"I've successfully confirmed my passage to Beijing. Let's secure a travel insurance plan on some card.\"\n\n   If asked, user clarifies: \"oh insurance worth $250 on the same card.\"\n\n3. Thereafter, user requests: \"Next steps: Can you retrieve the invoice for this booking for my records? Your assistance in maintaining these important documents is invaluable.\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_8283": {
+          "card_number": "5829301674328283",
+          "card_type": "Visa",
+          "expiry_date": "12/25",
+          "cardholder_name": "Michael Thompson",
+          "balance": 15000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "897362",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "full_access",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 10000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

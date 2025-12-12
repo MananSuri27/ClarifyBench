@@ -1,0 +1,14 @@
+name: trading
+module_path: plugins.trading_plugin
+class_name: TradingPlugin
+description: | 
+  Plugin for stock trading operations, providing tools for stock market queries, account management, order placement, and portfolio tracking.
+
+  TRADING advice:
+  - Valid stock symbols: AAPL, GOOG, TSLA, MSFT, NVDA, ALPH, OMEG, QUAS, NEPT, SYNX, ZETA
+  - Order types: "Buy", "Sell" (case-sensitive)
+  - All amounts and prices must be positive
+  - Check market status before transactions
+  - Cannot cancel orders with status "Completed"
+  - Account balance limits purchases and withdrawals
+  - Transaction types: "deposit", "withdrawal" (lowercase)

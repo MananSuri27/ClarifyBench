@@ -1,0 +1,59 @@
+{
+  "user_query": "Could you please create a file in our shared folder and name it 'missing_file_1.txt'? I'm finishing up my notes for the day and need this file ready for tomorrow.",
+  "potential_follow_ups": [
+    "Hi, I want to put some statistics in the annual report. Here are the things I want to put 'Company Earning: 2000 Company Expenditure: 500 Company Name: Gorilla'.",
+    "May I have a look at what's inside 'Annual_Report_2023.docx'?",
+    "Let's delve into 'Annual_Report_2023.docx'. How many words does it contain?",
+    "To conclude, store the number of words in a new file report_word_count in the existing shared directory."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "Annual_Report_2023.docx"
+      }
+    },
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "Annual_Report_2023.docx"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "Annual_Report_2023.docx",
+        "mode": "w"
+      }
+    }
+  ],
+  "user_intention": "User wants to create a new file named 'Annual_Report_2023.docx' in the communal folder, add specific statistics to this document, review its contents, determine the word count of the document, and then store this word count in a new file named 'report_word_count' within the shared directory.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "gorilla": {
+          "type": "directory",
+          "contents": {
+            "communal": {
+              "type": "directory",
+              "contents": {}
+            },
+            "reserve": {
+              "type": "directory",
+              "contents": {}
+            },
+            "shared": {
+              "type": "directory",
+              "contents": {}
+            },
+            "archives": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

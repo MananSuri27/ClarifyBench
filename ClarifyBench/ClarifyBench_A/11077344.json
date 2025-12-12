@@ -1,0 +1,74 @@
+{
+  "user_query": "Move 'final_report.pdf' within document directory to 'temp' directory in document. Make sure to create the directory",
+  "potential_follow_ups": [
+    "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+    "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+    "Move one of the file in document directory to temp as well and having final report also there, proceed to juxtapose it with 'previous_report.pdf' to detect any critical alterations."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "final_report.pdf",
+        "destination": "temp"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "final_report.pdf",
+        "pattern": "budget analysis"
+      }
+    },
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "DEFAULT": "final_report.pdf"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "previous_report.pdf",
+        "destination": "temp"
+      }
+    },
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "final_report.pdf",
+        "file_name2": "previous_report.pdf"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Move 'final_report.pdf' within document directory to 'temp' directory in document. Make sure to create the directory'. Thereafter, user requests 'Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.' Next, user requests 'Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.' User requests 'Move one of the file in document directory to temp as well and having final report also there, proceed to juxtapose it with 'previous_report.pdf' to detect any critical alterations.' If asked, user clarifies that 'The specific file is final_report.pdf.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "document": {
+              "type": "directory",
+              "contents": {
+                "final_report.pdf": {
+                  "type": "file",
+                  "content": "Year2024 This is the final report content including budget analysis and other sections."
+                },
+                "previous_report.pdf": {
+                  "type": "file",
+                  "content": "Year203 This is the previous report content with different budget analysis."
+                }
+              }
+            },
+            "archive": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

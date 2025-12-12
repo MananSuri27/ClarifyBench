@@ -1,0 +1,47 @@
+{
+  "user_query": "Could you go to the temp directory and check the file named 'missing_file_1.txt' for any occurrences of the phrase 'server error'?",
+  "potential_follow_ups": [
+    "Now, scour through the mysterious 'dev_summary.txt' and hunt for any mentions or whispers of 'server error'.",
+    "Make a new file whose name is the number of line but in txt format and append the second sentence containing 'server error' to it."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "dev_summary.txt",
+        "mode": "l"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "dev_summary.txt",
+        "pattern": "server error"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "However",
+        "file_name": "1.txt"
+      }
+    }
+  ],
+  "user_intention": "User wants to navigate to the temp directory, count the number of lines in each file, search the 'dev_summary.txt' file for occurrences of 'server error', and create a new file named with the line count as its name in txt format, appending the second sentence containing 'server error' to this new file.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "temp": {
+          "type": "directory",
+          "contents": {
+            "dev_summary.txt": {
+              "type": "file",
+              "content": "This is a summary of the development process. No server error occurred during the initial phase. However, a server error was detected in the final testing phase. The team is working on resolving the server error. The server error is expected to be fixed by next week. Additional testing will be conducted to ensure no further server errors. The project is on track for completion. The final report will be submitted by the end of the month. The server error has been a major focus. The team is confident in resolving the server error soon."
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

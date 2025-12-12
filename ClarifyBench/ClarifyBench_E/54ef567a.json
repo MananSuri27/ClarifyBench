@@ -1,0 +1,48 @@
+{
+  "user_query": "I'm planning ahead for our big trip and realized our car's fuel tank is running low. It would be great if you could top it up with an additional 30 gallons before I turn on the ignition using the 'START' mode.",
+  "potential_follow_ups": [
+    "As part of our travel prep, I'm keeping tabs on the tires as well. I'd appreciate it if you could share a quick update about the tire pressures on Twitter, using the format 'Front Left Tire: XXX PSI, Front Right Tire: XXX PSI, Rear Left Tire: XXX PSI, Rear Right Tire: XXX PSI', where 'XXX' is the actual values for the tire pressure."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "30.0"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User requests 'I'm planning ahead for our big trip and realized our car's fuel tank is running low. It would be great if you could top it up with an additional 30 gallons before I turn on the ignition using the 'START' mode.' \n\nThereafter, user requests 'As part of our travel prep, I'm keeping tabs on the tires as well. I'd appreciate it if you could share a quick update about the tire pressures on Twitter, using the format 'Front Left Tire: XXX PSI, Front Right Tire: XXX PSI, Rear Left Tire: XXX PSI, Rear Right Tire: XXX PSI', where 'XXX' is the actual values for the tire pressure.'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

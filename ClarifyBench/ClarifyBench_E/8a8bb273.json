@@ -1,0 +1,53 @@
+{
+  "user_query": "I'm planning to fly from LAX to JFK on November 15th 2024 and aim to travel in business class with a budget of $2400. Could you please book a seat for this flight? I'll be using my access token 'abc123xyz' and Mastercard with id 'id15583' for payment.",
+  "potential_follow_ups": [
+    "After booking my flight, I'd like to cover myself against any unforeseen issues. Can you purchase comprehensive travel insurance for $120, using the same credit card I used for the flight booking, to ensure I'm protected throughout my journey?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "card_id": "id15583",
+        "travel_date": "2024-11-15",
+        "travel_from": "LAX",
+        "travel_to": "JFK",
+        "travel_class": "business",
+        "travel_cost": "2400.0"
+      }
+    },
+    {
+      "tool_name": "purchase_insurance",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "insurance_type": "comprehensive",
+        "insurance_cost": "120.0",
+        "booking_id": "3426812",
+        "card_id": "id15583"
+      }
+    }
+  ],
+  "user_intention": "User requests \"I'm planning to fly from LAX to JFK on November 15th 2024 and aim to travel in business class with a budget of $2400. Could you please book a seat for this flight? I'll be using my access token 'abc123xyz' and Mastercard with id 'id15583' for payment.\"\n\nUser requests \"After booking my flight, I'd like to cover myself against any unforeseen issues. Can you purchase comprehensive travel insurance for $120, using the same credit card I used for the flight booking, to ensure I'm protected throughout my journey?\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "id15583": {
+          "card_number": "4920-1539-8456-3890",
+          "card_type": "Mastercard",
+          "expiration_date": "09/2024",
+          "cvv": 768,
+          "cardholder_name": "Michael Thompson",
+          "balance": 15000.0
+        }
+      },
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "booking insurance",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 600.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

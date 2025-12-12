@@ -1,0 +1,38 @@
+{
+  "user_query": "I've just put together a file named 'ProjectOverview.txt' into my working directory where I've laid out an initial summary of the project. But as I foresee possible modifications down the line, I'd like to modify the file content by putting 'To be discussed' in it.",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "ProjectOverview.txt",
+        "file_name2": "Draft.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I've just put together a file named 'ProjectOverview.txt' into my working directory where I've laid out an initial summary of the project. But as I foresee possible modifications down the line, I'd like to modify the file content by putting 'To be discussed' in it.' \n\nIf asked, user clarifies that they want to ensure both 'ProjectOverview.txt' and another file are identical. \n\nUser requests 'For peace of mind, let's ensure both 'ProjectOverview.txt' and another file are identical.' \n\nIf asked, user clarifies that the other file is 'Draft.txt'. \n\nThereafter, user requests to ensure 'ProjectOverview.txt' and 'Draft.txt' are identical.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "ProjectOverview.txt": {
+              "type": "file",
+              "content": "Initial summary of the project. "
+            },
+            "Draft.txt": {
+              "type": "file",
+              "content": "Old draft content."
+            },
+            "Backups": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

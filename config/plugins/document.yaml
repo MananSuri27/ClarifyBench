@@ -1,0 +1,13 @@
+name: document
+module_path: plugins.document_plugin
+class_name: DocumentPlugin
+description: | 
+  Plugin for document-related operations like viewing, editing, and converting PDFs.
+  DOCUMENT RULES:
+  - Page numbers start from 1, not 0
+  - Always check document length before using page numbers
+  - Use count_pages if unsure about document size
+  - Valid page range: 1 to number_of_pages (inclusive)
+  - Supported formats: pptx, doc, png, jpeg, tiff (case-sensitive, lowercase)
+  - Font sizes: 8-72, Transparency: 0.0-1.0
+  - Coordinates must be positive values in [x, y] format

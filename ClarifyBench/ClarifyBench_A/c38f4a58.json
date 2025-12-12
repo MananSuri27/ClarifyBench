@@ -1,0 +1,59 @@
+{
+  "user_query": "There's a file I cooked up earlier , and I've just realized it desperately needs some extensive updating. Could you roll the content out for me to have a look-see?",
+  "potential_follow_ups": [
+    "Much appreciated! Now, I'm sprucing up my analysis here. Could you whip up a duplicate of 'project_analysis.txt' and shift it over to this folder I've named 'project_archive'?",
+    "Important stuff right there! I need to do a comparative review as my next step; be a champ and compare 'project_analysis.txt' with 'old_project_analysis.txt' to spotlight any differences."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "project_analysis.txt"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "project_analysis.txt",
+        "destination": "project_archive"
+      }
+    },
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "project_analysis.txt",
+        "file_name2": "old_project_analysis.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'There's a file I cooked up earlier, and I've just realized it desperately needs some extensive updating. Could you roll the content out for me to have a look-see?'. \n\nIf asked, user clarifies that this is 'The named is 'project_analysis.txt' in workspace folder'. \n\nThereafter, user requests 'Much appreciated! Now, I'm sprucing up my analysis here. Could you whip up a duplicate of 'project_analysis.txt' and shift it over to this folder I've named 'project_archive'?'. \n\nThereafter, user requests 'Important stuff right there! I need to do a comparative review as my next step; be a champ and compare 'project_analysis.txt' with 'old_project_analysis.txt' to spotlight any differences.'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "workspace": {
+              "type": "directory",
+              "contents": {
+                "project_analysis.txt": {
+                  "type": "file",
+                  "content": "Initial analysis content."
+                },
+                "old_project_analysis.txt": {
+                  "type": "file",
+                  "content": "Old analysis content."
+                },
+                "project_archive": {
+                  "type": "directory",
+                  "contents": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

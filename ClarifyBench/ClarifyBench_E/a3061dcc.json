@@ -1,0 +1,83 @@
+{
+  "user_query": "Hey there! Since I'm currently residing in Rivermist but planning a grand getaway to Los Angeles, I'm curious about the price of a business class flight for December 15th, 2024. What's the current rate you can find?",
+  "potential_follow_ups": [
+    "After figuring out the flight expenses, could you tweak my budget to accommodate an equivalence of 20,000 RMB in US dollars using access token 'abc123xyz456' for my settings? Got to keep track of all these costs.",
+    "Alright, it's time to take the plunge and book that flight for December 15th. Go ahead and charge it to my card with id 'card_0064'. Please confirm the booking under my account. I have my fingers crossed everything goes smoothly!",
+    "Well, things have taken a turn! Could you cancel that booking for me, please? Much appreciated!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "RMS",
+        "travel_to": "LAX",
+        "travel_date": "2024-12-15",
+        "travel_class": "business"
+      }
+    },
+    {
+      "tool_name": "compute_exchange_rate",
+      "parameters": {
+        "base_currency": "RMB",
+        "target_currency": "USD",
+        "value": "20000.0"
+      }
+    },
+    {
+      "tool_name": "set_budget_limit",
+      "parameters": {
+        "access_token": "abc123xyz456",
+        "budget_limit": "2857.14"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz456",
+        "card_id": "card_0064",
+        "travel_date": "2024-12-15",
+        "travel_from": "RMS",
+        "travel_to": "LAX",
+        "travel_class": "business",
+        "travel_cost": "660.0"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "abc123xyz456",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "User requests \"Hey there! Since I'm currently residing in Rivermist but planning a grand getaway to Los Angeles, I'm curious about the price of a business class flight for December 15th, 2024. What's the current rate you can find?\"\n\nUser requests \"After figuring out the flight expenses, could you tweak my budget to accommodate an equivalence of 20,000 RMB in US dollars using access token 'abc123xyz456' for my settings? Got to keep track of all these costs.\"\n\nUser requests \"Alright, it's time to take the plunge and book that flight for December 15th. Go ahead and charge it to my card with id 'card_0064'. Please confirm the booking under my account. I have my fingers crossed everything goes smoothly!\"\n\nUser requests \"Well, things have taken a turn! Could you cancel that booking for me, please? Much appreciated!\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_0064": {
+          "card_number": "8293-1765-9823-0064",
+          "cardholder_name": "Michael Thompson",
+          "expiry_date": "12/25",
+          "cvv": 123,
+          "balance": 4500.0
+        }
+      },
+      "booking_record": {
+        "LA12345": {
+          "flight_date": "2024-12-15",
+          "destination": "Los Angeles",
+          "class": "Business",
+          "price": 1500.0
+        }
+      },
+      "access_token": "abc123xyz456",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read write",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 20000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

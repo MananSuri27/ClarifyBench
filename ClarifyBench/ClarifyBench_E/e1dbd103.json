@@ -1,0 +1,67 @@
+{
+  "user_query": "Find analysis_report.csv and upon locating it, ensure you move it to the 'archive' directory in the same directory of analysis report for safekeeping.",
+  "potential_follow_ups": [
+    "After the file transfer, display the contents of 'archive_summary.txt' in the current working directory. Sort the contents alphabetically for easy review and analysis."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "project"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "analysis_report.csv",
+        "destination": "archive"
+      }
+    },
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "archive_summary.txt"
+      }
+    },
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "archive_summary.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Find analysis_report.csv and upon locating it, ensure you move it to the \"archive\" directory in the same directory of analysis report for safekeeping.' \n\nIf asked, user clarifies that this means the \"archive\" directory should be within the same directory where the \"analysis_report.csv\" is currently located.\n\nThereafter, user requests 'After the file transfer, display the contents of \"archive_summary.txt\" in the current working directory. Sort the contents alphabetically for easy review and analysis.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "data": {
+          "type": "directory",
+          "contents": {
+            "project": {
+              "type": "directory",
+              "contents": {
+                "analysis_report.csv": {
+                  "type": "file",
+                  "content": "Data analysis results..."
+                },
+                "archive": {
+                  "type": "directory",
+                  "contents": {}
+                },
+                "archive_summary.txt": {
+                  "type": "file",
+                  "content": "Summary of archived files: analysis_report.csv"
+                }
+              }
+            }
+          }
+        },
+        "archive": {
+          "type": "directory",
+          "contents": {}
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

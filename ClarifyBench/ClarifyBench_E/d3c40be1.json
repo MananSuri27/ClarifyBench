@@ -1,0 +1,44 @@
+{
+  "user_query": "Use grep to find out the name of the function of the script.",
+  "potential_follow_ups": [
+    "Use grep to find out the name of the function of the script.",
+    "And while we're diving into the deployments, let's pinpoint every mention of 'update' in this script and jot those lines down for scrutiny."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "deploy.py",
+        "pattern": "def"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "deploy.py",
+        "pattern": "update"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Use grep to find out the name of the function of the script.' If asked, user clarifies that this is to identify specific functions within a script file stored in the GorillaFileSystem. Thereafter, user requests 'And while we're diving into the deployments, let's pinpoint every mention of \"update\" in this script and jot those lines down for scrutiny.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "project": {
+          "type": "directory",
+          "contents": {
+            "deploy.py": {
+              "type": "file",
+              "content": "def deploy():    # update the system    pass# update the database# update the server# final checks"
+            }
+          }
+        },
+        "backup_scripts": {
+          "type": "directory",
+          "contents": {}
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

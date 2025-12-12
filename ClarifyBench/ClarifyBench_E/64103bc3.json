@@ -1,0 +1,58 @@
+{
+  "user_query": "First cd within the 'ResearchDocs' directory and then locate any files titled 'report.csv'.",
+  "potential_follow_ups": [
+    "Once you locate 'report.csv' in the 'ResearchDocs' directory, delve into it to find lines that reference the 'Quarterly Financial Overview'.",
+    "Extract and display the last five lines from the 'report.csv' file in the 'ResearchDocs' directory, as these need to be emphasized for recent updates."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "ResearchDocs"
+      }
+    },
+    {
+      "tool_name": "find",
+      "parameters": {
+        "path": ".",
+        "name": "report.csv"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "report.csv",
+        "pattern": "Quarterly Financial Overview"
+      }
+    },
+    {
+      "tool_name": "tail",
+      "parameters": {
+        "file_name": "report.csv",
+        "lines": "5"
+      }
+    }
+  ],
+  "user_intention": "User requests 'First cd within the 'ResearchDocs' directory and then locate any files titled 'report.csv'.'\n\nThereafter, user requests 'Once you locate 'report.csv' in the 'ResearchDocs' directory, delve into it to find lines that reference the 'Quarterly Financial Overview'.'\n\nThereafter, user requests 'Extract and display the last five lines from the 'report.csv' file in the 'ResearchDocs' directory, as these need to be emphasized for recent updates.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "active_project": {
+          "type": "directory",
+          "contents": {
+            "ResearchDocs": {
+              "type": "directory",
+              "contents": {
+                "report.csv": {
+                  "type": "file",
+                  "content": "Line 1: Introduction Line 2: Quarterly Financial Overview Line 3: Details Line 4: More Details Line 5: Quarterly Financial Overview Line 6: Conclusion Line 7: Quarterly Financial Overview Line 8: Quarter has been successful. Line 9: Quarterly Financial Overview Line 10: Final Thoughts"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

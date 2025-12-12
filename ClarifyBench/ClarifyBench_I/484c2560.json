@@ -1,0 +1,49 @@
+{
+  "user_query": "I would like to add a comment on page number 23 at the coordinates [0.25, 0.65] with a font size of 12.",
+  "potential_follow_ups": [
+    "Could you add my signature to page 14 of the thesis_icx4.pdf? Please place it at the bottom-right corner without overwriting any existing content. I'd like the updated document saved as thesis_icx4_signed_page14.pdf. Thanks!",
+    "I need to add a password to the PDF thesis_icx4.pdf. The password should be \"securePa$$123\", and please make sure to overwrite any existing password. Thank you!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "add_comment",
+      "parameters": {
+        "page_num": 5,
+        "coordinates": [
+          0.25,
+          0.65
+        ],
+        "font_size": 12
+      }
+    },
+    {
+      "tool_name": "add_signature",
+      "parameters": {
+        "page_num": 14,
+        "position": "bottom-right",
+        "overwrite": false,
+        "output_pathname": "thesis_icx4_signed_page14.pdf"
+      }
+    },
+    {
+      "tool_name": "add_password",
+      "parameters": {
+        "password": "securePa$$123",
+        "overwrite": true
+      }
+    }
+  ],
+  "user_intention": "User requests \"add a comment to page 5 of the PDF thesis_icx4.pdf\". If asked, user clarifies details. User requests \"add a signature to page 14 of the thesis_icx4.pdf\". If asked, user clarifies details. User requests \"add a password to the PDF thesis_icx4.pdf\". If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 21,
+      "pdf_name": "thesis_icx4.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "add_comment",
+    "add_signature",
+    "add_password"
+  ]
+}

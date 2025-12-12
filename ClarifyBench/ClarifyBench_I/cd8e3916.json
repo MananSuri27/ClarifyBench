@@ -1,0 +1,77 @@
+{
+  "user_query": "Could you stop the engine and assess whether my current fuel will suffice for the journey from San Francisco to Rivermist?",
+  "potential_follow_ups": [
+    "Fill the fuel tank until we are able to reach Rivermist. Oil costs money so I just need the minimum oil (to integer value) to reach there so I don't need full tank.",
+    "I'd appreciate it if you could ignite the engine and verify that the battery voltage is at its optimal level, ensuring everything's in fine working order before our departure.",
+    "For added assurance, please check our tire pressure to confirm optimal conditions for our ride."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "94016",
+        "cityB": "83214"
+      }
+    },
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "980.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "7"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User wants to ensure their vehicle is ready for a trip from San Francisco to Rivermist by performing the following steps using the VehicleControlAPI: \n\n1. Calculate the precise mileage for the journey and assess if the current fuel level is sufficient.\n2. Determine the minimum amount of fuel needed to reach Rivermist and fill the tank accordingly.\n3. Start the engine and check the battery voltage to ensure it is at an optimal level.\n4. Verify that the tire pressure is at optimal conditions for the trip.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 42.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "Rivermist",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

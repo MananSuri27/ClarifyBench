@@ -1,0 +1,77 @@
+{
+  "user_query": "I'm planning a road trip from Rivermist to Stonebrook, but before I start, can you tell me how to ensure my car's engine is completely off when parked?",
+  "potential_follow_ups": [
+    "Great, now that I know the distance, please check if my current fuel level can handle the journey or if I need a refill.",
+    "Ah, it looks like I might need some fuel. Could you go ahead and fill up the tank with 30 gallons of fuel so that I end with 40 gallons?",
+    "Let's get the vehicle ready by starting the engine, please make sure everything's in place."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "Rivermist"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "Stonebrook"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "83214",
+        "cityB": "74532"
+      }
+    },
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "750.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "30.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User wants to plan and prepare for a road trip by using the VehicleControlAPI to: 1) estimate the distance of the journey from Rivermist to Stonebrook, 2) check if the current fuel level is sufficient for the trip, 3) refill the fuel tank with 30 gallons to ensure a total of 40 gallons, and 4) start the vehicle's engine to ensure it is ready for the trip.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "Stonebrook",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

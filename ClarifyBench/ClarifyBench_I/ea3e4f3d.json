@@ -1,0 +1,57 @@
+{
+  "user_query": "Hi there! I'm working on my thesis and I need to ensure some sensitive information is protected. Could you help me redact any occurrences of the words \"confidential,\" \"proprietary,\" and \"secret\" on pages 5 to 10 of my document? I'd like the original to remain unchanged, so please save the changes as a new file called \"thesis_redacted_pages_5_to_10.pdf\". Thanks!",
+  "potential_follow_ups": [
+    "Could you help me highlight the terms \"Artificial Intelligence,\" \"Machine Learning,\" and \"Data Science\" on pages 5 to 10 of my thesis? I want to keep the original document unchanged, so please save it as a new file called \"highlighted_thesis_0kbj.pdf\". Thank you!",
+    "I need to redact pages 5 through 10 from the document. Can you help with that?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "redact_text",
+      "parameters": {
+        "start": 5,
+        "end": 10,
+        "object_name": [
+          "confidential",
+          "proprietary",
+          "secret"
+        ],
+        "overwrite": false,
+        "output_pathname": "thesis_redacted_pages_5_to_10.pdf"
+      }
+    },
+    {
+      "tool_name": "highlight_text",
+      "parameters": {
+        "start": 5,
+        "end": 10,
+        "object_name": [
+          "Artificial Intelligence",
+          "Machine Learning",
+          "Data Science"
+        ],
+        "overwrite": false,
+        "output_pathname": "highlighted_thesis_0kbj.pdf"
+      }
+    },
+    {
+      "tool_name": "redact_page_range",
+      "parameters": {
+        "start": 5,
+        "end": 10
+      }
+    }
+  ],
+  "user_intention": "User requests 'redact any occurrences of the words \"confidential,\" \"proprietary,\" and \"secret\" on pages 5 to 10 of my document and save the changes as a new file called \"thesis_redacted_pages_5_to_10.pdf\"'. If asked, user clarifies details. User requests 'highlight the terms \"Artificial Intelligence,\" \"Machine Learning,\" and \"Data Science\" on pages 5 to 10 of my thesis and save it as a new file called \"highlighted_thesis_0kbj.pdf\"'. If asked, user clarifies details. User requests 'redact everything from pages 5 to 10 and save these changes in a new file'. If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 22,
+      "pdf_name": "thesis_0kbj.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "redact_text",
+    "highlight_text",
+    "redact_page_range"
+  ]
+}

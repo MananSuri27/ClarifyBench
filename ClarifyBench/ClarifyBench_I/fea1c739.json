@@ -1,0 +1,40 @@
+{
+  "user_query": "Where is my notes located in the missing_dir_1 folder? Please forward it exactly to Bob. I am USR001.",
+  "potential_follow_ups": [
+    "After Bob has received the details, would you mind removing it since there are some errors?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "initial_directory"
+      }
+    }
+  ],
+  "user_intention": "User wants to locate their notes in the GorillaFileSystem, forward the notes to Bob, and then delete the notes from the system after Bob has received them.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "initial_directory": {
+              "type": "directory",
+              "contents": {
+                "notes": {
+                  "type": "file",
+                  "content": "Meeting notes and project details."
+                },
+                "other_file.txt": {
+                  "type": "file",
+                  "content": "Some other content."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

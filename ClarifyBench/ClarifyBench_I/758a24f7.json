@@ -1,0 +1,62 @@
+{
+  "user_query": "Please make a prioritized backup by moving a copy of the file 'missing_file_1.txt' to the folder named 'archives' within research.",
+  "potential_follow_ups": [
+    "Now, take the contents of '2024_research_backup.txt' that we just created and sort the lines alphabetically.",
+    "Once the list is sorted, find out how many lines are in the sorted '2024_research_backup.txt' file."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "research_notes.txt",
+        "destination": "archives"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "research_notes.txt",
+        "destination": "2024_research_backup.txt"
+      }
+    },
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "2024_research_backup.txt"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "2024_research_backup.txt",
+        "mode": "l"
+      }
+    }
+  ],
+  "user_intention": "User wants to create a prioritized backup of the 'research_notes.txt' file by copying it to the 'archives' folder within the research directory and renaming it to '2024_research_backup.txt'. Then, they want to sort the lines of this backup file alphabetically and determine the total number of lines in the sorted file.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "research": {
+              "type": "directory",
+              "contents": {
+                "research_notes.txt": {
+                  "type": "file",
+                  "content": "Line 3: Experiment results Line 1: Introduction Line 2: Methodology"
+                },
+                "archives": {
+                  "type": "directory",
+                  "contents": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

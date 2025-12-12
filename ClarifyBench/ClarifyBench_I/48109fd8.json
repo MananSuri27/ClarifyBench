@@ -1,0 +1,41 @@
+{
+  "user_query": "I've just put together a file named 'missing_file_1.txt' into my working directory where I've laid out an initial summary of the project. But as I foresee possible modifications down the line, I'd like to compare it with 'Draft.txt' to see what changes might be needed.",
+  "potential_follow_ups": [
+    "For peace of mind, let's ensure both 'ProjectOverview.txt' and 'Draft.txt' are identical.",
+    "Lastly, I'd like to broadcast my recent documentation progress on Twitter. Please draft a tweet announcing a brief project update, as 'Initial summary of the project. To be discussed.', tagging it with 'ProjectUpdate' and mentioning @manager and @team_lead to keep everyone in the loop. My user name is tech_guru and password is securePass123."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "ProjectOverview.txt",
+        "file_name2": "Draft.txt"
+      }
+    }
+  ],
+  "user_intention": "User wants to modify the content of 'ProjectOverview.txt' by adding \"To be discussed,\" ensure that 'ProjectOverview.txt' and 'Draft.txt' have identical content, and draft a tweet announcing the project update with specific tags and mentions.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "ProjectOverview.txt": {
+              "type": "file",
+              "content": "Initial summary of the project. "
+            },
+            "Draft.txt": {
+              "type": "file",
+              "content": "Old draft content."
+            },
+            "Backups": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

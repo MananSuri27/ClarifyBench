@@ -1,0 +1,46 @@
+{
+  "user_query": "I'd like to take a look at the finance_report.txt. Would you send me the content of the last line.",
+  "potential_follow_ups": [
+    "According to the financial report, what's the mean of revenue and expense and profit. Round to nearest integer and write it in a new file. Note that only write the integer and nothing else to the text file"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "tail",
+      "parameters": {
+        "file_name": "finance_report.txt",
+        "lines": "1"
+      }
+    },
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "statistics.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I'd like to take a look at the finance_report.txt. Would you send me the content of the last line.'\n\nUser requests 'According to the financial report, what's the mean of revenue and expense and profit. Round to nearest integer and write it in a new file. Note that only write the integer and nothing else to the text file.'\n\nIf asked, user clarifies that the new file should name statistics.txt.\n\nThereafter, user requests 'The new file should name statistics.txt.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "notes": {
+              "type": "directory",
+              "contents": {}
+            },
+            "archive": {
+              "type": "directory",
+              "contents": {}
+            },
+            "finance_report.txt": {
+              "type": "file",
+              "content": "Revenue: $5000Expenses: $3000Profit: $2000Deadline: Q1Deadline: Q2Deadline: Q3Deadline: Q4Deadline: Q1Deadline: Q2Deadline: Q3Deadline: Q4"
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

@@ -1,0 +1,53 @@
+{
+  "user_query": "I've been exploring some amazing travel deals and I'm planning a business trip soon. I need to book a flight from San Francisco (SFO) to Los Angeles (LAX) on December 15, 2024. I'd like to travel in business class and the cost should be around $10,400. Could you help me book this flight using my card ending in 391310425148?",
+  "potential_follow_ups": [
+    "Excellent! Now that we're all authenticated, could we proceed with registering my credit card? We'll use card number 2345-6789-1234-5678, set to expire in 08/2025, listed under Maxwell Edison with the CVV 567. After that, I need a favor—book me a business class ticket from SFO to LAX for December 15, 2024. All travel details should be under my name, Maxwell Edison.",
+    "Next, I need to inform my travel companion of our plans. Could you reach out to my traveling partner with the user ID  m0llyTr@vel2k24 and share the itinerary details? Just a friendly note that 'Everything for our trip is sorted and ready!'",
+    "Appreciate the help! Before I forget, I’d love to check what I sent previously. Could you check what’s sent by me lately?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "register_credit_card",
+      "parameters": {
+        "card_number": "2345-6789-1234-5678",
+        "expiration_date": "08/2025",
+        "cardholder_name": "Maxwell Edison",
+        "card_verification_number": "567"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "card_id": "391310425148",
+        "travel_date": "2024-12-15",
+        "travel_from": "SFO",
+        "travel_to": "LAX",
+        "travel_class": "business",
+        "travel_cost": "400.0"
+      }
+    }
+  ],
+  "user_intention": "User wants to authenticate their account with TravelAPI using provided credentials to enable both reading and writing capabilities. Then, they want to register their credit card details for future transactions. Following this, they aim to book a business class ticket from SFO to LAX for December 15, 2024, under their name. After booking, they wish to share the itinerary details with their travel companion using the companion's user ID. Finally, they want to review their recent sent messages or actions within the TravelAPI.",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "262919693687": {
+          "card_number": "2345-6789-1234-5678",
+          "expiration_date": "08/2025",
+          "cardholder_name": "Maxwell Edison",
+          "card_verification_number": "567",
+          "balance": 44620
+        }
+      },
+      "booking_record": {},
+      "access_token": "485485239806",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read write",
+      "user_first_name": "Maxwell",
+      "user_last_name": "Edison",
+      "budget_limit": 5000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

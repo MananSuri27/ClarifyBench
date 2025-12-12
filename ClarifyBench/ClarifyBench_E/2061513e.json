@@ -1,0 +1,48 @@
+{
+  "user_query": "Could you go to temp directory, and for each file in there, count the number of lines.",
+  "potential_follow_ups": [
+    "Now, scour through the mysterious 'dev_summary.txt' and hunt for any mentions or whispers of 'server error'.",
+    "Make a new file whose name is the number of line but in txt format and append the second sentence containing 'server error' to it."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "dev_summary.txt",
+        "mode": "l"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "dev_summary.txt",
+        "pattern": "server error"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "However",
+        "DEFAULT": "a server error was detected in the final testing phase.",
+        "file_name": "1.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests \"Could you go to temp directory, and for each file in there, count the number of lines.\"\n\nUser requests \"Now, scour through the mysterious 'dev_summary.txt' and hunt for any mentions or whispers of 'server error'.\"\n\nUser requests \"Make a new file whose name is the number of line but in txt format and append the second sentence containing 'server error' to it.\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "temp": {
+          "type": "directory",
+          "contents": {
+            "dev_summary.txt": {
+              "type": "file",
+              "content": "This is a summary of the development process. No server error occurred during the initial phase. However, a server error was detected in the final testing phase. The team is working on resolving the server error. The server error is expected to be fixed by next week. Additional testing will be conducted to ensure no further server errors. The project is on track for completion. The final report will be submitted by the end of the month. The server error has been a major focus. The team is confident in resolving the server error soon."
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

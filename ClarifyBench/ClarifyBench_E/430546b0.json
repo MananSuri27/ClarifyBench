@@ -1,0 +1,88 @@
+{
+  "user_query": "I'm organizing a trip from San Francisco to Rome on October 10th 2024 and considering to fly business class. Secure a flight reservation that aligns with my financial constraints using my card with id card_7243 and access token 'abc123xyz'. Be sure to convert the ticket cost to EUR for an accurate currency reference.",
+  "potential_follow_ups": [
+    "I wish to secure travel insurance for this booking to safeguard against potential unexpected situations. Ensure the insurance is approximately 150 euros and utilize the same card, assuming it has adequate funds. Opt for 'travel' type insurance.",
+    "Now, consolidate an invoice covering my flight and the insurance costs. This will allow me to verify the comprehensive expense and ensure each detail is accurate within a single document."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "SFO",
+        "travel_to": "CIA",
+        "travel_date": "2024-10-10",
+        "travel_class": "business"
+      }
+    },
+    {
+      "tool_name": "compute_exchange_rate",
+      "parameters": {
+        "base_currency": "USD",
+        "target_currency": "EUR",
+        "value": "2800.0"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "card_id": "card_7243",
+        "travel_date": "2024-10-10",
+        "travel_from": "SFO",
+        "travel_to": "CIA",
+        "travel_class": "business",
+        "travel_cost": "2800.0"
+      }
+    },
+    {
+      "tool_name": "purchase_insurance",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "insurance_type": "travel",
+        "insurance_cost": "187.5",
+        "card_id": "card_7243",
+        "booking_id": "3426812"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "booking_id": "3426812",
+        "insurance_id": "498276044"
+      }
+    }
+  ],
+  "user_intention": "User requests \"I'm organizing a trip from San Francisco to Rome on October 10th 2024 and considering to fly business class. Secure a flight reservation that aligns with my financial constraints using my card with id card_7243 and access token 'abc123xyz'. Be sure to convert the ticket cost to EUR for an accurate currency reference.\"\n\nIf asked, user clarifies that this is to ensure the ticket cost is understood in the currency they will be using in Rome.\n\nThereafter, user requests \"I wish to secure travel insurance for this booking to safeguard against potential unexpected situations. Ensure the insurance is approximately 150 euros and utilize the same card, assuming it has adequate funds. Opt for 'travel' type insurance.\"\n\nIf asked, user clarifies that the insurance should cover unexpected situations related to the trip.\n\nThereafter, user requests \"Now, consolidate an invoice covering my flight and the insurance costs. This will allow me to verify the comprehensive expense and ensure each detail is accurate within a single document.\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_7243": {
+          "card_number": "4751918394027243",
+          "cardholder_name": "Michael Thompson",
+          "expiry_date": "12/25",
+          "cvv": 123,
+          "balance": 5000.0
+        }
+      },
+      "booking_record": {
+        "booking_001": {
+          "flight_number": "RO1234",
+          "departure": "San Francisco International",
+          "arrival": "Leonardo da Vinci–Fiumicino Airport",
+          "class": "Business",
+          "date": "2024-10-10",
+          "cost_usd": 5200.0
+        }
+      },
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 3000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

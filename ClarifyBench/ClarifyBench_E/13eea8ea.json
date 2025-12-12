@@ -1,0 +1,67 @@
+{
+  "user_query": "I remember I should have a document called 'FinalReport.txt' in the 'Documentation' folder. ",
+  "potential_follow_ups": [
+    "Make a copy of 'FinalReport.txt' to the 'Archives' directory inside the 'Documentation' folder, while ensuring the duplicate is preserved as 'ArchivedFinalReport2024.txt'.",
+    "Methodically arrange and sort the inaugural line of the 'ArchivedFinalReport2024.txt' in a seamless alphabetical order to verify clarity and sequence."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "Documentation"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "FinalReport.txt",
+        "destination": "Archives"
+      }
+    },
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "Archives"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "FinalReport.txt",
+        "destination": "ArchivedFinalReport2024.txt"
+      }
+    },
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "ArchivedFinalReport2024.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I remember I should have a document called \"FinalReport.txt\" in the \"Documentation\" folder.'\n\nUser requests 'Make a copy of \"FinalReport.txt\" to the \"Archives\" directory inside the \"Documentation\" folder, while ensuring the duplicate is preserved as \"ArchivedFinalReport2024.txt\".'\n\nUser requests 'Methodically arrange and sort the inaugural line of the \"ArchivedFinalReport2024.txt\" in a seamless alphabetical order to verify clarity and sequence.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "Documentation": {
+              "type": "directory",
+              "contents": {
+                "FinalReport.txt": {
+                  "type": "file",
+                  "content": "This is the final report for the year 2024. It contains all the necessary details and summaries."
+                },
+                "Archives": {
+                  "type": "directory",
+                  "contents": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

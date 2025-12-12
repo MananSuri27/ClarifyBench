@@ -1,0 +1,75 @@
+{
+  "user_query": "I've recently retired after spending years poring over electrical blueprints and energy systems across Spain. I'm planning an invigorating journey and wish to ensure all my travel details are meticulously verified. Please confirm my information using the passport number '123456' I've shared with you. The name and DoB are Carlos Martinez and March 23, 1968",
+  "potential_follow_ups": [
+    "In verifying this, kindly identify the most convenient airport for me if I'm residing in bustling New York City. Additionally, provide an estimate for a first-class journey to the sun-drenched coast of Los Angeles next week Oct 10 2024.",
+    "With this estimate in hand, arrange the flight using my credentials with id 'card_3456' and access token 'abc123xyz', ensuring a seamless payment process and detailing my travel itinerary.",
+    "However, an unexpected situation has prompted me to reconsider. Kindly cancel the flight immediately, sparing no time."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "verify_traveler_information",
+      "parameters": {
+        "first_name": "Carlos",
+        "last_name": "Martinez",
+        "date_of_birth": "1968-03-23",
+        "passport_number": "123456"
+      }
+    },
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "JFK",
+        "travel_to": "LAX",
+        "travel_date": "2024-10-10",
+        "travel_class": "first"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "card_id": "card_3456",
+        "travel_date": "2024-10-10",
+        "travel_from": "JFK",
+        "travel_to": "LAX",
+        "travel_class": "first",
+        "travel_cost": "5700.0"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "User requests \"I've recently retired after spending years poring over electrical blueprints and energy systems across Spain. I'm planning an invigorating journey and wish to ensure all my travel details are meticulously verified. Please confirm my information using the passport number '123456' I've shared with you. The name and DoB are Carlos Martinez and March 23, 1968.\"\n\nUser requests \"In verifying this, kindly identify the most convenient airport for me if I'm residing in bustling New York City. Additionally, provide an estimate for a first-class journey to the sun-drenched coast of Los Angeles next week Oct 10 2024.\"\n\nUser requests \"With this estimate in hand, arrange the flight using my credentials with id 'card_3456' and access token 'abc123xyz', ensuring a seamless payment process and detailing my travel itinerary.\"\n\nUser requests \"However, an unexpected situation has prompted me to reconsider. Kindly cancel the flight immediately, sparing no time.\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_3456": {
+          "card_number": "1234-5678-9012-3456",
+          "cardholder_name": "Carlos Martinez",
+          "expiry_date": "12/25",
+          "balance": 15000.0
+        }
+      },
+      "booking_record": {
+        "booking123": {
+          "flight_number": "LA123",
+          "cost": 1200.0,
+          "passport_number": "123456"
+        }
+      },
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Carlos",
+      "user_last_name": "Martinez",
+      "budget_limit": 5000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

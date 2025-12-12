@@ -1,0 +1,37 @@
+{
+  "user_query": "I've recently linked a newly registered credit card with the ID 'card_4455', set to expire in 2024, and it's under my name. Accessing my account to ascertain my current balance is my next goal. Could this information be retrieved for me?",
+  "potential_follow_ups": [
+    "I've recently linked a newly registered credit card with the ID 'card_4455', set to expire in 2024, and it's under my name. Accessing my account to ascertain my current balance is my next goal. Could this information be retrieved for me?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_credit_card_balance",
+      "parameters": {
+        "access_token": "251675",
+        "card_id": "card_4455"
+      }
+    }
+  ],
+  "user_intention": "User requests \"I've recently linked a newly registered credit card with the ID 'card_4455', set to expire in 2024, and it's under my name.\"\n\nIf asked, user clarifies that this card is linked to their TravelAPI account for transactions.\n\nThereafter, user requests \"Accessing my account to ascertain my current balance is my next goal.\"\n\nIf asked, user clarifies that they want to know if the balance can be retrieved using the linked credit card information.\n\nThereafter, user requests \"Could this information be retrieved for me?\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_4455": {
+          "card_number": "2378 8753 9012 4455",
+          "expiry_date": "2024",
+          "cardholder_name": "Michael Thompson",
+          "balance": 1500.75
+        }
+      },
+      "booking_record": {},
+      "access_token": "251675",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 5000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

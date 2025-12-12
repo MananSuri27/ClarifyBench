@@ -1,0 +1,56 @@
+{
+  "user_query": "Could you please add a new page with the text \"Summary of Key Findings\" in font size 12 as page number 23 to the existing report_keax.pdf? The document currently has 22 pages.",
+  "potential_follow_ups": [
+    "Could you rename the updated report file to \"updated_report_keax.pdf\" and save it in the \"/documents/renamed_reports/\" directory? Please make sure it doesn't overwrite any existing files.",
+    "Please delete the page range starting from page 5 in the document and save the modified file as \"report_keax_modified.pdf\".",
+    "Hey, could you please redact pages 5 through 10 in the report_keax.pdf? Thanks!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "add_page_with_text",
+      "parameters": {
+        "text_content": "Summary of Key Findings",
+        "font_size": 12,
+        "page_num": 23
+      }
+    },
+    {
+      "tool_name": "rename",
+      "parameters": {
+        "output_filename": "updated_report_keax.pdf",
+        "overwrite": false,
+        "output_pathname": "/documents/renamed_reports/"
+      }
+    },
+    {
+      "tool_name": "delete_page_range",
+      "parameters": {
+        "start": 5,
+        "end": 10,
+        "overwrite": false,
+        "output_pathname": "report_keax_modified.pdf"
+      }
+    },
+    {
+      "tool_name": "redact_page_range",
+      "parameters": {
+        "start": 5,
+        "end": 10
+      }
+    }
+  ],
+  "user_intention": "User requests 'add a new page with the text \"Summary of Key Findings\" in font size 12 as page number 23 to the existing report_keax.pdf'. If asked, user clarifies details. User requests 'rename the updated report file to \"updated_report_keax.pdf\" and save it in the \"/documents/renamed_reports/\" directory without overwriting any existing files'. If asked, user clarifies details. User requests 'remove pages 5 through 10 from the report_keax.pdf without overwriting the original file and save the modified version as report_keax_modified.pdf'. If asked, user clarifies details. User requests 'redact pages 5 through 10 in the report_keax.pdf'. If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 22,
+      "pdf_name": "report_keax.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "add_page_with_text",
+    "rename",
+    "delete_page_range",
+    "redact_page_range"
+  ]
+}

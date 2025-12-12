@@ -1,0 +1,51 @@
+{
+  "user_query": "Fantastic! Now that authentication is successfully completed, let's move forward with booking your idyllic escape. You opt for your trusted credit card, bearing the id credit_9988, to cover all logistical costs. Book your journey from JFK to MPC for December 25th, 2024, travelling first class, at a cost of 3000.50 dollars.",
+  "potential_follow_ups": [
+    "Fantastic! Now that authentication is successfully completed, let's move forward with booking your idyllic escape. You opt for your trusted credit card, bearing the id credit_9988, to cover all logistical costs. Book your journey from JFK to MPC for December 25th, 2024, travelling first class, at a cost of 3000.50 dollars.",
+    "Oh dear! Unexpected changes have arisen. Could you please cancel your recent booking as a more urgent matter needs your attention?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "251675",
+        "card_id": "credit_9988",
+        "travel_date": "2024-12-25",
+        "travel_from": "JFK",
+        "travel_to": "MPC",
+        "travel_class": "first",
+        "travel_cost": "3000.5"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "251675",
+        "booking_id": "5431449"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Fantastic! Now that authentication is successfully completed, let's move forward with booking your idyllic escape. You opt for your trusted credit card, bearing the id credit_9988, to cover all logistical costs. Book your journey from JFK to MPC for December 25th, 2024, travelling first class, at a cost of 3000.50 dollars.'\n\nThereafter, user requests 'Oh dear! Unexpected changes have arisen. Could you please cancel your recent booking as a more urgent matter needs your attention?'",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "credit_9988": {
+          "card_number": "5522-5433-6677-9988",
+          "expiration_date": "12/25",
+          "cvv": 123,
+          "cardholder_name": "Michael Thompson",
+          "balance": 10000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "full_access",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 5000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

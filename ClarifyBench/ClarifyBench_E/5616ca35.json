@@ -1,0 +1,48 @@
+{
+  "user_query": "It's been quite an adventure today! Before embarking on a long trip, I filled up my cars fuel tank, doubling its existing level for a safe journey. Please go ahead and start the engine so I can ensure the vehicle's operations are smooth.",
+  "potential_follow_ups": [
+    "Oh no! One of the tires feels odd. Could you check the tire pressure to confirm if they're at a healthy level?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User requests \"It's been quite an adventure today! Before embarking on a long trip, I filled up my car's fuel tank, doubling its existing level for a safe journey. Please go ahead and start the engine so I can ensure the vehicle's operations are smooth.\"\n\nIf asked, user clarifies that this is to ensure the vehicle is ready for the journey and that the engine is functioning properly.\n\nThereafter, user requests \"Oh no! One of the tires feels odd. Could you check the tire pressure to confirm if they're at a healthy level?\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

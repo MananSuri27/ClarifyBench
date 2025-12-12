@@ -1,0 +1,77 @@
+{
+  "user_query": "You're planning an extended expedition from Rivermist to San Francisco. Could you determine the travel distance between these two locations for me?",
+  "potential_follow_ups": [
+    "Next, I need to verify if my car's mileage capacity suffices for the journey. Can you assess if the vehicle can handle the calculated travel distance?",
+    "It seems I've discovered the tank isn't full. Could you be so kind as to facilitate refueling the vehicle fully for such a lengthy trip?",
+    "With the tank now replenished, let's confirm our readiness for departure. Please secure all doors and initiate the engine for me."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "DEFAULT": "San Francisco"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "DEFAULT": "Rivermist"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "83214",
+        "cityB": "94016"
+      }
+    },
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "980.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "45.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User requests \"You're planning an extended expedition from Rivermist to San Francisco. Could you determine the travel distance between these two locations for me?\"\n\nIf asked, user clarifies that this is to calculate the distance for travel planning purposes.\n\nThereafter, user requests \"Next, I need to verify if my car's mileage capacity suffices for the journey. Can you assess if the vehicle can handle the calculated travel distance?\"\n\nIf asked, user clarifies that this involves checking the vehicle's fuel efficiency and current fuel level against the travel distance.\n\nThereafter, user requests \"It seems I've discovered the tank isn't full. Could you be so kind as to facilitate refueling the vehicle fully for such a lengthy trip?\"\n\nIf asked, user clarifies that this means using the VehicleControlAPI to initiate a refueling operation.\n\nThereafter, user requests \"With the tank now replenished, let's confirm our readiness for departure. Please secure all doors and initiate the engine for me.\"\n\nIf asked, user clarifies that this involves using the VehicleControlAPI to lock the vehicle's doors and start the engine.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 5.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "San Francisco",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

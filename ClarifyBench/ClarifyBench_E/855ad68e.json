@@ -1,0 +1,50 @@
+{
+  "user_query": "Hey there, I noticed that all of my car doors seem to have locked themselves up, and with my schedule being pretty tight today, I'm in quite a pinch. I could really use your help to get those doors unlocked. It'd be fantastic if you could also switch on the headlights. It's getting a bit darker out here than expected, and visibility's not great!",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "lockDoors",
+      "parameters": {
+        "unlock": "True",
+        "door": "['driver",
+        "DEFAULT": "rear_right']"
+      }
+    },
+    {
+      "tool_name": "setHeadlights",
+      "parameters": {
+        "mode": "on"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Hey there, I noticed that all of my car doors seem to have locked themselves up, and with my schedule being pretty tight today, I'm in quite a pinch. I could really use your help to get those doors unlocked.' \n\nThereafter, user requests 'It'd be fantastic if you could also switch on the headlights. It's getting a bit darker out here than expected, and visibility's not great!'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.5,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "locked",
+        "rear_left": "locked",
+        "rear_right": "locked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 70,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 30.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

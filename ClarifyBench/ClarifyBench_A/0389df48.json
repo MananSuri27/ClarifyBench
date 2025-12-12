@@ -1,0 +1,57 @@
+{
+  "user_query": "Examine current directory for any presence of the file named 'summary.txt'. If there is one, What's inside?",
+  "potential_follow_ups": [
+    "Copy it into 'Research2023'.",
+    "Post review, organize the lines in a file alphabetically.",
+    "Conclude by calculating the total lines in the sorted 'summary.txt' to verify that everything is meticulously arranged."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "summary.txt"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "summary.txt",
+        "destination": "Research2023"
+      }
+    },
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "summary.txt"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "summary.txt",
+        "mode": "l"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Examine current directory for any presence of the file named \"summary.txt\". If there is one, What's inside?'. Thereafter, user requests 'Copy it into \"Research2023\".'. User requests 'Post review, organize the lines in a file alphabetically.'. If asked, user clarifies that this is the file 'summary.txt'. Thereafter, user requests 'Conclude by calculating the total lines in the sorted \"summary.txt\" to verify that everything is meticulously arranged.'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "Research2023": {
+              "type": "directory",
+              "contents": {}
+            },
+            "summary.txt": {
+              "type": "file",
+              "content": "This is the summary of the project. It includes various findings and conclusions. Further analysis is required."
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

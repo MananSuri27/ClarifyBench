@@ -1,0 +1,14 @@
+name: gfs
+module_path: plugins.gfs_plugin
+class_name: GFSPlugin
+description: | 
+  Plugin for file system operations, providing tools for navigating directories, creating and manipulating files, and performing various file operations.
+
+  FILE SYSTEM advice:
+  - File operations work only in the current directory - no paths allowed
+  - Use only alphanumeric characters, hyphens, and underscores in filenames
+  - Forbidden characters: | / \ ? % * : > " <
+  - Use pwd and ls to understand current context before operations
+  - Check file existence with ls before operations like cat, wc, sort
+  - For directory navigation: only use cd with single folder names or ".."
+  - Create directories with mkdir before using cd to enter them

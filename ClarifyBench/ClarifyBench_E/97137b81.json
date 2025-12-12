@@ -1,0 +1,58 @@
+{
+  "user_query": "I've noticed my car is nearing empty, and I could really use some extra fuel in the tank. I'm gearing up for a long drive, and I need to make sure I'm set with a full tank before hitting the road.",
+  "potential_follow_ups": [
+    "While I'm at it, let's make sure the car's ready for the adventure. Start up the engine for me, and confirm everything is good to go, like the doors being locked and the handbrake engaged.",
+    "Finally, I'm plotting a trip through San Francisco, specifically aiming for 123 Pine St, San Francisco, CA 94016. Set the GPS for a seamless ride to that location. Anticipating a smooth drive ahead!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "45.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "123 Pine St",
+        "DEFAULT": "CA 94016"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I've noticed my car is nearing empty, and I could really use some extra fuel in the tank. I'm gearing up for a long drive, and I need to make sure I'm set with a full tank before hitting the road.'\n\nUser requests 'While I'm at it, let's make sure the car's ready for the adventure. Start up the engine for me, and confirm everything is good to go, like the doors being locked and the handbrake engaged.'\n\nUser requests 'Finally, I'm plotting a trip through San Francisco, specifically aiming for 123 Pine St, San Francisco, CA 94016. Set the GPS for a seamless ride to that location. Anticipating a smooth drive ahead!'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 5.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

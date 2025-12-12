@@ -1,0 +1,149 @@
+{
+  "user_query": "I'd like some assistance today with my investment portfolio. If a specific company is part of my watchlist, please remove it for me. The market trends for their extractions are concerning me recently.",
+  "potential_follow_ups": [
+    "With my watchlist refreshed, please retrieve the current stocks still listed. I need a clear view of what remains on my radar.",
+    "I'm intrigued by the recent advancements in technology and wish to explore investment opportunities there. Could you provide a list of available technology stock symbols?",
+    "I've been observing Microsoft's stock performance and I find it quite compelling. Could you give me a detailed update on its current status and trends?",
+    "I'm ready to act on my analysis. Please purchase 50 shares of Microsoft at $320 each, given today's indicators.",
+    "Finally, before the end of the trading day, I intend to deposit 10 times the prices of OMEG rounded to nearest thousands into my trading account to secure liquidity for forthcoming ventures."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "remove_stock_from_watchlist",
+      "parameters": {
+        "symbol": "ZETA"
+      }
+    },
+    {
+      "tool_name": "get_watchlist",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_available_stocks",
+      "parameters": {
+        "sector": "Technology"
+      }
+    },
+    {
+      "tool_name": "get_stock_info",
+      "parameters": {
+        "symbol": "MSFT"
+      }
+    },
+    {
+      "tool_name": "place_order",
+      "parameters": {
+        "order_type": "Buy",
+        "symbol": "MSFT",
+        "price": "320",
+        "amount": "50"
+      }
+    },
+    {
+      "tool_name": "fund_account",
+      "parameters": {
+        "amount": "5000"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"I'd like some assistance today with my investment portfolio. If a specific company is part of my watchlist, please remove it for me. The market trends for their extractions are concerning me recently.\"\n\n2. If asked, user clarifies: \"That specific company is Zeta Corp.\"\n\n3. Thereafter, user requests: \"With my watchlist refreshed, please retrieve the current stocks still listed. I need a clear view of what remains on my radar.\"\n\n4. User requests: \"I'm intrigued by the recent advancements in technology and wish to explore investment opportunities there. Could you provide a list of available technology stock symbols?\"\n\n5. User requests: \"I've been observing Microsoft's stock performance and I find it quite compelling. Could you give me a detailed update on its current status and trends?\"\n\n6. User requests: \"I'm ready to act on my analysis. Please purchase 50 shares of Microsoft at $320 each, given today's indicators.\"\n\n7. User requests: \"Finally, before the end of the trading day, I intend to deposit 10 times the prices of OMEG rounded to nearest thousands into my trading account to secure liquidity for forthcoming ventures.\"",
+  "initial_config": {
+    "TradingBot": {
+      "orders": {
+        "12345": {
+          "symbol": "AAPL",
+          "price": 210.65,
+          "num_shares": 10,
+          "status": "Completed"
+        },
+        "order_type": "Buy"
+      },
+      "account_info": {
+        "account_id": 98765,
+        "balance": 15000.0,
+        "binding_card": 1987654321098765
+      },
+      "authenticated": true,
+      "market_status": "Open",
+      "order_counter": 12446,
+      "stocks": {
+        "AAPL": {
+          "price": 227.16,
+          "percent_change": 0.17,
+          "volume": 2.552,
+          "MA(5)": 227.11,
+          "MA(20)": 227.09
+        },
+        "GOOG": {
+          "price": 2840.34,
+          "percent_change": 0.24,
+          "volume": 1.123,
+          "MA(5)": 2835.67,
+          "MA(20)": 2842.15
+        },
+        "TSLA": {
+          "price": 667.92,
+          "percent_change": -0.12,
+          "volume": 1.654,
+          "MA(5)": 671.15,
+          "MA(20)": 668.2
+        },
+        "MSFT": {
+          "price": 310.23,
+          "percent_change": 0.09,
+          "volume": 3.234,
+          "MA(5)": 309.88,
+          "MA(20)": 310.11
+        },
+        "NVDA": {
+          "price": 220.34,
+          "percent_change": 0.34,
+          "volume": 1.234,
+          "MA(5)": 220.45,
+          "MA(20)": 220.67
+        },
+        "ALPH": {
+          "price": 1320.45,
+          "percent_change": -0.08,
+          "volume": 1.567,
+          "MA(5)": 1321.12,
+          "MA(20)": 1325.78
+        },
+        "OMEG": {
+          "price": 457.23,
+          "percent_change": 0.12,
+          "volume": 2.345,
+          "MA(5)": 456.78,
+          "MA(20)": 458.12
+        },
+        "QUAS": {
+          "price": 725.89,
+          "percent_change": -0.03,
+          "volume": 1.789,
+          "MA(5)": 726.45,
+          "MA(20)": 728.0
+        },
+        "NEPT": {
+          "price": 88.34,
+          "percent_change": 0.19,
+          "volume": 0.654,
+          "MA(5)": 88.21,
+          "MA(20)": 88.67
+        },
+        "SYNX": {
+          "price": 345.67,
+          "percent_change": 0.11,
+          "volume": 2.112,
+          "MA(5)": 345.34,
+          "MA(20)": 346.12
+        }
+      },
+      "watch_list": [
+        "NVDA",
+        "ZETA"
+      ],
+      "transaction_history": []
+    }
+  },
+  "primary_api": "TradingBot"
+}

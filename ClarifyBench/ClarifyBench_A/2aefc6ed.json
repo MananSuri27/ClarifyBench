@@ -1,0 +1,141 @@
+{
+  "user_query": "I just arrived at the office and want to know the current market status to plan my trading activities for the day. Update the market status with the current time so I can adjust my strategy accordingly.",
+  "potential_follow_ups": [
+    "I noticed some promising trends and want to proceed with a 'Buy' order for 100 shares at a price of $150 each. Let's ensure the order is placed correctly.",
+    "I received a notification about the order placement but want a detailed look at the transaction. Provide me with the full details of my recent order.",
+    "Upon further consideration, I think it's better to hold off on this purchase. Please cancel my recent order for the AAPL shares.",
+    "I've handled all necessary trading decisions for today, and I want to make sure my account is securely logged out. Confirm my logout from the trading system."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_current_time",
+      "parameters": {}
+    },
+    {
+      "tool_name": "update_market_status",
+      "parameters": {
+        "current_time_str": "10:30 AM"
+      }
+    },
+    {
+      "tool_name": "place_order",
+      "parameters": {
+        "order_type": "Buy",
+        "symbol": "AAPL",
+        "price": "150",
+        "amount": "100"
+      }
+    },
+    {
+      "tool_name": "get_order_details",
+      "parameters": {
+        "order_id": "12446"
+      }
+    },
+    {
+      "tool_name": "cancel_order",
+      "parameters": {
+        "order_id": "12446"
+      }
+    }
+  ],
+  "user_intention": "1. User requests \"I just arrived at the office and want to know the current market status to plan my trading activities for the day. Update the market status with the current time so I can adjust my strategy accordingly.\"\n\n2. User requests \"I noticed some promising trends and want to proceed with a 'Buy' order for 100 shares at a price of $150 each. Let's ensure the order is placed correctly.\"\n\n3. If asked, user clarifies that \"The stock name is AAPL.\"\n\n4. Thereafter, user requests \"I received a notification about the order placement but want a detailed look at the transaction. Provide me with the full details of my recent order.\"\n\n5. User requests \"Upon further consideration, I think it's better to hold off on this purchase. Please cancel my recent order for the AAPL shares.\"\n\n6. User requests \"I've handled all necessary trading decisions for today, and I want to make sure my account is securely logged out. Confirm my logout from the trading system.\"",
+  "initial_config": {
+    "TradingBot": {
+      "orders": {
+        "12345": {
+          "symbol": "AAPL",
+          "price": 210.65,
+          "num_shares": 10,
+          "status": "Completed"
+        },
+        "order_type": "Buy"
+      },
+      "account_info": {
+        "account_id": 12345,
+        "balance": 10000.0,
+        "binding_card": 1974202140965533
+      },
+      "authenticated": true,
+      "market_status": "Open",
+      "order_counter": 12446,
+      "stocks": {
+        "AAPL": {
+          "price": 227.16,
+          "percent_change": 0.17,
+          "volume": 2.552,
+          "MA(5)": 227.11,
+          "MA(20)": 227.09
+        },
+        "GOOG": {
+          "price": 2840.34,
+          "percent_change": 0.24,
+          "volume": 1.123,
+          "MA(5)": 2835.67,
+          "MA(20)": 2842.15
+        },
+        "TSLA": {
+          "price": 667.92,
+          "percent_change": -0.12,
+          "volume": 1.654,
+          "MA(5)": 671.15,
+          "MA(20)": 668.2
+        },
+        "MSFT": {
+          "price": 310.23,
+          "percent_change": 0.09,
+          "volume": 3.234,
+          "MA(5)": 309.88,
+          "MA(20)": 310.11
+        },
+        "NVDA": {
+          "price": 220.34,
+          "percent_change": 0.34,
+          "volume": 1.234,
+          "MA(5)": 220.45,
+          "MA(20)": 220.67
+        },
+        "ALPH": {
+          "price": 1320.45,
+          "percent_change": -0.08,
+          "volume": 1.567,
+          "MA(5)": 1321.12,
+          "MA(20)": 1325.78
+        },
+        "OMEG": {
+          "price": 457.23,
+          "percent_change": 0.12,
+          "volume": 2.345,
+          "MA(5)": 456.78,
+          "MA(20)": 458.12
+        },
+        "QUAS": {
+          "price": 725.89,
+          "percent_change": -0.03,
+          "volume": 1.789,
+          "MA(5)": 726.45,
+          "MA(20)": 728.0
+        },
+        "NEPT": {
+          "price": 88.34,
+          "percent_change": 0.19,
+          "volume": 0.654,
+          "MA(5)": 88.21,
+          "MA(20)": 88.67
+        },
+        "SYNX": {
+          "price": 345.67,
+          "percent_change": 0.11,
+          "volume": 2.112,
+          "MA(5)": 345.34,
+          "MA(20)": 346.12
+        }
+      },
+      "watch_list": [
+        "NVDA"
+      ],
+      "transaction_history": []
+    }
+  },
+  "primary_api": "TradingBot"
+}

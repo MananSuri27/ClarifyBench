@@ -1,0 +1,53 @@
+{
+  "user_query": "Locate any file with that a special word in it",
+  "potential_follow_ups": [
+    "Naviagte to that first analysis and identify any line with error in it.",
+    "Let's bring some order to the project documents. I want to human readiblelog the storage usage of the entire current directory to usage.txt file. The content of the file should be the number follwed by the word bytes and nothing else."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "find",
+      "parameters": {
+        "path": ".",
+        "name": "analysis"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "analysis_report.txt",
+        "pattern": "error"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Locate any file with that a special word in it'.  \nIf asked, user clarifies that the special word is 'analysis'.  \nThereafter, user requests 'Navigate to that first analysis and identify any line with error in it.'  \nUser requests 'Let's bring some order to the project documents. I want to human readable log the storage usage of the entire current directory to usage.txt file. The content of the file should be the number followed by the word bytes and nothing else.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "data": {
+              "type": "directory",
+              "contents": {
+                "analysis_report.txt": {
+                  "type": "file",
+                  "content": "Line 1: No error Line 2: Minor error detected Line 3: All systems operational Line 4: Critical error found"
+                },
+                "project_summary.txt": {
+                  "type": "file",
+                  "content": "Summary line 1 Summary line 2 Summary line 3 Summary line 4 Summary line 5"
+                },
+                "file3.txt": {
+                  "type": "file",
+                  "content": "Zebra Apple Monkey Banana"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

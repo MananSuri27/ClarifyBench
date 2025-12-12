@@ -1,0 +1,78 @@
+{
+  "user_query": "It's a lazy Sunday morning and I'm getting ready for a drive. Before setting off, I want to make sure all the car doors are locked tight. Would you be able to check the door locks and ensure they're secured if any are unlocked?",
+  "potential_follow_ups": [
+    "I'm feeling a bit adventurous today, so I've decided to start the engine and hit the road. Can you confirm everything's all set and start the car?",
+    "I'm curious about the distance to Oakendale before I head out. Would you mind estimating how far I'll be traveling?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "displayCarStatus",
+      "parameters": {
+        "option": "doors"
+      }
+    },
+    {
+      "tool_name": "lockDoors",
+      "parameters": {
+        "unlock": "False",
+        "door": "['driver",
+        "DEFAULT": "rear_right']"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "Silverpine"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "Oakendale"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "62947",
+        "cityB": "47329"
+      }
+    }
+  ],
+  "user_intention": "1. User requests \"It's a lazy Sunday morning and I'm getting ready for a drive. Before setting off, I want to make sure all the car doors are locked tight. Would you be able to check the door locks and ensure they're secured if any are unlocked?\"\n\n2. User requests \"I'm feeling a bit adventurous today, so I've decided to start the engine and hit the road. Can you confirm everything's all set and start the car?\"\n\n3. User requests \"I'm curious about the distance to Oakendale before I head out. Would you mind estimating how far I'll be traveling?\"\n\n   If asked, user clarifies that \"I'm leaving from Silverpine.\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "locked",
+        "rear_left": "unlocked",
+        "rear_right": "locked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

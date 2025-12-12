@@ -1,0 +1,63 @@
+{
+  "user_query": "Find every file with the name 'test_document.txt' nestled within the current directory.",
+  "potential_follow_ups": [
+    "Transfer a duplicate of 'test_document.txt' over to the archives folder and rename it 'final_document.txt'.",
+    "Reveal the contents of a different file."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "find",
+      "parameters": {
+        "path": ".",
+        "name": "test_document.txt"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "test_document.txt",
+        "destination": "archives"
+      }
+    },
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "archives"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "test_document.txt",
+        "destination": "final_document.txt"
+      }
+    },
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "final_document.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Find every file with the name 'test_document.txt' nestled within the current directory.' \n\nUser requests 'Transfer a duplicate of 'test_document.txt' over to the archives folder and rename it 'final_document.txt'.' \n\nUser requests 'Reveal the contents of a different file.' \n\nIf asked, user clarifies that this is the file that was renamed in the previous step. \n\nThereafter, user requests to reveal the contents of 'final_document.txt'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "work": {
+          "type": "directory",
+          "contents": {
+            "test_document.txt": {
+              "type": "file",
+              "content": "This is a draft version of the document."
+            },
+            "archives": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

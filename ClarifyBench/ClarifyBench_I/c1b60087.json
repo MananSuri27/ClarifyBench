@@ -1,0 +1,41 @@
+{
+  "user_query": "I'm trying to compare two files in my documents directory. Could you show me the differences between 'report.txt' and 'missing_file_1.txt'?",
+  "potential_follow_ups": [
+    "I've lately stored some work that parallels another document on my system. Might you review both files in this directory and articulate the distinctions"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "report.txt",
+        "file_name2": "summary.txt"
+      }
+    }
+  ],
+  "user_intention": "User wants to access the GorillaFileSystem to first identify the alphabetically first file in the documents directory and display its last line, and then compare two specific files in the same directory to articulate the differences between them.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "documents": {
+              "type": "directory",
+              "contents": {
+                "report.txt": {
+                  "type": "file",
+                  "content": "Zebra Apple Orange"
+                },
+                "summary.txt": {
+                  "type": "file",
+                  "content": "Banana Grape Lemon"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

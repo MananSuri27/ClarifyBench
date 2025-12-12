@@ -1,0 +1,60 @@
+{
+  "user_query": "If the fuel level is lower than, then go ahead and add double that amount. Let's assume I will also head out right after, so feel free to start the engine using the necessary mode.",
+  "potential_follow_ups": [
+    "Since we are all set to go, could you quickly check the pressure of all the tires to ensure everything is safe for our journey?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "displayCarStatus",
+      "parameters": {
+        "DEFAULT": "fuel"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "DEFAULT": "15.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "1. User requests: \"If the fuel level is lower than, then go ahead and add double that amount. Let's assume I will also head out right after, so feel free to start the engine using the necessary mode.\"\n\n2. If asked, user clarifies: \"I think if lower than 10, then we need to double.\"\n\n3. Thereafter, user requests: \"Since we are all set to go, could you quickly check the pressure of all the tires to ensure everything is safe for our journey?\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 7.5,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 28.0,
+      "frontRightTirePressure": 28.0,
+      "rearLeftTirePressure": 26.0,
+      "rearRightTirePressure": 26.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

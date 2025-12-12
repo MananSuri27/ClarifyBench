@@ -1,0 +1,74 @@
+{
+  "user_query": "I'm getting ready for a road trip from San Francisco to Rivermist and want to make sure everything's set for the journey. Could you help me start the engine in RUN mode to check the distance and ensure I'm ready to go?",
+  "potential_follow_ups": [
+    "Now that I have the distance sorted, I'm considering the fuel situation. What's the current level of gasoline I have in liters?",
+    "With the liters in mind, I'll need to top up my vehicle’s tank. Please go ahead and fill up the tank before I hit the road.",
+    "As the journey is about to begin, could you kindly engage the 'START' ignition mode to ready the vehicle? I want to ensure everything's in perfect working order before I drive off.",
+    "Finally, I'm analyzing mileage statistics and need the logarithm of the distance to the base the previous fuel value, computed to a precision of 10. Use base of 20. This will help with assessing the fuel efficiency patterns."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "94016",
+        "cityB": "83214"
+      }
+    },
+    {
+      "tool_name": "gallon_to_liter",
+      "parameters": {
+        "gallon": "10"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "40"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User wants to plan and prepare for a road trip by using the VehicleControlAPI to: 1) Determine the distance between San Francisco and Rivermist to assess travel requirements. 2) Check the current fuel level in liters to evaluate the need for refueling. 3) Refill the vehicle's fuel tank to ensure sufficient fuel for the journey. 4) Start the vehicle's ignition to ensure it is ready for travel. 5) Calculate the logarithm of the distance using a base of 20, with a precision of 10, to analyze fuel efficiency patterns.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "Rivermist",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

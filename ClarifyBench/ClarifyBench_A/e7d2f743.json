@@ -1,0 +1,78 @@
+{
+  "user_query": "Hey, I'm in the mood for a last-minute getaway! I need some help figuring out how much it's going to cost for a first-class flight between the first two airports on your destination list. Planning to leave next Friday 19th Sept 2024 and want to make sure I can travel in style.",
+  "potential_follow_ups": [
+    "So, I've been thinking about how much I want to spend on my travels. I'd like to set a budget cap. Can you, with my authorized access, set a limit of $10,000 for any travel expenses I might incur? ",
+    "I'm feeling a bit uneasy and decided it might be a good idea to get some travel insurance. Could you arrange this for my latest reservation (with id 'latest_reservation'), making sure it stays within my budget? Please use my credit card with ID 'primary' and access token 'abc123xyz'. I am willing to pay the $500 premium.",
+    "The purchase is finally done, and I’d appreciate it if you could help me look over the invoice details for my booking. I just want to double-check to ensure everything’s correct."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "list_all_airports",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "RMS",
+        "travel_to": "SBK",
+        "travel_date": "2024-09-19",
+        "travel_class": "first"
+      }
+    },
+    {
+      "tool_name": "set_budget_limit",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "budget_limit": "10000.0"
+      }
+    },
+    {
+      "tool_name": "purchase_insurance",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "booking_id": "latest_reservation",
+        "insurance_type": "comprehensive",
+        "insurance_cost": "500.0",
+        "card_id": "primary"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "booking_id": "latest_reservation"
+      }
+    }
+  ],
+  "user_intention": "1. User requests \"Hey, I'm in the mood for a last-minute getaway! I need some help figuring out how much it's going to cost for a first-class flight between the first two airports on your destination list. Planning to leave next Friday 19th Sept 2024 and want to make sure I can travel in style.\"\n\n2. User requests \"So, I've been thinking about how much I want to spend on my travels. I'd like to set a budget cap. Can you, with my authorized access, set a limit of $10,000 for any travel expenses I might incur?\"\n\n   If asked, user clarifies that \"access token is abc123xyz.\"\n\n3. User requests \"I'm feeling a bit uneasy and decided it might be a good idea to get some travel insurance. Could you arrange this for my latest reservation (with id 'latest_reservation'), making sure it stays within my budget? Please use my credit card with ID 'primary' and access token 'abc123xyz'. I am willing to pay the $500 premium.\"\n\n4. User requests \"The purchase is finally done, and I’d appreciate it if you could help me look over the invoice details for my booking. I just want to double-check to ensure everything’s correct.\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "primary": {
+          "number": "4726351846298192",
+          "expiry": "12/25",
+          "cvv": "123",
+          "balance": 10000
+        }
+      },
+      "booking_record": {
+        "latest_reservation": {
+          "travel_cost": 9500.0,
+          "travel_date": "2024-12-24",
+          "travel_from": "SFO",
+          "travel_to": "LAX",
+          "travel_class": "economy",
+          "transaction_id": "12345"
+        }
+      },
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Michael",
+      "user_last_name": "Smith",
+      "budget_limit": 10000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

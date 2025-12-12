@@ -1,0 +1,61 @@
+{
+  "user_query": "I am at the gas station and ready to fill up my car with gasoline. I would appreciate it if you could manage filling 30 liters into my vehicle to ensure it's properly fueled for the journey ahead. Use 2 decimal digit of the gallon amount",
+  "potential_follow_ups": [
+    "With the fuel tank now filled with some gas, let's proceed to start the car engine. I'd be grateful if you could initiate the engine in 'START' mode for me.",
+    "After starting the engine, there was a slight vibration while I was driving. Would you mind checking the tire pressure to confirm everything's in good working order?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "liter_to_gallon",
+      "parameters": {
+        "liter": "30"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "7.93"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User requests 'I am at the gas station and ready to fill up my car with gasoline. I would appreciate it if you could manage filling 30 liters into my vehicle to ensure it's properly fueled for the journey ahead. Use 2 decimal digit of the gallon amount'. \n\nThereafter, user requests 'With the fuel tank now filled with some gas, let's proceed to start the car engine. I'd be grateful if you could initiate the engine in 'START' mode for me.'\n\nThereafter, user requests 'After starting the engine, there was a slight vibration while I was driving. Would you mind checking the tire pressure to confirm everything's in good working order?'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 0.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

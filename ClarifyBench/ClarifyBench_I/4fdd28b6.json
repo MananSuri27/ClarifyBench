@@ -1,0 +1,73 @@
+{
+  "user_query": "Could you help me start the engine with the ignition mode set to 'start' so I can estimate the distance between San Francisco and Silverpine?",
+  "potential_follow_ups": [
+    "I need that info to check if my vehicle can cover the distance without refueling.",
+    "In case it can't, just fill out the fuel tank completely.",
+    "Turn on my vehicle's engine in 'START' mode."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "94016",
+        "cityB": "62947"
+      }
+    },
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "780.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "39.5"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User wants to use the VehicleControlAPI to estimate the distance between San Francisco and Silverpine to determine if their vehicle can cover the distance without refueling. If the vehicle cannot cover the distance, they want to refuel the vehicle completely. Finally, they want to start the vehicle's engine in 'START' mode.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.5,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "Silverpine",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

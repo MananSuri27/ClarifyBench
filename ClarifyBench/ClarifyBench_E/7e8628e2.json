@@ -1,0 +1,54 @@
+{
+  "user_query": "Would you be able to convert 20 liters of gasoline into gallons for me? Afterwards, starting the engine to check for smooth operation would be appreciated.",
+  "potential_follow_ups": [
+    "With the engine happily purring, I find myself pondering over the tire pressure now. Might you check that for me? And if you can, share the tire pressure status (with message content 'healthy' or 'not healthy', nothing else) with tag '#CarMaintenance' and mention '@VehicleGuru'? Healthy is deinfed as all tire pressure between 32 and 35, inclusive."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "liter_to_gallon",
+      "parameters": {
+        "liter": "20.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User requests 'Would you be able to convert 20 liters of gasoline into gallons for me?'. If asked, user clarifies that this is a conversion request to understand fuel volume in different units. Thereafter, user requests 'Afterwards, starting the engine to check for smooth operation would be appreciated.'.\n\nUser requests 'With the engine happily purring, I find myself pondering over the tire pressure now. Might you check that for me?'. If asked, user clarifies that they want to ensure the tires are properly inflated. Thereafter, user requests 'And if you can, share the tire pressure status (with message content 'healthy' or 'not healthy', nothing else) with tag '#CarMaintenance' and mention '@VehicleGuru'?'. If asked, user clarifies that 'Healthy is defined as all tire pressure between 32 and 35, inclusive.'.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 20.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

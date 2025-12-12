@@ -1,0 +1,57 @@
+{
+  "user_query": "I'm planning a business class trip from JFK in New York to LAX in Los Angeles on December 15, 2024, for myself and my traveling companion, Alex Johnson. I want to use my credit card labeled 'id_1234' to cover the trip cost, which is $14,500. I've got my access token here: ABCD1234. After booking, I'll need to cancel the trip immediately due to unexpected changes in my schedule.",
+  "potential_follow_ups": [
+    "Additionally, I must file a priority 5 support ticket concerning the flight cancellation, labeled 'Urgent Flight Cancellation'. The ticket should thoroughly explain the abrupt changes leading to the cancellation and put description as Due to unexpected changes in schedule, the flight from JFK to LAX on December 15, 2023, needs to be canceled immediately."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "card_id": "id_1234",
+        "travel_date": "2024-12-15",
+        "travel_from": "JFK",
+        "travel_to": "LAX",
+        "travel_class": "business",
+        "travel_cost": "4500.0"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "User wants to book a business class flight from JFK to LAX for December 15, 2024, using a specific credit card and access token, then immediately cancel the booking due to schedule changes, and subsequently file a priority 5 support ticket labeled 'Urgent Flight Cancellation' to explain the cancellation.",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "id_1234": {
+          "card_number": "4587123498761234",
+          "cardholder_name": "Alex Johnson",
+          "expiry_date": "12/25",
+          "cvv": 123,
+          "balance": 7000.0
+        }
+      },
+      "booking_record": {
+        "JFK-LAX-20241215": {
+          "passenger_name": "Alex Johnson",
+          "flight_class": "Business",
+          "departure": "JFK",
+          "arrival": "LAX",
+          "date": "2024-12-15",
+          "cost": 4500.0
+        }
+      },
+      "access_token": "ABCD1234",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "booking",
+      "user_first_name": "Alex",
+      "user_last_name": "Johnson",
+      "budget_limit": 5000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

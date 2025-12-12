@@ -1,0 +1,42 @@
+{
+  "user_query": "Planning an incredible journey from NYC to Tokyo on December 24th 2024 in first class! I have my credit card ready with the id card_5678, which is expiring soon, and I'd like to allocate business expenses wisely. The cardholder's name matches mine, Michael Thompson, and I can provide the CVV when needed, which is 456. Could you make the booking using access token 'abc123xyz'?",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "card_id": "card_5678",
+        "travel_date": "2024-12-24",
+        "travel_from": "JFK",
+        "travel_to": "HND",
+        "travel_class": "first",
+        "travel_cost": "4000.0"
+      }
+    }
+  ],
+  "user_intention": "User requests \"Planning an incredible journey from NYC to Tokyo on December 24th 2024 in first class!\" \n\nIf asked, user clarifies that they want to book a flight using TravelAPI.\n\nUser requests \"I have my credit card ready with the id card_5678, which is expiring soon, and I'd like to allocate business expenses wisely.\"\n\nIf asked, user clarifies that the cardholder's name matches theirs, Michael Thompson.\n\nUser requests \"Could you make the booking using access token 'abc123xyz'?\"\n\nIf asked, user clarifies that they can provide the CVV when needed, which is 456.",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_5678": {
+          "card_number": "4321-5678-9876-5678",
+          "balance": 50000.0,
+          "cardholder_name": "Michael Thompson",
+          "expiry_date": "12/23",
+          "cvv": 456,
+          "type": "business"
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "booking",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 10000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

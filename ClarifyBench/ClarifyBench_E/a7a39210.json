@@ -1,0 +1,57 @@
+{
+  "user_query": "I need to arrange a business class flight for Robert Trenton from San Francisco to Los Angeles on November 25th 2024. The reservation should be made using his travel card with id card_3487 and access code 1293. Following the booking, I have to ensure an invoice is issued to verify the charges.",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "SFO",
+        "travel_to": "LAX",
+        "travel_date": "2024-11-25",
+        "travel_class": "business"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "1293",
+        "card_id": "card_3487",
+        "travel_date": "2024-11-25",
+        "travel_from": "SFO",
+        "travel_to": "LAX",
+        "travel_class": "business",
+        "travel_cost": "400.0"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "access_token": "1293",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "User requests \"I need to arrange a business class flight for Robert Trenton from San Francisco to Los Angeles on November 25th 2024.\"\n\nIf asked, user clarifies that the reservation should be made using his travel card with id card_3487 and access code 1293.\n\nThereafter, user requests \"Following the booking, I have to ensure an invoice is issued to verify the charges.\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_3487": {
+          "card_number": "0789 1234 5678 3487",
+          "cardholder_name": "Robert Trenton",
+          "expiry_date": "12/25",
+          "cvv": "129",
+          "balance": 4000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "1293",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read write",
+      "user_first_name": "Robert",
+      "user_last_name": "Trenton",
+      "budget_limit": 1000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

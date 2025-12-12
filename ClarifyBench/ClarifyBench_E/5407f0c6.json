@@ -1,0 +1,67 @@
+{
+  "user_query": "I am alex. Check if the current directory is under my name and list all the visible and hidden contents in the current directory now, please.",
+  "potential_follow_ups": [
+    "Go to workspace directory and move one of the 'log.txt' files into a new directory 'archive'.",
+    "Investigate within 'log.txt' for the occurrence of the keyword 'Error'.",
+    "Finally, show the last 20 lines the file."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "ls",
+      "parameters": {
+        "a": "True"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "log.txt",
+        "destination": "archive"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "log.txt",
+        "pattern": "Error"
+      }
+    },
+    {
+      "tool_name": "tail",
+      "parameters": {
+        "file_name": "log.txt",
+        "lines": "20"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I am alex. Check if the current directory is under my name and list all the visible and hidden contents in the current directory now, please.' If asked, user clarifies that this means verifying the directory name matches 'alex' and listing all files, including hidden ones.\n\nUser requests 'Go to workspace directory and move one of the 'log.txt' files into a new directory 'archive'.' If asked, user clarifies that the 'workspace' directory is a known location and 'archive' is a new directory to be created if it doesn't exist.\n\nUser requests 'Investigate within 'log.txt' for the occurrence of the keyword 'Error'.' If asked, user clarifies that this involves searching the file for any lines containing the word 'Error'.\n\nUser requests 'Finally, show the last 20 lines the file.' If asked, user clarifies that this refers to displaying the last 20 lines of 'log.txt'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "workspace": {
+              "type": "directory",
+              "contents": {
+                "log.txt": {
+                  "type": "file",
+                  "content": "This is a log file. No errors found. Another line. Yet another line. Error: Something went wrong. Final line."
+                },
+                "archive": {
+                  "type": "directory",
+                  "contents": {}
+                },
+                ".hidden_file": {
+                  "type": "file",
+                  "content": "This is a hidden file."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

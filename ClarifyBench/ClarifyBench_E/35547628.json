@@ -1,0 +1,71 @@
+{
+  "user_query": "Ensure the fuel tank is replenished adequately by adding 38 liters of gasoline so that we're well-prepared for the lengthy voyage ahead. Only fill with interger amount for volumn; round when not integer. Once fueled, proceed to start the engine confidently with the ignition mode, and make certain that all doors are secure, and the parking brake is engaged as a safety measure.",
+  "potential_follow_ups": [
+    "As we gear up for our adventure, it’s wise to confirm that each tire is inflated to a stable 32 PSI. Should any of the tires fall short, chart a course to the nearest tire service center to have this rectified."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "liter_to_gallon",
+      "parameters": {
+        "liter": "38"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "10"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "456 Oakwood Avenue",
+        "DEFAULT": "83214"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Ensure the fuel tank is replenished adequately by adding 38 liters of gasoline so that we're well-prepared for the lengthy voyage ahead. Only fill with integer amount for volume; round when not integer.' If asked, user clarifies that this means to round the volume to the nearest whole number if it is not already an integer. Thereafter, user requests 'Once fueled, proceed to start the engine confidently with the ignition mode.' User requests 'Make certain that all doors are secure, and the parking brake is engaged as a safety measure.'\n\nUser requests 'As we gear up for our adventure, it’s wise to confirm that each tire is inflated to a stable 32 PSI.' If asked, user clarifies that this means to check the tire pressure and ensure it is exactly 32 PSI. User requests 'Should any of the tires fall short, chart a course to the nearest tire service center to have this rectified.'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

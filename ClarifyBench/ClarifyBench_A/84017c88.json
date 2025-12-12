@@ -1,0 +1,62 @@
+{
+  "user_query": "In research directory, there is a file called 'research_notes.txt'. Please make a prioritized backup in some folder.",
+  "potential_follow_ups": [
+    "Now, take the contents of '2024_research_backup.txt' that we just created and sort the lines alphabetically.",
+    "Once the list is sorted, find out how many lines are in the sorted '2024_research_backup.txt' file."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "research_notes.txt",
+        "destination": "archives"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "research_notes.txt",
+        "destination": "2024_research_backup.txt"
+      }
+    },
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "2024_research_backup.txt"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "2024_research_backup.txt",
+        "mode": "l"
+      }
+    }
+  ],
+  "user_intention": "User requests 'In research directory, there is a file called \"research_notes.txt\". Please make a prioritized backup in some folder.' If asked, user clarifies that 'The copy of it should go to the folder named \"archives\" within research, labeling the new file as \"2024_research_backup.txt\"'. Thereafter, user requests 'Now, take the contents of \"2024_research_backup.txt\" that we just created and sort the lines alphabetically.' User requests 'Once the list is sorted, find out how many lines are in the sorted \"2024_research_backup.txt\" file.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "research": {
+              "type": "directory",
+              "contents": {
+                "research_notes.txt": {
+                  "type": "file",
+                  "content": "Line 3: Experiment results Line 1: Introduction Line 2: Methodology"
+                },
+                "archives": {
+                  "type": "directory",
+                  "contents": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

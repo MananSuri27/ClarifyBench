@@ -1,0 +1,65 @@
+{
+  "user_query": "I've just secured all doors and engaged the parking brake in my vehicle, please start the engine with the ignition on START mode.",
+  "potential_follow_ups": [
+    "What is the postal code for the area called Rivermist?",
+    "I would like to determine the distance from Rivermist to San Francisco."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "Rivermist"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "San Francisco"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "83214",
+        "cityB": "94016"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I've just secured all doors and engaged the parking brake in my vehicle, please start the engine with the ignition on START mode.'\n\nUser requests 'What is the postal code for the area called Rivermist?'\n\nUser requests 'I would like to determine the distance from Rivermist to San Francisco.'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "remainingUnlockedDoors": 0,
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "locked",
+        "rear_left": "locked",
+        "rear_right": "locked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "engaged",
+      "parkingBrakeForce": 100.0,
+      "slopeAngle": 20.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

@@ -1,0 +1,82 @@
+{
+  "user_query": "Could you add a new page to the manual_w112.pdf with the text \"This is a sample text added to the PDF.\"? I'd like it to be page number 5 and have the text in a font size of 12.",
+  "potential_follow_ups": [
+    "Could you add a signature to page 5 of the manual_w112.pdf? I'd like it to be placed at the bottom-right corner. Please ensure it doesn't overwrite any existing content, and save the updated file as manual_w112_signed.pdf.",
+    "\"Could you search for tables related to configuration settings within the manual_w112.pdf, specifically on pages 5, 6, and 7? I need the results saved as a JSON file without overwriting any existing files, and please save it to /output/search_results/configuration_tables.json.\"",
+    "I need to redact some sensitive information from the manual_w112.pdf. Could you please redact the text on pages 5 through 10? Specifically, I want to remove any occurrences of the words \"confidential,\" \"proprietary,\" and \"do not distribute.\" Make sure not to overwrite the original document and save the redacted version as manual_w112_redacted.pdf.",
+    "Could you add a comment to page 15 of the manual_w112.pdf? I'd like the comment to be placed at coordinates [0.25, 0.6] with a font size of 12. Thanks!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "add_page_with_text",
+      "parameters": {
+        "text_content": "This is a sample text added to the PDF.",
+        "font_size": 12,
+        "page_num": 5
+      }
+    },
+    {
+      "tool_name": "add_signature",
+      "parameters": {
+        "page_num": 5,
+        "position": "bottom-right",
+        "overwrite": false,
+        "output_pathname": "manual_w112_signed.pdf"
+      }
+    },
+    {
+      "tool_name": "search",
+      "parameters": {
+        "object_name": "tables related to configuration settings",
+        "document_name": "manual_w112.pdf",
+        "pages": [
+          5,
+          6,
+          7
+        ],
+        "overwrite": false,
+        "output_pathname": "/output/search_results/configuration_tables.json"
+      }
+    },
+    {
+      "tool_name": "redact_text",
+      "parameters": {
+        "start": 5,
+        "end": 10,
+        "object_name": [
+          "confidential",
+          "proprietary",
+          "do not distribute"
+        ],
+        "overwrite": false,
+        "output_pathname": "manual_w112_redacted.pdf"
+      }
+    },
+    {
+      "tool_name": "add_comment",
+      "parameters": {
+        "page_num": 15,
+        "coordinates": [
+          0.25,
+          0.6
+        ],
+        "font_size": 12
+      }
+    }
+  ],
+  "user_intention": "User requests 'add a new page to the manual_w112.pdf with specific text and font size'. If asked, user clarifies details. User requests 'add a signature to a specified page without overwriting existing content and save as a new file'. If asked, user clarifies details. User requests 'search for specific tables within certain pages and save the results as a JSON file without overwriting any existing files'. If asked, user clarifies details. User requests 'redact specific words from certain pages without overwriting the original document and save as a new file'. If asked, user clarifies details. User requests 'add a comment to a specific page at given coordinates with a specified font size'. If asked, user clarifies details.",
+  "initial_config": {
+    "DocumentPlugin": {
+      "number_of_pages": 22,
+      "pdf_name": "manual_w112.pdf"
+    }
+  },
+  "primary_api": "DocumentPlugin",
+  "tools": [
+    "add_page_with_text",
+    "add_signature",
+    "search",
+    "redact_text",
+    "add_comment"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "user_query": "Could you provide me with an inventory of files that are currently visible and hidden in the directory I'm working in at the moment?",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "ls",
+      "parameters": {
+        "a": "True"
+      }
+    }
+  ],
+  "user_intention": "User requests \"Could you provide me with an inventory of files that are currently visible and hidden in the directory I'm working in at the moment?\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "project": {
+              "type": "directory",
+              "contents": {
+                "file1.txt": {
+                  "type": "file",
+                  "content": "This is a test file."
+                },
+                "file2.txt": {
+                  "type": "file",
+                  "content": "Another document."
+                },
+                "test_report.docx": {
+                  "type": "file",
+                  "content": "Kelly Total Score: 96"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

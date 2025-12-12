@@ -1,0 +1,52 @@
+{
+  "user_query": "I'm planning a trip and need to estimate the airfare for a business class seat. I'm departing from ORD and arriving at SVPX on July 14th, 2024. Could you help me find the cost for this journey?",
+  "potential_follow_ups": [
+    "In pursuit of a cost-effective travel experience, I seek your guidance to manage my expenditure effectively. Could you help establish a budget limit of 20,000 USD using my currently active account? The access token is 'abc123xyz456'."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "ORD",
+        "travel_to": "SVP",
+        "travel_date": "2024-07-14",
+        "travel_class": "business"
+      }
+    },
+    {
+      "tool_name": "set_budget_limit",
+      "parameters": {
+        "budget_limit": "20000.0"
+      }
+    }
+  ],
+  "user_intention": "User wants to use TravelAPI to estimate the airfare for a business class seat between ORD and SVP for travel on July 14th, 2024, and to set a budget limit of 20,000 USD on their account using the provided access token.",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card123": {
+          "card_number": "1234-5678-9012-3456",
+          "expiry_date": "12/25",
+          "cardholder_name": "Michael Smith",
+          "balance": 50000.0
+        }
+      },
+      "booking_record": {
+        "booking001": {
+          "departure_city": "New York",
+          "arrival_city": "London",
+          "class": "Business",
+          "cost": 1500.0
+        }
+      },
+      "access_token": "abc123xyz456",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Michael",
+      "user_last_name": "Smith",
+      "budget_limit": 20000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

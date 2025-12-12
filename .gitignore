@@ -1,0 +1,54 @@
+# Ignore all __pycache__ directories
+__pycache__/
+
+# Ignore any folder starting with simulation_results
+simulation_results*/
+
+# Ignore sample_data directory
+sample_data/
+
+# Ignore llms/ollama directory
+llm/ollama.py
+
+control_baseline.py
+cot_disambiguate.py
+ask_before_plan.py
+active_task.py
+
+text_scratch.txt
+
+
+logs/
+
+multi_alpha_grid*/
+
+visualization_*/
+
+*.log
+
+*_summary.json
+
+multi_alpha_grid*.png
+analyze_hyperparameters.py
+
+tests/
+
+# Output files
+*.txt
+!requirements.txt
+*_report.json
+*_results.json
+*_analysis.json
+
+# CSV exports
+*_csvs/
+
+# Experiment scripts
+*.sbatch
+run_*.sh
+submit_*.sh
+*_experiments.sh
+
+# Ablation experiments
+ablation_experiments/
+

@@ -1,0 +1,69 @@
+{
+  "user_query": "I plan to book a flight from Crescent Hollow to New York, aimed at a business endeavor. Utilize my typical credit card (ID=card_6789) and access token 'abc123xyz' for the payment. Schedule it for economy class on November 12th 2024, making sure my frequent flyer discount is applied, ensuring the total fee is $850.",
+  "potential_follow_ups": [
+    "Post-booking, pondering added precautions, getting travel insurance seems wise, aiming for a 100 insurance. Proceed with organizing this with identical travel specifics, and the previously mentioned credit card should facilitate payment.",
+    "For clarity on financial allocations, I need to gather the invoice that details my recently acquired flight and insurance.",
+    "Given sudden itinerary conflicts, there's a pivot. Inform customer support of my potential adjustments or explore full refund possibilities because of a family emergency."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "card_id": "card_6789",
+        "travel_date": "2024-11-12",
+        "travel_from": "CRH",
+        "travel_to": "JFK",
+        "travel_class": "economy",
+        "travel_cost": "850.0"
+      }
+    },
+    {
+      "tool_name": "purchase_insurance",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "insurance_type": "comprehensive",
+        "booking_id": "3426812",
+        "insurance_cost": "100.0",
+        "card_id": "card_6789"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "booking_id": "3426812"
+      }
+    },
+    {
+      "tool_name": "contact_customer_support",
+      "parameters": {
+        "booking_id": "3426812",
+        "message": "Request for itinerary adjustments or refund due to family emergency."
+      }
+    }
+  ],
+  "user_intention": "User requests 'I plan to book a flight from Crescent Hollow to New York, aimed at a business endeavor. Utilize my typical credit card (ID=card_6789) and access token 'abc123xyz' for the payment. Schedule it for economy class on November 12th 2024, making sure my frequent flyer discount is applied, ensuring the total fee is $850.'\n\nUser requests 'Post-booking, pondering added precautions, getting travel insurance seems wise, aiming for a 100 insurance. Proceed with organizing this with identical travel specifics, and the previously mentioned credit card should facilitate payment.'\n\nUser requests 'For clarity on financial allocations, I need to gather the invoice that details my recently acquired flight and insurance.'\n\nUser requests 'Given sudden itinerary conflicts, there's a pivot. Inform customer support of my potential adjustments or explore full refund possibilities because of a family emergency.'",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_6789": {
+          "card_number": "4938 5639 9827 6789",
+          "cardholder_name": "Ethan Hawke",
+          "expiry_date": "12/25",
+          "cvv": 123,
+          "balance": 17890
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read write",
+      "user_first_name": "Ethan",
+      "user_last_name": "Hawke",
+      "budget_limit": 2000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

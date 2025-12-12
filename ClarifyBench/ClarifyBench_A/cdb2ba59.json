@@ -1,0 +1,35 @@
+{
+  "user_query": "Hi, I am Kelly. I'm sweating. What's the temp outside right now? Would you be able to update my friend on today's outdoor temperature with message 'It is hot outside.'? He should know whether to bundle up or dress down for the weather.",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [],
+  "user_intention": "1. User requests, \"Hi, I am Kelly. I'm sweating. What's the temp outside right now? Would you be able to update my friend on today's outdoor temperature with message 'It is hot outside.'? He should know whether to bundle up or dress down for the weather.\" \n\n2. If asked, user clarifies, \"Let's review all the messages I have send so far.\"\n\n3. Thereafter, user requests, \"Let's review all the messages I have send so far.\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "running",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "unlocked",
+        "rear_left": "locked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 70,
+      "acMode": "cool",
+      "humidityLevel": 45.0,
+      "headLightStatus": "on",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 5.0,
+      "distanceToNextVehicle": 30.0,
+      "cruiseStatus": "active",
+      "destination": "Central Park",
+      "frontLeftTirePressure": 33.0,
+      "frontRightTirePressure": 33.0,
+      "rearLeftTirePressure": 31.0,
+      "rearRightTirePressure": 31.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

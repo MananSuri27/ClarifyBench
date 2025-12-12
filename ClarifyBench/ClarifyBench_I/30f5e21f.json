@@ -1,0 +1,63 @@
+{
+  "user_query": "Hey there, I need to set up a directory titled 'Reports' in my current workspace. Once that's in place, could you help me locate a file called 'summary.doc' in this vicinity and transfer it to the new 'Reports' folder? After that, I'd appreciate if you could find and open up 'missing_file_1.txt', then scan through it to identify lines that mention 'Q4 financials'. Also, could you let me know the total number of lines in 'data.txt'?",
+  "potential_follow_ups": [
+    "On a different note,Could you get the mean of character number of all files in Reports directory?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "mkdir",
+      "parameters": {
+        "dir_name": "Reports"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "summary.doc",
+        "destination": "Reports"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "pattern": "Q4 financials",
+        "file_name": "data.txt"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "data.txt",
+        "mode": "l"
+      }
+    },
+    {
+      "tool_name": "wc",
+      "parameters": {
+        "file_name": "summary.doc",
+        "mode": "c"
+      }
+    }
+  ],
+  "user_intention": "User wants to set up a directory named 'Reports' in their current workspace, locate and move a file called 'summary.doc' to the 'Reports' folder, find and open 'data.txt' to identify lines mentioning 'Q4 financials', determine the total number of lines in 'data.txt', and calculate the mean number of characters in all files within the 'Reports' directory.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "summary.doc": {
+              "type": "file",
+              "content": "This is the summary document content."
+            },
+            "data.txt": {
+              "type": "file",
+              "content": "Q1 results Q2 results Q3 results Q4 financials Q4 financials analysis End of year summary"
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

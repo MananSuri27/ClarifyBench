@@ -1,0 +1,66 @@
+{
+  "user_query": "Could you please copy the file 'missing_file_1.txt' to the 'archive' directory? Make sure to do this only if the file doesn't already exist in 'archive'.",
+  "potential_follow_ups": [
+    " I need it archived. Replicate it into the archive folder, but rename it to 'summary_2024.txt'.",
+    "In the contents of 'summary_2024.txt', please fish out and highlight any lines featuring the term 'Progress'."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "touch",
+      "parameters": {
+        "file_name": "project_summary.txt"
+      }
+    },
+    {
+      "tool_name": "cp",
+      "parameters": {
+        "source": "project_summary.txt",
+        "destination": "archive"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "project_summary.txt",
+        "destination": "summary_2024.txt"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "summary_2024.txt",
+        "pattern": "Progress"
+      }
+    }
+  ],
+  "user_intention": "User wants to create a new document titled 'project_summary.txt' in the documents directory, then copy it to the archive folder with the new name 'summary_2024.txt', and finally, identify and highlight any lines containing the term 'Progress' in the 'summary_2024.txt' file.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "documents": {
+              "type": "directory",
+              "contents": {
+                "project.txt": {
+                  "type": "file",
+                  "content": "Project progress is on track. The team has completed the initial phase. Progress is being monitored closely. Final adjustments are underway.The project is nearing completion."
+                },
+                "archive": {
+                  "type": "directory",
+                  "contents": {}
+                },
+                "reports": {
+                  "type": "directory",
+                  "contents": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

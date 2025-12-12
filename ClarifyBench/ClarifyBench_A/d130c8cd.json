@@ -1,0 +1,74 @@
+{
+  "user_query": "I'm planning a road trip to the Grand Canyon. You could assist me in determining whether my vehicle has sufficient fuel for this journey, please? If it is not sufficient, fill the fuel tank completely.",
+  "potential_follow_ups": [
+    "Now that I trust the fuel level is sufficient, let's engage the vehicle's 'START' ignition mode so that the engine kicks into action. Hoping the battery retains full charge and every door is securely locked. Could we verify the current engine status, AC temperature, and fan speed?",
+    "Before embarking on this adventure, double-check that all the tires have been properly inflated.",
+    "If you notice any of them with a pressure below 37, then the tire might have potential issue, and we should take a quick detour to the nearest tire facility. Your help is much appreciated!"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "380.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "35.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "456 Oakwood Avenue",
+        "DEFAULT": "83214"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"I'm planning a road trip to the Grand Canyon. You could assist me in determining whether my vehicle has sufficient fuel for this journey, please? If it is not sufficient, fill the fuel tank completely.\"\n\n2. If asked, user clarifies: \"I just checked, that trip is about 380 miles.\"\n\n3. Thereafter, user requests: \"Now that I trust the fuel level is sufficient, let's engage the vehicle's 'START' ignition mode so that the engine kicks into action. Hoping the battery retains full charge and every door is securely locked. Could we verify the current engine status, AC temperature, and fan speed?\"\n\n4. User requests: \"Before embarking on this adventure, double-check that all the tires have been properly inflated.\"\n\n5. User requests: \"If you notice any of them with a pressure below 37, then the tire might have potential issue, and we should take a quick detour to the nearest tire facility. Your help is much appreciated!\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "remainingUnlockedDoors": 0,
+      "fuelLevel": 15.0,
+      "batteryVoltage": 12.8,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "locked",
+        "rear_left": "locked",
+        "rear_right": "locked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "Grand Canyon",
+      "frontLeftTirePressure": 35.0,
+      "frontRightTirePressure": 35.0,
+      "rearLeftTirePressure": 35.0,
+      "rearRightTirePressure": 35.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

@@ -1,0 +1,72 @@
+{
+  "user_query": "I would like to increase the amount of fuel in my car to completely full, but first I need to ascertain the present level to determine the appropriate amount to add.",
+  "potential_follow_ups": [
+    "The fuel level is not satisfactory, add it to full and then proceed to activate the engine using the 'START' function and verify the tire pressure to ensure it is in optimal condition.",
+    "Should I notice that my tire pressure falls below a certain psi, kindly provide me with directions to the nearest tire service center for prompt resolution."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "displayCarStatus",
+      "parameters": {
+        "option": "fuel"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "39.5"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "456 Oakwood Avenue",
+        "DEFAULT": "83214"
+      }
+    }
+  ],
+  "user_intention": "1. User requests to ascertain the present fuel level to determine the appropriate amount to add in order to fill the car's fuel tank completely.\n\n2. User requests to add fuel to full, activate the engine using the 'START' function, and verify the tire pressure to ensure it is in optimal condition.\n\n3. User requests directions to the nearest tire service center if the tire pressure falls below a certain psi. \n\n4. If asked, user clarifies that 40 PSI is the threshold, and anything below that is not good.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.5,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 35.0,
+      "frontRightTirePressure": 35.0,
+      "rearLeftTirePressure": 32.0,
+      "rearRightTirePressure": 32.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

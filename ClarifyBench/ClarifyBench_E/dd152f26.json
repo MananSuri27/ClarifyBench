@@ -1,0 +1,56 @@
+{
+  "user_query": "Arrange a complete listing of all files and directories presently located here, making sure you don't overlook the hidden ones too.",
+  "potential_follow_ups": [
+    "Locate any document titled 'annual_report.txt' wherever it might be within this directory or its subdirectories."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "ls",
+      "parameters": {
+        "a": "True"
+      }
+    },
+    {
+      "tool_name": "find",
+      "parameters": {
+        "path": ".",
+        "name": "annual_report.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Arrange a complete listing of all files and directories presently located here, making sure you don't overlook the hidden ones too.' If asked, user clarifies that this includes all files and directories, visible and hidden, in the current directory.\n\nThereafter, user requests 'Locate any document titled \"annual_report.txt\" wherever it might be within this directory or its subdirectories.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "Documents": {
+              "type": "directory",
+              "contents": {
+                "annual_report.txt": {
+                  "type": "file",
+                  "content": "This is the annual report. It includes Q4 results and other financial data."
+                },
+                "Q4_summary.doc": {
+                  "type": "file",
+                  "content": "The Q4 summary concludes with a positive outlook for the next fiscal year."
+                }
+              }
+            },
+            "Reports": {
+              "type": "directory",
+              "contents": {
+                "Archives": {
+                  "type": "directory",
+                  "contents": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

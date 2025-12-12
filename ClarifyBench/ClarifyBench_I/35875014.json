@@ -1,0 +1,74 @@
+{
+  "user_query": "Could you tell me how much fuel I would need to fill my tank if I'm planning to travel from Rivermist (zip 83214) to Greenway (zip 74532)? I want to make sure I have enough, and I think around 239.5 units should be sufficient.",
+  "potential_follow_ups": [
+    "In light of this trip, I'm concerned about whether my vehicle's fuel level and car mileage are adequate for the journey. Could you evaluate this for me?",
+    "Given this apprehension, can you fill up the fuel completely?",
+    "Before I set off, I want to check if the engine will indeed start and ensure that everything is prepped for a safe departure. Could you initiate the engine to confirm this?",
+    "Lastly, I must verify that my vehicle is in excellent shape. If any tire pressure is under 35 PSI, could you direct me to the closest tire shop to rectify this promptly?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "83214",
+        "cityB": "74532"
+      }
+    },
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "750.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "39.5"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User wants to plan a trip by first determining the travel distance between Rivermist and Greenway. They then want to ensure their vehicle is ready for the journey by checking the fuel level and mileage, refueling if necessary, confirming the engine starts properly, and verifying that the tire pressure is adequate, with guidance to a tire shop if any tire pressure is below 35 PSI.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.5,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "Greenway",
+      "frontLeftTirePressure": 35.0,
+      "frontRightTirePressure": 35.0,
+      "rearLeftTirePressure": 32.0,
+      "rearRightTirePressure": 32.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

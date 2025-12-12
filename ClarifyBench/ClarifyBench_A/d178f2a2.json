@@ -1,0 +1,58 @@
+{
+  "user_query": "In my workspace folder, direct your attention to the initial directory we have access to and list out the files present including the hidden files. Should you stumble upon a directory named 'test', go into there, dive deep and identify any files with 'test' in their names using 'ls'. Keeping tabs on details is key.",
+  "potential_follow_ups": [
+    "Subsequently,What's the character count of the file all text file with test?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "ls",
+      "parameters": {
+        "a": "True"
+      }
+    },
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "test"
+      }
+    }
+  ],
+  "user_intention": "User requests 'In my workspace folder, direct your attention to the initial directory we have access to and list out the files present including the hidden files. Should you stumble upon a directory named 'test', go into there, dive deep and identify any files with 'test' in their names using 'ls'. Keeping tabs on details is key.'\n\nUser requests 'Subsequently, What's the character count of the file all text file with test?'\n\nIf asked, user clarifies that 'Open up to update a ticket. If the character count of any file is greater than 20, Set the priority to 3. Else, set to 2.'\n\nIf asked, user clarifies that 'The ticket is 654321.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "assignment.docx": {
+              "type": "file",
+              "content": "This is the assignment document content."
+            },
+            "test": {
+              "type": "directory",
+              "contents": {
+                "test_file1.txt": {
+                  "type": "file",
+                  "content": "This is a test file."
+                },
+                "test_file2.txt": {
+                  "type": "file",
+                  "content": "Another test file."
+                }
+              }
+            },
+            "submissions": {
+              "type": "directory",
+              "contents": {}
+            },
+            "completed_tasks": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

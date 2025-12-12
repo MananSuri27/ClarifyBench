@@ -1,0 +1,31 @@
+{
+  "user_query": "Could you kindly show me the list of files in tmp directory in my file system including the hidden one?",
+  "potential_follow_ups": [
+    "I would appreciate it if you could share the sorted result as the message body on social media, ensuring to tag 'currenttechtrend' and mention someone."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "file_name": "report.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Could you kindly show me the list of files in tmp directory in my file system including the hidden one?'. \n\nIf asked, user clarifies that there is a report in their current directory and they have noticed the report appears somewhat cluttered; it could benefit from having its lines sorted.\n\nThereafter, user requests 'I would appreciate it if you could share the sorted result as the message body on social media, ensuring to tag 'currenttechtrend' and mention someone.'.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "tmp": {
+          "type": "directory",
+          "contents": {
+            "report.txt": {
+              "type": "file",
+              "content": "Initial report content Unsorted data More unsorted data"
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

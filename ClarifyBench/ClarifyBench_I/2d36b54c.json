@@ -1,0 +1,73 @@
+{
+  "user_query": "Can you please confirm the booking details for traveler Matt Bradley? His birth date is April 23, 1995, and his passport starts with 'US', numbered 9148817941. We need to ensure everything is correct for his economy class flight from RMS to LAX on November 15, 2024. The travel cost should be $10,660.0, and the card ID used for payment is card_2023.",
+  "potential_follow_ups": [
+    "Wonderful! Next step is identifying the closest airport to Rivermist so I can arrange flights to Los Angeles for the upcoming month at 2024, 11/15. Let's handle the booking using the travel details provided, utilizing my go-to credit card with id 'card_2023' and the accompanying access token 'abc123xyz456' to complete the processing.",
+    "The booking's in place, and I'd love to review the invoice details. Can you fetch the invoice from the latest booking to ensure every cost is properly listed?",
+    "I've got a few questions regarding the booking. Could you reach out on my behalf to customer support to saying 'Requesting clarification on booking details'?",
+    "I'm thinking about adjusting my travel plans shortly. When you get a chance, please cancel my prior booking and ensure the charge is refunded to my card.",
+    "To share the experience with my buddies, I'd like to craft a tweet about my recent travel escapades and tag the airline for extra visibility. Let's throw in some hashtags #TravelSuccess #RivermistJourney. Here's my information, username is 'john' and password 'john1234'. The message to send is 'Just booked a flight to LA!' "
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "verify_traveler_information",
+      "parameters": {
+        "first_name": "Matt",
+        "last_name": "Bradley",
+        "date_of_birth": "1995-04-23",
+        "passport_number": "US9148817941"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "card_id": "card_2023",
+        "travel_date": "2024-11-15",
+        "travel_from": "RMS",
+        "travel_to": "LAX",
+        "travel_class": "economy",
+        "travel_cost": "660.0"
+      }
+    },
+    {
+      "tool_name": "retrieve_invoice",
+      "parameters": {
+        "booking_id": "3426812"
+      }
+    },
+    {
+      "tool_name": "contact_customer_support",
+      "parameters": {
+        "booking_id": "3426812",
+        "message": "Requesting clarification on booking details"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "User wants to confirm traveler details, identify the closest airport to Rivermist, book a flight to Los Angeles using provided payment details, review the invoice for the booking, contact customer support for clarification on booking details, and potentially cancel the booking with a refund to the original payment method.",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "card_2023": {
+          "card_number": "**** **** **** 2023",
+          "expiry_date": "12/25",
+          "cardholder_name": "Matt Bradley",
+          "balance": 5000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123xyz456",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "booking",
+      "user_first_name": "Matt",
+      "user_last_name": "Bradley",
+      "budget_limit": 1000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

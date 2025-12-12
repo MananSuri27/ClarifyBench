@@ -1,0 +1,80 @@
+{
+  "user_query": "Can you start the engine so I can use my vehicle's system to estimate the distance between Rivermist and Stonebrook?",
+  "potential_follow_ups": [
+    "Assess if my vehicle's current mileage will suffice for the distance calculated. You don't need to re-fill, I just want to know.",
+    "Fill the fuel tank to completely full.",
+    "With the vehicle secured, start the engine for our prepared journey.",
+    "Set navigation directly to Crescent Hollow, Spring, TX for a smooth ride without detours."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {}
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "83214",
+        "cityB": "74532"
+      }
+    },
+    {
+      "tool_name": "estimate_drive_feasibility_by_mileage",
+      "parameters": {
+        "distance": "750.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "45.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "Crescent Hollow"
+      }
+    }
+  ],
+  "user_intention": "User wants to use the VehicleControlAPI to plan and execute a journey by first estimating the distance between Rivermist and Stonebrook, checking if the current vehicle mileage is sufficient for the trip without needing a refill, filling the fuel tank to full capacity, starting the engine with the vehicle secured, and setting the navigation system to direct them smoothly to Crescent Hollow, Spring, TX.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 5.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "engaged",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

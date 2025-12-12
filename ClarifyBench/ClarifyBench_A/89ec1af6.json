@@ -1,0 +1,72 @@
+{
+  "user_query": "My tires need to be in top-notch condition before embarking on my journey. Could you ensure they have optimum pressure? If any tire falls short of 30.0 psi, it’s off to the nearest service station to remedy it pronto. Let’s also ready the car for navigation if the shop isn't miles away!",
+  "potential_follow_ups": [
+    "Before setting off on our eagerly-awaited road escapade, it would be prudent to fuel up the car entirely. Once it's brimming with gas, I’d appreciate it if you could translate its capacity from gallons to liters for me. Share the details when it's sorted.",
+    "With a tank full of fuel and all safety measures addressed, I'd love to perform a specific operation."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    },
+    {
+      "tool_name": "set_navigation",
+      "parameters": {
+        "destination": "456 Oakwood Avenue",
+        "DEFAULT": "83214"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "35.0"
+      }
+    },
+    {
+      "tool_name": "gallon_to_liter",
+      "parameters": {
+        "gallon": "50.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"My tires need to be in top-notch condition before embarking on my journey. Could you ensure they have optimum pressure? If any tire falls short of 30.0 psi, it’s off to the nearest service station to remedy it pronto. Let’s also ready the car for navigation if the shop isn't miles away!\"\n\n2. User requests: \"Before setting off on our eagerly-awaited road escapade, it would be prudent to fuel up the car entirely. Once it's brimming with gas, I’d appreciate it if you could translate its capacity from gallons to liters for me. Share the details when it's sorted.\"\n\n3. User requests: \"With a tank full of fuel and all safety measures addressed, I'd love to perform a specific operation.\"\n\n4. If asked, user clarifies: \"Ignite the car in pure anticipation.\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 30.0,
+      "frontRightTirePressure": 30.0,
+      "rearLeftTirePressure": 28.0,
+      "rearRightTirePressure": 28.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

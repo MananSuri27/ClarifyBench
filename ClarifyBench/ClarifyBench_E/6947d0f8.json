@@ -1,0 +1,74 @@
+{
+  "user_query": "Move 'final_report.pdf' within document directory to 'temp' directory in document. Make sure to create the directory",
+  "potential_follow_ups": [
+    "Perform a detailed search using grep to identify sections in the file pertaining to 'budget analysis'.",
+    "Upon identifying the requisite 'budget analysis' content, sort the 'final_report.pdf' by line for improved clarity and comprehension.",
+    "Move 'previous_report.pdf' in document directory to temp as well and having final report also there, proceed to juxtapose it with 'previous_report.pdf' to detect any critical alterations."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "final_report.pdf",
+        "destination": "temp"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "final_report.pdf",
+        "pattern": "budget analysis"
+      }
+    },
+    {
+      "tool_name": "sort",
+      "parameters": {
+        "DEFAULT": "final_report.pdf"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "previous_report.pdf",
+        "destination": "temp"
+      }
+    },
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "final_report.pdf",
+        "file_name2": "previous_report.pdf"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Move \"final_report.pdf\" within document directory to \"temp\" directory in document. Make sure to create the directory'.\n\nIf asked, user clarifies that this involves creating the \"temp\" directory within the document directory if it does not already exist, and then moving \"final_report.pdf\" into this newly created \"temp\" directory.\n\nThereafter, user requests 'Perform a detailed search using grep to identify sections in the file pertaining to \"budget analysis\"'.\n\nIf asked, user clarifies that this search should be conducted within the \"final_report.pdf\" file now located in the \"temp\" directory.\n\nThereafter, user requests 'Upon identifying the requisite \"budget analysis\" content, sort the \"final_report.pdf\" by line for improved clarity and comprehension'.\n\nIf asked, user clarifies that this involves sorting the lines of the \"final_report.pdf\" file based on the content identified in the previous step, to enhance readability and understanding.\n\nThereafter, user requests 'Move \"previous_report.pdf\" in document directory to temp as well and having final report also there, proceed to juxtapose it with \"previous_report.pdf\" to detect any critical alterations'.\n\nIf asked, user clarifies that this involves moving \"previous_report.pdf\" to the \"temp\" directory and then comparing it with \"final_report.pdf\" to identify significant differences or changes between the two documents.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "document": {
+              "type": "directory",
+              "contents": {
+                "final_report.pdf": {
+                  "type": "file",
+                  "content": "Year2024 This is the final report content including budget analysis and other sections."
+                },
+                "previous_report.pdf": {
+                  "type": "file",
+                  "content": "Year203 This is the previous report content with different budget analysis."
+                }
+              }
+            },
+            "archive": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

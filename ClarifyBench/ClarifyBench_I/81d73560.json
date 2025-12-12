@@ -1,0 +1,128 @@
+{
+  "user_query": "Having kept a keen eye on the advancements in the tech industry, I recently caught wind of some stellar performance from a company called Zeta Corp. I believe I placed an order related to their stock with order ID 93750. Could you check how that's currently faring?",
+  "potential_follow_ups": [
+    "I'm thinking about adding some promising stocks to my watchlist; could you please include this one?",
+    "I am quite intrigued by my most recent stock acquisition and am eager to delve into the details. What information do you have about my latest order?",
+    "I've been trying to get urgent information to my colleague with user id 'USR003' about these insights. Could you make sure they receive the message 'Zeta Corp seems to have potential. What do you think of their recent financial report?'in their inbox? My user id is '1234'.",
+    "Would you mind giving me a quick look at all the messages I have sent lately"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_stock_info",
+      "parameters": {
+        "symbol": "ZETA"
+      }
+    },
+    {
+      "tool_name": "get_order_details",
+      "parameters": {
+        "order_id": "12446"
+      }
+    }
+  ],
+  "user_intention": "User wants to monitor and manage their stock investments and communications by: 1) Checking the current performance of Zeta Corp's stock, 2) Adding Zeta Corp to their watchlist for future tracking, 3) Reviewing details of their most recent stock purchase, 4) Sending a message to a colleague with insights about Zeta Corp, and 5) Reviewing their recent sent messages for reference.",
+  "initial_config": {
+    "TradingBot": {
+      "account_info": {
+        "account_id": 12345,
+        "balance": 10000.0,
+        "binding_card": 1974202140965533
+      },
+      "authenticated": true,
+      "market_status": "Open",
+      "order_counter": 12446,
+      "stocks": {
+        "AAPL": {
+          "price": 227.16,
+          "percent_change": 0.17,
+          "volume": 2.552,
+          "MA(5)": 227.11,
+          "MA(20)": 227.09
+        },
+        "GOOG": {
+          "price": 2840.34,
+          "percent_change": 0.24,
+          "volume": 1.123,
+          "MA(5)": 2835.67,
+          "MA(20)": 2842.15
+        },
+        "TSLA": {
+          "price": 667.92,
+          "percent_change": -0.12,
+          "volume": 1.654,
+          "MA(5)": 671.15,
+          "MA(20)": 668.2
+        },
+        "MSFT": {
+          "price": 310.23,
+          "percent_change": 0.09,
+          "volume": 3.234,
+          "MA(5)": 309.88,
+          "MA(20)": 310.11
+        },
+        "NVDA": {
+          "price": 220.34,
+          "percent_change": 0.34,
+          "volume": 1.234,
+          "MA(5)": 220.45,
+          "MA(20)": 220.67
+        },
+        "ALPH": {
+          "price": 1320.45,
+          "percent_change": -0.08,
+          "volume": 1.567,
+          "MA(5)": 1321.12,
+          "MA(20)": 1325.78
+        },
+        "OMEG": {
+          "price": 457.23,
+          "percent_change": 0.12,
+          "volume": 2.345,
+          "MA(5)": 456.78,
+          "MA(20)": 458.12
+        },
+        "QUAS": {
+          "price": 725.89,
+          "percent_change": -0.03,
+          "volume": 1.789,
+          "MA(5)": 726.45,
+          "MA(20)": 728.0
+        },
+        "NEPT": {
+          "price": 88.34,
+          "percent_change": 0.19,
+          "volume": 0.654,
+          "MA(5)": 88.21,
+          "MA(20)": 88.67
+        },
+        "SYNX": {
+          "price": 345.67,
+          "percent_change": 0.11,
+          "volume": 2.112,
+          "MA(5)": 345.34,
+          "MA(20)": 346.12
+        },
+        "ZETA": {
+          "price": 22.09,
+          "percent_change": -0.05,
+          "volume": 0.789,
+          "MA(5)": 22.12,
+          "MA(20)": 22.34
+        }
+      },
+      "watch_list": [
+        "NVDA"
+      ],
+      "transaction_history": [
+        {
+          "symbol": "TSLA",
+          "price": 667.92,
+          "num_shares": 5,
+          "status": "Completed",
+          "timestamp": "2024-10-27 14:10:53"
+        }
+      ]
+    }
+  },
+  "primary_api": "TradingBot"
+}

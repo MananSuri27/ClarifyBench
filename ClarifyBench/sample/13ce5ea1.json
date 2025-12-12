@@ -1,0 +1,60 @@
+{
+  "user_query": "I'm embarking on an adventure to spend some time with my family. Could you confirm my travel details for me? Just a quick rundown: my name is Theodore Collins.",
+  "potential_follow_ups": [
+    "Since that's all sorted, let's move ahead and secure a seat for me! I need a first-class seat from New York to Los Angeles for this upcoming Sunday October 15th 2024. Let's use my credit card with id 'primary' and access token 'abc123xyz' stored on record for this transaction.",
+    "Something's come up, and I won't be able to make it on this trip as planned. Would you mind canceling the flight reservation I just made?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "verify_traveler_information",
+      "parameters": {
+        "first_name": "Theodore",
+        "last_name": "Collins",
+        "date_of_birth": "1985-09-14",
+        "passport_number": "US876543"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "card_id": "primary",
+        "travel_date": "2024-10-15",
+        "travel_from": "JFK",
+        "travel_to": "LAX",
+        "travel_class": "first",
+        "travel_cost": "2850.0"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "1. User requests: \"I'm embarking on an adventure to spend some time with my family. Could you confirm my travel details for me? Just a quick rundown: my name is Theodore Collins.\"\n\n2. If asked, user clarifies: \"You're right, I was born on September 14, 1985; I have a U.S. passport starting with 'US876543'\"\n\n3. Thereafter, user requests: \"Since that's all sorted, let's move ahead and secure a seat for me! I need a first-class seat from New York to Los Angeles for this upcoming Sunday October 15th 2024. Let's use my credit card with id 'primary' and access token 'abc123xyz' stored on record for this transaction.\"\n\n4. Finally, user requests: \"Something's come up, and I won't be able to make it on this trip as planned. Would you mind canceling the flight reservation I just made?\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "primary": {
+          "card_number": "4111111111111111",
+          "expiry_date": "12/25",
+          "cvv": "123",
+          "cardholder_name": "Theodore Collins",
+          "balance": 8080.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Theodore",
+      "user_last_name": "Collins",
+      "budget_limit": 5000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

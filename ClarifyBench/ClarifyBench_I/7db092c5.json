@@ -1,0 +1,53 @@
+{
+  "user_query": "Where is my analysis? Can you find any file with the word \"error\" in it, specifically in \"missing_file_1.txt\"?",
+  "potential_follow_ups": [
+    "Naviagte to that first analysis and identify any line with error in it.",
+    "Let's bring some order to the project documents. I want to human readible log the storage usage of the entire current directory to usage.txt file. The content of the file should be the number follwed by the word bytes and nothing else."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "find",
+      "parameters": {
+        "path": ".",
+        "name": "analysis"
+      }
+    },
+    {
+      "tool_name": "grep",
+      "parameters": {
+        "file_name": "analysis_report.txt",
+        "pattern": "error"
+      }
+    }
+  ],
+  "user_intention": "User wants to efficiently manage and analyze files within the GorillaFileSystem by following these steps: \n\n1. Locate any file containing the word \"analysis\" to find relevant data.\n2. Navigate to the first file identified and search for any lines containing errors to address potential issues.\n3. Organize project documents by logging the storage usage of the entire current directory into a file named \"usage.txt,\" ensuring the log is human-readable and formatted with the number of bytes followed by the word \"bytes.\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "data": {
+              "type": "directory",
+              "contents": {
+                "analysis_report.txt": {
+                  "type": "file",
+                  "content": "Line 1: No error Line 2: Minor error detected Line 3: All systems operational Line 4: Critical error found"
+                },
+                "project_summary.txt": {
+                  "type": "file",
+                  "content": "Summary line 1 Summary line 2 Summary line 3 Summary line 4 Summary line 5"
+                },
+                "file3.txt": {
+                  "type": "file",
+                  "content": "Zebra Apple Monkey Banana"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

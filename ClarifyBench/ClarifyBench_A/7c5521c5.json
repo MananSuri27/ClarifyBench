@@ -1,0 +1,50 @@
+{
+  "user_query": "Arrange travel from Rivermist to Los Angeles on a specific date, ensuring preferred seating is 'business'; pay using card with id '1_3456' and access token 'abc123xyz'.",
+  "potential_follow_ups": [
+    "Cancel the booked flight due to a schedule change."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "card_id": "1_3456",
+        "travel_date": "2024-11-15",
+        "travel_from": "RMS",
+        "travel_to": "LAX",
+        "travel_class": "business",
+        "travel_cost": "1320.0"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "1. User requests \"Arrange travel from Rivermist to Los Angeles on a specific date, ensuring preferred seating is 'business'; pay using card with id '1_3456' and access token 'abc123xyz'.\"\n\n2. If asked, user clarifies that the correct travel date is \"2024-11-15\".\n\n3. Thereafter, user requests \"Cancel the booked flight due to a schedule change.\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "1_3456": {
+          "card_number": "1234-5678-9012-3456",
+          "balance": 20000.0,
+          "cardholder_name": "Michael Thompson",
+          "expiry_date": "12/25",
+          "cvv": 123
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read write",
+      "user_first_name": "Michael",
+      "user_last_name": "Thompson",
+      "budget_limit": 1000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

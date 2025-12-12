@@ -1,0 +1,56 @@
+{
+  "user_query": "I'd like to arrange a first-class ticket for a trip from San Francisco to Los Angeles on December 25th this year 2024. Please make sure it processes through my credit account using the ID '6789' and access token 'abc123token'. The booking should be made under the name Carlina Yates, so ensure all details align with this information.\n\nHowever, I just realized I'm unable to travel on that specified date anymore. I need the booking for that flight to be canceled.\n\nLastly, given that the trip to Los Angeles can't happen, I'd like to share a tweet expressing disappointment over the canceled plans, content can be 'Disappointed over my canceled plans.' authenticate using username 'john' and password 'john1234'. Also, add the hashtag #TravelWoes and tag @CarlinaYates. Could you prepare that for me?",
+  "potential_follow_ups": [],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "get_flight_cost",
+      "parameters": {
+        "travel_from": "SFO",
+        "travel_to": "LAX",
+        "travel_date": "2024-12-25",
+        "travel_class": "first"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123token",
+        "card_id": "6789",
+        "travel_date": "2024-12-25",
+        "travel_from": "SFO",
+        "travel_to": "LAX",
+        "travel_class": "first",
+        "travel_cost": "2000.0"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "abc123token",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "User requests \"I'd like to arrange a first-class ticket for a trip from San Francisco to Los Angeles on December 25th this year 2024. Please make sure it processes through my credit account using the ID '6789' and access token 'abc123token'. The booking should be made under the name Carlina Yates, so ensure all details align with this information.\"\n\nUser then realizes a change in plans and requests \"However, I just realized I'm unable to travel on that specified date anymore. I need the booking for that flight to be canceled.\"\n\nUser, acknowledging the change in travel plans, requests \"Lastly, given that the trip to Los Angeles can't happen, I'd like to share a tweet expressing disappointment over the canceled plans, content can be 'Disappointed over my canceled plans.' authenticate using username 'john' and password 'john1234'. Also, add the hashtag #TravelWoes and tag @CarlinaYates. Could you prepare that for me?\"",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "6789": {
+          "card_number": "**** **** **** 6789",
+          "cardholder_name": "Carlina Yates",
+          "expiry_date": "12/25",
+          "balance": 5000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123token",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "booking",
+      "user_first_name": "Carlina",
+      "user_last_name": "Yates",
+      "budget_limit": 1000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

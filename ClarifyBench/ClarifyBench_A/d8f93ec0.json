@@ -1,0 +1,58 @@
+{
+  "user_query": "Look for two file in my current directory. Compare the content difference of both.",
+  "potential_follow_ups": [
+    "Transfer 'temp_notes.txt' into the 'archives' directory and rename it to 'notes_2024.txt'."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "report_draft.txt",
+        "file_name2": "report_final.txt"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "temp_notes.txt",
+        "destination": "archives"
+      }
+    },
+    {
+      "tool_name": "mv",
+      "parameters": {
+        "source": "temp_notes.txt",
+        "destination": "notes_2024.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Look for two file in my current directory. Compare the content difference of both.' If asked, user clarifies that they should be draft and final report. Thereafter, user requests 'Transfer 'temp_notes.txt' into the 'archives' directory and rename it to 'notes_2024.txt'.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "project": {
+          "type": "directory",
+          "contents": {
+            "report_draft.txt": {
+              "type": "file",
+              "content": "Initial draft content for the report."
+            },
+            "report_final.txt": {
+              "type": "file",
+              "content": "Finalized content for the report."
+            },
+            "temp_notes.txt": {
+              "type": "file",
+              "content": "Temporary notes for the project."
+            },
+            "archives": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

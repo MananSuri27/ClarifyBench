@@ -1,0 +1,56 @@
+{
+  "user_query": "I require assistance with my car. Can you kindly ensure that the fuel tank is refilled with precisely 38 liters of petrol? Make sure using 2 decimal digit for gallon amount.",
+  "potential_follow_ups": [
+    "Wonderful, with the fuel tank now adequately replenished, proceed to activate the engine in \"START\" mode. Convey to me the operational status of the engine, the voltage of the battery, the AC speed and the fan speed."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "liter_to_gallon",
+      "parameters": {
+        "liter": "38"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "10.04"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I require assistance with my car. Can you kindly ensure that the fuel tank is refilled with precisely 38 liters of petrol? Make sure using 2 decimal digit for gallon amount.'\n\nIf asked, user clarifies that this is to ensure accuracy in the conversion from liters to gallons, as the VehicleControlAPI might require input in gallons.\n\nThereafter, user requests 'Wonderful, with the fuel tank now adequately replenished, proceed to activate the engine in \"START\" mode. Convey to me the operational status of the engine, the voltage of the battery, the AC speed and the fan speed.'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

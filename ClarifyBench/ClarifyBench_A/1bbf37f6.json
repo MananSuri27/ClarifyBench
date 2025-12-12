@@ -1,0 +1,56 @@
+{
+  "user_query": "Would you be able to increase my current fuel reserve to twice its size?",
+  "potential_follow_ups": [
+    "Since we've topped up the fuel, let's ignite the engine and assess the battery's condition for our journey.",
+    "Verify the tire pressure to guarantee they're accurately inflated for our lengthy expedition.",
+    "I need to inform my friend about the road trip itinerary; please dispatch them a note saying 'Road trip itinerary update.'. If that helps, my user id is 'USR005'."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "10.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User requests 'Would you be able to increase my current fuel reserve to twice its size?'. \n\nUser requests 'Since we've topped up the fuel, let's ignite the engine and assess the battery's condition for our journey.'. \n\nUser requests 'Verify the tire pressure to guarantee they're accurately inflated for our lengthy expedition.'. \n\nUser requests 'I need to inform my friend about the road trip itinerary; please dispatch them a note saying \"Road trip itinerary update.\". If that helps, my user id is \"USR005\".'. \n\nIf asked, user clarifies that they want to see all the messages they have sent so far to ensure they have notified all the folks they want to contact. \n\nThereafter, user requests 'Simultaneously, might you show me all the messages I have send so far? I want to make sure I notified all the folks I want to contact.'.",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 10.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

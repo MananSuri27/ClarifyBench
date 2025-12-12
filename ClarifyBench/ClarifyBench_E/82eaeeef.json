@@ -1,0 +1,53 @@
+{
+  "user_query": "I need you to set up a fresh folder named 'WebDevProjects' wherever you're currently working.",
+  "potential_follow_ups": [
+    "Populate the 'WebDevProjects' folder with 3 files:, 'styles.css',  'index.html', and 'script.js' with content 'Hello World!','Hi World!', 'Halo World!' in each."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "mkdir",
+      "parameters": {
+        "dir_name": "WebDevProjects"
+      }
+    },
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "WebDevProjects"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "Hello World!",
+        "file_name": "styles.css"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "Hi World!",
+        "file_name": "index.html"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "Halo World!",
+        "file_name": "script.js"
+      }
+    }
+  ],
+  "user_intention": "User requests 'I need you to set up a fresh folder named 'WebDevProjects' wherever you're currently working.'\n\nUser requests 'Populate the 'WebDevProjects' folder with 3 files: 'styles.css', 'index.html', and 'script.js' with content 'Hello World!', 'Hi World!', 'Halo World!' in each.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "current_working_directory": {
+          "type": "directory",
+          "contents": {}
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

@@ -1,0 +1,40 @@
+{
+  "user_query": "For peace of mind, let's ensure both 'ProjectOverview.txt' and 'Draft.txt' are identical.",
+  "potential_follow_ups": [
+    "For peace of mind, let's ensure both 'ProjectOverview.txt' and 'Draft.txt' are identical."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "diff",
+      "parameters": {
+        "file_name1": "ProjectOverview.txt",
+        "file_name2": "Draft.txt"
+      }
+    }
+  ],
+  "user_intention": "User requests \"For peace of mind, let's ensure both 'ProjectOverview.txt' and 'Draft.txt' are identical.\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "ProjectOverview.txt": {
+              "type": "file",
+              "content": "Initial summary of the project. "
+            },
+            "Draft.txt": {
+              "type": "file",
+              "content": "Old draft content."
+            },
+            "Backups": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

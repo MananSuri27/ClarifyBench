@@ -1,0 +1,148 @@
+{
+  "user_query": "I'm looking to make some changes to my investment portfolio today. I've been keeping an eye on Microsoft and with the current market trends, I'm interested in buying 50 shares at $320 each. Can you help me place this order?",
+  "potential_follow_ups": [
+    "With my watchlist refreshed, please retrieve the current stocks still listed. I need a clear view of what remains on my radar.",
+    "I'm intrigued by the recent advancements in technology and wish to explore investment opportunities there. Could you provide a list of available technology stock symbols?",
+    "I've been observing Microsoft's stock performance and I find it quite compelling. Could you give me a detailed update on its current status and trends?",
+    "I'm ready to act on my analysis. Please purchase 50 shares of Microsoft at $320 each, given today's indicators.",
+    "Finally, before the end of the trading day, I intend to deposit 10 times the prices of OMEG rounded to nearest thousands into my trading account to secure liquidity for forthcoming ventures."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "remove_stock_from_watchlist",
+      "parameters": {
+        "symbol": "ZETA"
+      }
+    },
+    {
+      "tool_name": "get_watchlist",
+      "parameters": {}
+    },
+    {
+      "tool_name": "get_available_stocks",
+      "parameters": {
+        "sector": "Technology"
+      }
+    },
+    {
+      "tool_name": "get_stock_info",
+      "parameters": {
+        "symbol": "MSFT"
+      }
+    },
+    {
+      "tool_name": "place_order",
+      "parameters": {
+        "order_type": "Buy",
+        "symbol": "MSFT",
+        "price": "320",
+        "amount": "50"
+      }
+    },
+    {
+      "tool_name": "fund_account",
+      "parameters": {
+        "amount": "5000"
+      }
+    }
+  ],
+  "user_intention": "User wants to manage and optimize their investment portfolio by performing the following steps: \n\n1. Remove Zeta Corp from their watchlist due to concerns about market trends.\n2. Retrieve and review the updated list of stocks remaining on their watchlist.\n3. Explore new investment opportunities in the technology sector by obtaining a list of available technology stock symbols.\n4. Obtain a detailed update on Microsoft's stock performance to assess its current status and trends.\n5. Execute a purchase of 50 shares of Microsoft at $320 each based on their analysis and current market indicators.",
+  "initial_config": {
+    "TradingBot": {
+      "orders": {
+        "12345": {
+          "symbol": "AAPL",
+          "price": 210.65,
+          "num_shares": 10,
+          "status": "Completed"
+        },
+        "order_type": "Buy"
+      },
+      "account_info": {
+        "account_id": 98765,
+        "balance": 15000.0,
+        "binding_card": 1987654321098765
+      },
+      "authenticated": true,
+      "market_status": "Open",
+      "order_counter": 12446,
+      "stocks": {
+        "AAPL": {
+          "price": 227.16,
+          "percent_change": 0.17,
+          "volume": 2.552,
+          "MA(5)": 227.11,
+          "MA(20)": 227.09
+        },
+        "GOOG": {
+          "price": 2840.34,
+          "percent_change": 0.24,
+          "volume": 1.123,
+          "MA(5)": 2835.67,
+          "MA(20)": 2842.15
+        },
+        "TSLA": {
+          "price": 667.92,
+          "percent_change": -0.12,
+          "volume": 1.654,
+          "MA(5)": 671.15,
+          "MA(20)": 668.2
+        },
+        "MSFT": {
+          "price": 310.23,
+          "percent_change": 0.09,
+          "volume": 3.234,
+          "MA(5)": 309.88,
+          "MA(20)": 310.11
+        },
+        "NVDA": {
+          "price": 220.34,
+          "percent_change": 0.34,
+          "volume": 1.234,
+          "MA(5)": 220.45,
+          "MA(20)": 220.67
+        },
+        "ALPH": {
+          "price": 1320.45,
+          "percent_change": -0.08,
+          "volume": 1.567,
+          "MA(5)": 1321.12,
+          "MA(20)": 1325.78
+        },
+        "OMEG": {
+          "price": 457.23,
+          "percent_change": 0.12,
+          "volume": 2.345,
+          "MA(5)": 456.78,
+          "MA(20)": 458.12
+        },
+        "QUAS": {
+          "price": 725.89,
+          "percent_change": -0.03,
+          "volume": 1.789,
+          "MA(5)": 726.45,
+          "MA(20)": 728.0
+        },
+        "NEPT": {
+          "price": 88.34,
+          "percent_change": 0.19,
+          "volume": 0.654,
+          "MA(5)": 88.21,
+          "MA(20)": 88.67
+        },
+        "SYNX": {
+          "price": 345.67,
+          "percent_change": 0.11,
+          "volume": 2.112,
+          "MA(5)": 345.34,
+          "MA(20)": 346.12
+        }
+      },
+      "watch_list": [
+        "NVDA"
+      ],
+      "transaction_history": []
+    }
+  },
+  "primary_api": "TradingBot"
+}

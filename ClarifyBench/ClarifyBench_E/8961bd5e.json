@@ -1,0 +1,52 @@
+{
+  "user_query": "I have secured my car by locking all doors and applying the parking brake. Would it be possible to start the engine so I can monitor the fuel level and battery status, ensuring smooth operation?",
+  "potential_follow_ups": [
+    "I've initiated my vehicle, and I'd greatly appreciate it if you could take a look at the tire pressures. Should any tire display a pressure below 40 PSI, kindly guide me to the nearest tire service facility for a fix."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "check_tire_pressure",
+      "parameters": {}
+    },
+    {
+      "tool_name": "find_nearest_tire_shop",
+      "parameters": {}
+    }
+  ],
+  "user_intention": "User requests 'I have secured my car by locking all doors and applying the parking brake. Would it be possible to start the engine so I can monitor the fuel level and battery status, ensuring smooth operation?'. \n\nThereafter, user requests 'I've initiated my vehicle, and I'd greatly appreciate it if you could take a look at the tire pressures. Should any tire display a pressure below 40 PSI, kindly guide me to the nearest tire service facility for a fix.'",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 15.5,
+      "batteryVoltage": 12.8,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "locked",
+        "passenger": "locked",
+        "rear_left": "locked",
+        "rear_right": "locked"
+      },
+      "acTemperature": 22.0,
+      "fanSpeed": 60,
+      "acMode": "auto",
+      "humidityLevel": 45.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "engaged",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 100.0,
+      "cruiseStatus": "inactive",
+      "destination": "None",
+      "frontLeftTirePressure": 35.0,
+      "frontRightTirePressure": 34.0,
+      "rearLeftTirePressure": 33.0,
+      "rearRightTirePressure": 32.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

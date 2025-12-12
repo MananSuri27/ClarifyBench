@@ -1,0 +1,75 @@
+{
+  "user_query": "I need to fill 150 liters of gasoline into my vehicle for today's trip and then start the engine using the standard start mode to ensure everything is operational before departure. How much is that in gallon? Round it to the nearest integer and fill that amount.",
+  "potential_follow_ups": [
+    "Find out the distance from San Francisco to Rivermist for my travel plans to determine fuel consumption and travel time."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "liter_to_gallon",
+      "parameters": {
+        "liter": "150.0"
+      }
+    },
+    {
+      "tool_name": "fillFuelTank",
+      "parameters": {
+        "fuelAmount": "40.0"
+      }
+    },
+    {
+      "tool_name": "startEngine",
+      "parameters": {
+        "ignitionMode": "START"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "San Francisco"
+      }
+    },
+    {
+      "tool_name": "get_zipcode_based_on_city",
+      "parameters": {
+        "city": "Rivermist"
+      }
+    },
+    {
+      "tool_name": "estimate_distance",
+      "parameters": {
+        "cityA": "94016",
+        "cityB": "83214"
+      }
+    }
+  ],
+  "user_intention": "User requests \"I need to fill 150 liters of gasoline into my vehicle for today's trip and then start the engine using the standard start mode to ensure everything is operational before departure. How much is that in gallon? Round it to the nearest integer and fill that amount.\"\n\nIf asked, user clarifies that this is to ensure the vehicle is ready for a long trip and they want to make sure the fuel is sufficient and the engine is operational.\n\nThereafter, user requests \"Find out the distance from San Francisco to Rivermist for my travel plans to determine fuel consumption and travel time.\"",
+  "initial_config": {
+    "VehicleControlAPI": {
+      "fuelLevel": 5.0,
+      "batteryVoltage": 12.6,
+      "engineState": "stopped",
+      "doorStatus": {
+        "driver": "unlocked",
+        "passenger": "unlocked",
+        "rear_left": "unlocked",
+        "rear_right": "unlocked"
+      },
+      "acTemperature": 25.0,
+      "fanSpeed": 50,
+      "acMode": "auto",
+      "humidityLevel": 50.0,
+      "headLightStatus": "off",
+      "parkingBrakeStatus": "released",
+      "parkingBrakeForce": 0.0,
+      "slopeAngle": 0.0,
+      "distanceToNextVehicle": 50.0,
+      "cruiseStatus": "inactive",
+      "destination": "Rivermist",
+      "frontLeftTirePressure": 32.0,
+      "frontRightTirePressure": 32.0,
+      "rearLeftTirePressure": 30.0,
+      "rearRightTirePressure": 30.0
+    }
+  },
+  "primary_api": "VehicleControlAPI"
+}

@@ -1,0 +1,49 @@
+{
+  "user_query": "This is actually not what I want. Could you display the entire content of the second file found.",
+  "potential_follow_ups": [
+    "This is actually not what I want. Could you display the entire content of the second file found."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "real_config.py"
+      }
+    }
+  ],
+  "user_intention": "User requests \"This is actually not what I want. Could you display the entire content of the second file found.\"",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "projects": {
+              "type": "directory",
+              "contents": {
+                "deep_folder": {
+                  "type": "directory",
+                  "contents": {
+                    "config.py": {
+                      "type": "file",
+                      "content": "Initialization of the system Error in module Setup complete Initialization successful Error detected"
+                    },
+                    "real_config.py": {
+                      "type": "file",
+                      "content": "Real Config."
+                    }
+                  }
+                }
+              }
+            },
+            "temp": {
+              "type": "directory",
+              "contents": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

@@ -1,0 +1,51 @@
+{
+  "user_query": "Could you kindly navigate to the temporary directory and list all the files available there right in the terminal for me? I would like to quickly skim through them and all the hidden files.",
+  "potential_follow_ups": [
+    "What's inside of a file?"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cd",
+      "parameters": {
+        "folder": "tmp"
+      }
+    },
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "content": "Nothing important here. Yet another line.",
+        "file_name": "file3.docx"
+      }
+    }
+  ],
+  "user_intention": "User requests 'Could you kindly navigate to the temporary directory and list all the files available there right in the terminal for me? I would like to quickly skim through them and all the hidden files.'\n\nUser asks 'What's inside of a file?'\n\nIf asked, user clarifies that 'It is the last file displayed.'\n\nThereafter, user requests 'Create a docx file with the same name as the previosu file but changing the format, they should also have the same content.'",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "alex": {
+          "type": "directory",
+          "contents": {
+            "tmp": {
+              "type": "directory",
+              "contents": {
+                "file1.txt": {
+                  "type": "file",
+                  "content": "This is some important data. Another line of text."
+                },
+                "file2.txt": {
+                  "type": "file",
+                  "content": "Just some random text. More important data here."
+                },
+                "file3.txt": {
+                  "type": "file",
+                  "content": "Nothing important here. Yet another line."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}

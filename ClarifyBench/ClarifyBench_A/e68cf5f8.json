@@ -1,0 +1,58 @@
+{
+  "user_query": "I need to cap my travel expenses at 20,000 RMB. Sort out everything to make sure this limit is correctly set up. Around it to have tenth and hundredth digit. Like 12.34 as the input. My access token is abc123xyz if you need.",
+  "potential_follow_ups": [
+    "With my budget arranged, I want to book a business class ticket going from LAX to JFK on October 12th 2024. Charge it to my main credit card and ensure it stays within my budget plans.",
+    "I'm looking to get my hands on the invoice for the flights I've arranged recently. Kindly send me the full details.",
+    "There's been some confusion with the invoice... this is bad"
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "set_budget_limit",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "budget_limit": "2857.14"
+      }
+    },
+    {
+      "tool_name": "book_flight",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "card_id": "main_card",
+        "travel_date": "2024-10-12",
+        "travel_from": "LAX",
+        "travel_to": "JFK",
+        "travel_class": "business",
+        "travel_cost": "2400.0"
+      }
+    },
+    {
+      "tool_name": "cancel_booking",
+      "parameters": {
+        "access_token": "abc123xyz",
+        "booking_id": "3426812"
+      }
+    }
+  ],
+  "user_intention": "1. User requests to cap travel expenses at 20,000 RMB, ensuring the limit is set with precision to the tenth and hundredth digit, like 12.34. User provides access token 'abc123xyz' for authentication.\n\n2. User requests to book a business class ticket from LAX to JFK on October 12th, 2024, charging it to their main credit card and ensuring it stays within the budget plans. If asked, user clarifies that they want to ensure the booking does not exceed the 20,000 RMB budget.\n\n3. User requests to cancel the previous booking and process any refunds due. If asked, user clarifies that they have had a change of heart regarding their travel itinerary.\n\n4. User requests to receive the invoice for the flights arranged recently, asking for full details.\n\n5. User expresses confusion with the invoice, stating \"this is bad.\" If asked, user clarifies that there is an issue with the invoice details.\n\n6. User requests to liaise with customer support, explaining the issue with the invoice and escalating if needed. If asked, user clarifies that they want the issue to be explained and escalated if necessary.",
+  "initial_config": {
+    "TravelAPI": {
+      "credit_card_list": {
+        "main_card": {
+          "card_number": "1234-5678-9876-5432",
+          "expiry_date": "12/25",
+          "cardholder_name": "Michael Zhang",
+          "balance": 50000.0
+        }
+      },
+      "booking_record": {},
+      "access_token": "abc123xyz",
+      "token_type": "Bearer",
+      "token_expires_in": 3600,
+      "token_scope": "read_write",
+      "user_first_name": "Michael",
+      "user_last_name": "Zhang",
+      "budget_limit": 10000.0
+    }
+  },
+  "primary_api": "TravelAPI"
+}

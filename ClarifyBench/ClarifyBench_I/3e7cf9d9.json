@@ -1,0 +1,40 @@
+{
+  "user_query": "Can you check the contents of the file named 'missing_file_1.txt'? I think it might have the test results for the Apollo Project.",
+  "potential_follow_ups": [
+    "Craft and broadcast an electrifying tweet on my profile, sharing with the world the thrilling discovery of these previously hidden test result files exactly as it is in the body of the tweet! Share the entire content of the file."
+  ],
+  "ground_truth_tool_calls": [
+    {
+      "tool_name": "cat",
+      "parameters": {
+        "file_name": "test_results.json"
+      }
+    }
+  ],
+  "user_intention": "User wants to locate a specific JSON file containing test results for the Apollo Project within the project directory of the GorillaFileSystem, review its contents despite its secretive nature, and then publicly share the entire content of this file by crafting and posting a tweet on their profile.",
+  "initial_config": {
+    "GorillaFileSystem": {
+      "root": {
+        "workspace": {
+          "type": "directory",
+          "contents": {
+            "ProjectApollo": {
+              "type": "directory",
+              "contents": {}
+            },
+            "project": {
+              "type": "directory",
+              "contents": {
+                "test_results.json": {
+                  "type": "file",
+                  "content": "{\"experiment\": \"Apollo Test\", \"result\": \"Success\", \"details\": \"All systems operational.\"}"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "primary_api": "GorillaFileSystem"
+}
