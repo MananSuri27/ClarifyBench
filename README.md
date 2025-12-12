@@ -293,3 +293,13 @@ The agent must:
 4. Ask for clarification if needed
 
 
+# Cite us
+
+```
+@article{suri2025structured,
+  title={Structured Uncertainty guided Clarification for LLM Agents},
+  author={Suri, Manan and Mathur, Puneet and Lipka, Nedim and Dernoncourt, Franck and Rossi, Ryan A and Manocha, Dinesh},
+  journal={arXiv preprint arXiv:2511.08798},
+  year={2025}
+}
+```
