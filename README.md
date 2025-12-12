@@ -110,6 +110,7 @@ class ReactAgent:
         """Customize error handling and recovery strategies."""
         pass
 
+    # Example helper method to add
     def _should_ask_clarification(self, tool_call, request):
         """Customize when to ask for clarification."""
         pass
