@@ -38,7 +38,7 @@ The harness supports any OpenAI-compatible API through a unified provider. You c
 
 ```bash
 export OPENAI_API_KEY="sk-..."
-python main.py --agent baseline --data ClarifyBench/sample/
+python main.py [...]
 ```
 
 To configure in `config.py`:
@@ -167,7 +167,7 @@ python main.py --agent baseline --data ClarifyBench/sample/
 python main.py --agent baseline --data ClarifyBench/sample/
 ```
 
-**Quick Start - Local Models via vLLM:**
+**Quick Start - Local Models via vLLM:/ OpenAI endpoint compatible models**
 
 ```bash
 # Start your model with vLLM
