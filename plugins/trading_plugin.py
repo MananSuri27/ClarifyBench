@@ -336,8 +336,10 @@ class TradingBot:
             return {"error": "Price and amount must be positive values."}
         
         price = float(price)
-        self.order_counter += 1
+        
         order_id = self.order_counter
+
+        self.order_counter += 1
         
         self.orders[order_id] = {
             "id": order_id,

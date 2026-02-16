@@ -52,3 +52,6 @@ submit_*.sh
 # Ablation experiments
 ablation_experiments/
 
+# Gemini archive
+gemini_archive/
+

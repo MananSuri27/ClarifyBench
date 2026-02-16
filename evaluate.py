@@ -32,18 +32,17 @@ def get_matching_ground_truth_file(result_file: str, gt_dir: str) -> Optional[st
     """
     # Extract the base result filename without _RESULT suffix
     result_filename = os.path.basename(result_file)
+    base_name = os.path.splitext(result_filename)[0]
     if "_RESULT" in result_filename:
         gt_filename = result_filename.replace("_RESULT", "")
     else:
-        # If the filename doesn't follow the expected pattern, try to match by removing extension
-        base_name = os.path.splitext(result_filename)[0]
         gt_filename = f"{base_name}.json"
-    
+
     # Check if the ground truth file exists
     gt_file_path = os.path.join(gt_dir, gt_filename)
     if os.path.exists(gt_file_path):
         return gt_file_path
-    
+
     # Try to find a file with a similar name
     for gt_file in glob.glob(os.path.join(gt_dir, "*.json")):
         if os.path.basename(gt_file).startswith(base_name.replace("_RESULT", "")):
@@ -104,9 +103,6 @@ def print_metrics_summary(all_metrics: List[Dict[str, Any]], visualizer: Simulat
         print("No metrics to summarize.")
         return
     
-    # Success metrics
-    successful_simulations = sum(1 for m in all_metrics if m.get("success", False))
-    
     # Correctness metrics - only for final calls
     avg_correctness_tool_match = sum(
         m.get("correctness", {}).get("tool_match_rate", 0.0)
@@ -116,10 +112,6 @@ def print_metrics_summary(all_metrics: List[Dict[str, Any]], visualizer: Simulat
         m.get("correctness", {}).get("param_match_rate", 0.0)
         for m in all_metrics
     ) / total_files
-    exact_match_count = sum(
-        1 for m in all_metrics
-        if m.get("correctness", {}).get("exact_match", False)
-    )
     
     # Coverage metrics - only for final calls
     avg_coverage_rate = sum(
@@ -147,12 +139,9 @@ def print_metrics_summary(all_metrics: List[Dict[str, Any]], visualizer: Simulat
     print("METRICS SUMMARY")
     print("="*80)
     print(f"Total files evaluated: {total_files}")
-    print(f"Successful simulations: {successful_simulations} ({successful_simulations/total_files*100:.2f}%)")
-
     print(f"\nCorrectness Metrics:")
     print(f"  Average tool match rate: {avg_correctness_tool_match:.4f}")
     print(f"  Average param match rate: {avg_correctness_param_match:.4f}")
-    print(f"  Exact match count: {exact_match_count} ({exact_match_count/total_files*100:.2f}%)")
 
     print(f"\nCoverage Metrics:")
     print(f"  Average coverage rate: {avg_coverage_rate:.4f}")
@@ -174,15 +163,9 @@ def print_metrics_summary(all_metrics: List[Dict[str, Any]], visualizer: Simulat
     # Save comprehensive summary to file
     summary = {
         "total_files": total_files,
-        "success_metrics": {
-            "successful": successful_simulations,
-            "success_rate": successful_simulations / total_files
-        },
         "correctness_metrics": {
             "average_tool_match_rate": avg_correctness_tool_match,
             "average_param_match_rate": avg_correctness_param_match,
-            "exact_match_count": exact_match_count,
-            "exact_match_rate": exact_match_count / total_files
         },
         "coverage_metrics": {
             "average_coverage_rate": avg_coverage_rate,
@@ -232,7 +215,7 @@ def main():
     
     for result_file in result_files:
         # Skip summary files
-        if os.path.basename(result_file) in ["summary.json", "metrics_summary.json"]:
+        if os.path.basename(result_file) in ["summary.json", "metrics_summary.json"] or "_metrics.json" in os.path.basename(result_file):
             continue
 
         logger.info(f"Processing {result_file}")
